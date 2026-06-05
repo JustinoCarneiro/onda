@@ -1,0 +1,83 @@
+/* ============================================================
+   ONDA — "A Jornada" · do nascer ao pôr do sol
+   Mesma arte do hero (marinha.png) como cena fixa; um sol
+   dinâmico nasce, cruza o céu e se põe ao rolar, com a luz do
+   dia mudando por cima da foto. Metodologia em 5 fases.
+   ============================================================ */
+
+.journey {
+  position: relative;
+  height: 560vh;            /* curso de scroll = ~5 fases */
+  background: #0b2330;
+}
+.journey-sticky {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---- 5 fundos cross-fade (mesmo cenário, sol em posições diferentes) ---- */
+.jr-frames { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.jr-frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  object-position: center 46%; opacity: 0; transition: opacity .45s linear; will-change: opacity; }
+.jr-frame.on { opacity: 1; }
+
+/* ---- Véu para legibilidade do texto ---- */
+.jr-scrim { position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  background:
+    radial-gradient(60% 46% at 50% 52%, rgba(8,22,40,.5), rgba(8,22,40,.14) 70%, transparent 100%),
+    linear-gradient(180deg, rgba(8,22,40,.42) 0%, transparent 26%, transparent 66%, rgba(7,18,34,.6) 100%); }
+.journey-sticky::after {  /* grão sutil de tela */
+  content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: .26; mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 200px 200px; }
+
+/* ---- Conteúdo / fases ---- */
+.jr-content { position: relative; z-index: 6; width: 100%; max-width: var(--maxw); margin-inline: auto;
+  padding-inline: var(--gutter); text-align: center; color: #fff; }
+.jr-kicker { font-size: 13px; letter-spacing: .26em; text-transform: uppercase; font-weight: 600;
+  color: rgba(255,255,255,.92); display: inline-flex; align-items: center; gap: 12px; }
+.jr-kicker::before, .jr-kicker::after { content: ""; width: 26px; height: 1.5px; background: var(--turq-bright); }
+
+.jr-chapters { position: relative; height: clamp(248px, 36vh, 340px); margin-top: 22px; }
+.jr-chapter { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; pointer-events: none; }
+.jr-chapter.on { opacity: 1; transform: none; pointer-events: auto; }
+.jr-ch-meta { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.jr-ch-num { font-family: var(--font-display); font-size: clamp(14px, 1.4vw, 17px); letter-spacing: .26em; color: var(--turq-bright); }
+.jr-ch-time { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.66);
+  display: inline-flex; align-items: center; gap: 7px; }
+.jr-ch-time::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--jr-sun, #FCD884); box-shadow: 0 0 8px var(--jr-sun, #FCD884); }
+.jr-ch-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 7.2vw, 100px);
+  line-height: .96; letter-spacing: -.02em; text-shadow: 0 24px 60px rgba(0,0,0,.45); }
+.jr-ch-desc { margin-top: 16px; max-width: 46ch; font-size: clamp(15px, 1.45vw, 19px); color: rgba(255,255,255,.92);
+  line-height: 1.58; text-shadow: 0 2px 16px rgba(0,0,0,.4); }
+.jr-ch-tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.jr-ch-tags i { font-style: normal; font-size: 12px; letter-spacing: .02em; color: rgba(255,255,255,.94);
+  padding: 5px 13px; border-radius: 100px; background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.24); backdrop-filter: blur(6px); }
+
+/* ---- Trilho lateral (5 fases) ---- */
+.jr-rail { position: absolute; right: clamp(16px, 3vw, 40px); top: 50%; transform: translateY(-50%);
+  z-index: 7; display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+.jr-rail button { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.62);
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase; transition: color .3s; }
+.jr-rail .rdot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.42); transition: .3s; flex: none; }
+.jr-rail button.on { color: #fff; }
+.jr-rail button.on .rdot { background: var(--turq-bright); transform: scale(1.5); box-shadow: 0 0 0 4px rgba(26,198,182,.2); }
+.jr-rail .rlabel { opacity: 0; transform: translateX(6px); transition: .3s; white-space: nowrap; }
+.jr-rail button.on .rlabel, .jr-rail button:hover .rlabel { opacity: 1; transform: none; }
+
+/* dica de scroll */
+.jr-hint { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 7;
+  display: flex; flex-direction: column; align-items: center; gap: 7px; color: rgba(255,255,255,.74);
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase; transition: opacity .4s; }
+.jr-hint svg { width: 18px; height: 18px; animation: jrHint 1.8s ease-in-out infinite; }
+@keyframes jrHint { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+@media (max-width: 760px) {
+  .jr-rail .rlabel { display: none; }
+  .jr-ch-desc { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jr-spark i { animation: none; display: none; }
+}

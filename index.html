@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Onda — Estúdio de Produtos Digitais · Ceará</title>
+<meta name="description" content="Onda é um estúdio de produtos digitais do Ceará. Unimos engenharia de software e performance para criar softwares fluidos, belos e de alto impacto." />
+<meta property="og:title" content="Onda — Estúdio de Produtos Digitais · Ceará" />
+<meta property="og:description" content="Engenharia de software e performance, com o calor do litoral cearense. Produtos belos, jornadas sem atrito e impacto real." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/img/marinha.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/journey.css" />
+</head>
+<body data-mood="clara" data-hero="imersivo">
+
+<div class="grain" aria-hidden="true"></div>
+<span id="top" aria-hidden="true"></span>
+
+<!-- SVG sprite — ícones reutilizáveis -->
+<svg class="sr-only" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="ic-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="ic-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Onda">
+    <b>Onda<span class="dot">.</span></b>
+  </a>
+  <div class="nav-links">
+    <a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a>
+    <a href="#estudio" data-pt="Estúdio" data-en="Studio">Estúdio</a>
+    <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
+    <a href="#jornada" data-pt="Jornada" data-en="Journey">Jornada</a>
+    <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
+    <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
+  </div>
+  <div class="nav-cta">
+    <div class="lang" id="lang" role="group" aria-label="Idioma">
+      <button data-lang="pt" class="on">PT</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <a class="btn btn--big desk" href="#contato" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="mmClose" aria-label="Fechar">✕</button>
+  <a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a>
+  <a href="#estudio" data-pt="Estúdio" data-en="Studio">Estúdio</a>
+  <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
+  <a href="#jornada" data-pt="Jornada" data-en="Journey">Jornada</a>
+  <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
+  <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
+  <div class="mm-foot">
+    <a class="btn" href="#contato" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar</a>
+  </div>
+</div>
+
+<!-- ===================== HERO IMERSIVO ===================== -->
+<header class="cine">
+  <div class="cine-bg">
+    <image-slot id="cine-photo" src="assets/img/marinha.webp" fit="cover" placeholder="Solte uma foto do litoral cearense"></image-slot>
+  </div>
+  <div class="cine-scrim" aria-hidden="true"></div>
+  <canvas class="cine-salt" id="cineSalt" aria-hidden="true"></canvas>
+
+  <div class="cine-inner">
+    <div class="cine-stage" id="cineStage">
+      <article class="cine-slide active">
+        <h1 class="cine-word" data-pt="Fluido" data-en="Fluid">Fluido</h1>
+      </article>
+      <article class="cine-slide">
+        <h1 class="cine-word" data-pt="Belo" data-en="Beautiful">Belo</h1>
+      </article>
+      <article class="cine-slide">
+        <h1 class="cine-word" data-pt="Impactante" data-en="Impactful">Impactante</h1>
+      </article>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <div class="hero-sky" aria-hidden="true"></div>
+  <div class="hero-cloud" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal" data-pt="Estúdio de produtos digitais" data-en="Digital product studio">Estúdio de produtos digitais</span>
+      <h1 class="display reveal d1" style="margin-top:18px">
+        <span data-pt="Transformamos ideias em" data-en="We turn ideas into">Transformamos ideias em</span>
+        <span class="ital" data-pt="softwares fluidos." data-en="fluid software.">softwares fluidos.</span>
+      </h1>
+      <p class="hero-lead reveal d2" data-pt="Engenharia de software e performance, com o calor do litoral cearense. Produtos belos, jornadas sem atrito e impacto real no caixa dos nossos clientes." data-en="Software engineering and performance, with the warmth of Brazil's northeast coast. Beautiful products, frictionless journeys and real impact on our clients' bottom line.">Engenharia de software e performance, com o calor do litoral cearense. Produtos belos, jornadas sem atrito e impacto real no caixa dos nossos clientes.</p>
+      <div class="hero-actions reveal d3">
+        <a class="btn btn--big" href="#projetos" data-pt="Ver projetos" data-en="See our work">Ver projetos
+          <svg><use href="#ic-arrow"/></svg>
+        </a>
+        <a class="btn btn--ghost btn--big" href="#contato" data-pt="Começar um projeto" data-en="Start a project">Começar um projeto</a>
+      </div>
+      <div class="hero-meta reveal d4">
+        <span class="loc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span data-pt="Fortaleza · Ceará · Brasil" data-en="Fortaleza · Ceará · Brazil">Fortaleza · Ceará · Brasil</span>
+        </span>
+        <span class="sep" aria-hidden="true"></span>
+        <div class="hero-stats">
+          <div><b>+80</b><span data-pt="produtos no ar" data-en="products shipped">produtos no ar</span></div>
+          <div><b>9</b><span data-pt="anos de mar aberto" data-en="years afloat">anos de mar aberto</span></div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="muse reveal d2">
+      <div class="muse-frame">
+        <image-slot id="muse-painting" src="assets/img/marinha.webp" fit="cover" placeholder="Marinha — arte original"></image-slot>
+      </div>
+      <figcaption class="muse-cap">
+        <span data-pt="Marinha · " data-en="Marinha · ">Marinha · </span><b data-pt="arte original Onda" data-en="original Onda artwork">arte original Onda</b>
+        <span data-pt="— inspirada na luz do litoral cearense." data-en="— inspired by the light of the Ceará coast." style="display:block;opacity:.8;margin-top:2px">— inspirada na luz do litoral cearense.</span>
+      </figcaption>
+      <div class="muse-swatches" aria-hidden="true">
+        <i style="background:#274472"></i>
+        <i style="background:#7B5283"></i>
+        <i style="background:#C16A6B"></i>
+        <i style="background:#E68A4A"></i>
+        <i style="background:#F4B64A"></i>
+        <i style="background:#1F8980"></i>
+      </div>
+    </figure>
+  </div>
+</header>
+
+<!-- ===================== STROKE DIVIDER ===================== -->
+<svg class="stroke-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="strokeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#244C86"/>
+      <stop offset="0.32" stop-color="#3C7A4E"/>
+      <stop offset="0.55" stop-color="#D9663A"/>
+      <stop offset="0.78" stop-color="#F2B015"/>
+      <stop offset="1" stop-color="#14A8A0"/>
+    </linearGradient>
+  </defs>
+  <path class="sd-path" d="M0 54 C 180 18, 320 70, 520 46 S 880 8, 1040 44 S 1160 60, 1200 40" stroke="url(#strokeGrad)"/>
+</svg>
+
+<!-- ============================ MARQUEE ============================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span>SaaS &amp; Produtos próprios</span><span>Sistemas sob medida</span><span>Landing pages que convertem</span><span>Apps mobile</span><span>E-commerce</span><span>UI/UX &amp; Branding</span><span>Automação</span>
+  </div>
+</div>
+
+<!-- ============================ SERVIÇOS ============================ -->
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal" data-pt="O que fazemos" data-en="What we do">O que fazemos</span>
+        <h2 class="display reveal d1" style="margin-top:16px" data-pt="Da engenharia à conversão." data-en="From engineering to conversion.">Da engenharia à conversão.</h2>
+      </div>
+      <p class="reveal d2" data-pt="Três pilares de atuação, um só padrão: software que flui como a maré e gera energia no negócio." data-en="Three pillars, one standard: software that flows like the tide and powers the business.">Três pilares de atuação, um só padrão: software que flui como a maré e gera energia no negócio.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc col4 reveal" style="--svc-c:var(--ocean)">
+        <div class="svc-top">
+          <span class="svc-num">01</span>
+          <svg class="svc-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 9h18" stroke-linecap="round"/><circle cx="6" cy="6.5" r=".8" fill="currentColor"/><path d="M8 21h8M12 18v3" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-pt="Produtos próprios &amp; SaaS" data-en="Own products &amp; SaaS">Produtos próprios &amp; SaaS</h3>
+        <p data-pt="Aplicativos por assinatura do zero ao mercado: descoberta, arquitetura, MVP e escala. Construímos produtos recorrentes que se sustentam." data-en="Subscription apps from zero to market: discovery, architecture, MVP and scale. We build recurring products that stand on their own.">Aplicativos por assinatura do zero ao mercado: descoberta, arquitetura, MVP e escala. Construímos produtos recorrentes que se sustentam.</p>
+        <div class="svc-tags"><i>Discovery</i><i>Arquitetura</i><i>MVP</i><i>Escala</i></div>
+      </article>
+
+      <article class="svc col2 reveal d1" style="--svc-c:var(--turq)">
+        <div class="svc-top"><span class="svc-num">02</span>
+          <svg class="svc-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-pt="Apps mobile" data-en="Mobile apps">Apps mobile</h3>
+        <p data-pt="Experiências nativas e híbridas que cabem na mão e na vida." data-en="Native and hybrid experiences that fit the hand and the day.">Experiências nativas e híbridas que cabem na mão e na vida.</p>
+        <div class="svc-tags"><i>iOS</i><i>Android</i><i>Flutter</i></div>
+      </article>
+
+      <article class="svc col2 reveal" style="--svc-c:var(--terra)">
+        <div class="svc-top"><span class="svc-num">03</span>
+          <svg class="svc-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-7 14-7 18 0-4 7-14 7-18 0Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 data-pt="Sites &amp; Landing pages" data-en="Sites &amp; Landing pages">Sites &amp; Landing pages</h3>
+        <p data-pt="Ativos de conversão de alta performance: rápidos, lindos e feitos para vender." data-en="High-performance conversion assets: fast, beautiful and built to sell.">Ativos de conversão de alta performance: rápidos, lindos e feitos para vender.</p>
+        <div class="svc-tags"><i>CRO</i><i>SEO</i><i>Core Web Vitals</i></div>
+      </article>
+
+      <article class="svc col2 reveal d1" style="--svc-c:var(--cobalt)">
+        <div class="svc-top"><span class="svc-num">04</span>
+          <svg class="svc-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a14 14 0 0 0 0 18M12 3a14 14 0 0 1 0 18M3.5 9h17M3.5 15h17" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-pt="Design, UI/UX &amp; Branding" data-en="Design, UI/UX &amp; Branding">Design, UI/UX &amp; Branding</h3>
+        <p data-pt="Interfaces hipnóticas e marcas com identidade — a beleza que prende e converte." data-en="Hypnotic interfaces and brands with identity — beauty that holds and converts.">Interfaces hipnóticas e marcas com identidade — a beleza que prende e converte.</p>
+        <div class="svc-tags"><i>Design system</i><i>Identidade</i></div>
+      </article>
+
+      <article class="svc col2 reveal d2" style="--svc-c:var(--moss)">
+        <div class="svc-top"><span class="svc-num">05</span>
+          <svg class="svc-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7h14l-1.5 11.5A2 2 0 0 1 15.5 20h-7a2 2 0 0 1-2-1.5L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-pt="E-commerce" data-en="E-commerce">E-commerce</h3>
+        <p data-pt="Lojas online que vendem enquanto você dorme, do checkout à logística." data-en="Online stores that sell while you sleep — from checkout to logistics.">Lojas online que vendem enquanto você dorme, do checkout à logística.</p>
+        <div class="svc-tags"><i>Checkout</i><i>Integrações</i></div>
+      </article>
+
+      <article class="svc col3 reveal" style="--svc-c:var(--sun)">
+        <div class="svc-top"><span class="svc-num">06</span>
+          <svg class="svc-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2"/></svg>
+        </div>
+        <h3 data-pt="Automação &amp; Integrações" data-en="Automation &amp; Integrations">Automação &amp; Integrações</h3>
+        <p data-pt="Conectamos sistemas, eliminamos trabalho manual e fazemos seus dados fluírem entre as ferramentas." data-en="We connect systems, remove manual work and let your data flow between tools.">Conectamos sistemas, eliminamos trabalho manual e fazemos seus dados fluírem entre as ferramentas.</p>
+        <div class="svc-tags"><i>APIs</i><i>Webhooks</i><i>IA aplicada</i></div>
+      </article>
+
+      <article class="svc col3 reveal d1" style="--svc-c:var(--coral)">
+        <div class="svc-top"><span class="svc-num">07</span>
+          <svg class="svc-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20c2.5-6 6-9 9-9s6.5 3 9 9" stroke-linecap="round"/><circle cx="12" cy="6.5" r="3.5"/><path d="M12 11v9" stroke-linecap="round" opacity=".5"/></svg>
+        </div>
+        <h3 data-pt="Consultoria &amp; Estratégia" data-en="Strategy &amp; Consulting">Consultoria &amp; Estratégia</h3>
+        <p data-pt="Definimos o rumo antes de remar: produto, tecnologia e crescimento alinhados ao seu objetivo." data-en="We set the course before we row: product, tech and growth aligned to your goal.">Definimos o rumo antes de remar: produto, tecnologia e crescimento alinhados ao seu objetivo.</p>
+        <div class="svc-tags"><i>Roadmap</i><i>Tech advisory</i><i>Growth</i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ ESTÚDIO ============================ -->
+<section class="section studio" id="estudio">
+  <div class="wrap studio-grid">
+    <div class="studio-art reveal">
+      <image-slot id="studio-painting" src="assets/img/marinha.webp" fit="cover" placeholder="Marinha — arte original"></image-slot>
+      <div class="studio-credit">
+        <span data-pt="Marinha" data-en="Marinha">Marinha</span>
+        <b data-pt="Arte original Onda" data-en="Original Onda artwork">Arte original Onda</b>
+        <span data-pt="Inspirada na escola da marinha cearense" data-en="Inspired by Ceará's seascape tradition">Inspirada na escola da marinha cearense</span>
+      </div>
+    </div>
+    <div class="studio-copy">
+      <span class="eyebrow reveal" data-pt="O estúdio" data-en="The studio">O estúdio</span>
+      <h2 class="display reveal d1" data-pt="Tecnologia com sotaque de mar." data-en="Technology with a sea accent.">Tecnologia com sotaque de mar.</h2>
+      <p class="reveal d1" data-pt="A Onda nasceu no Ceará para provar que alta tecnologia não precisa ser fria. Trazemos o calor, a organicidade e a receptividade do litoral nordestino para dentro do software." data-en="Onda was born in Ceará to prove that high tech doesn't have to be cold. We bring the warmth, the organic flow and the welcome of the northeast coast into software.">A Onda nasceu no Ceará para provar que alta tecnologia não precisa ser fria. Trazemos o calor, a organicidade e a receptividade do litoral nordestino para dentro do software.</p>
+
+      <div class="pillars">
+        <div class="pillar reveal d1">
+          <span class="pn">01</span>
+          <div>
+            <h4 data-pt="Fluidas" data-en="Fluid">Fluidas</h4>
+            <p data-pt="Sem atrito. A jornada do usuário corre natural como a água." data-en="Frictionless. The user journey flows as naturally as water.">Sem atrito. A jornada do usuário corre natural como a água.</p>
+          </div>
+        </div>
+        <div class="pillar reveal d2">
+          <span class="pn">02</span>
+          <div>
+            <h4 data-pt="Belas" data-en="Beautiful">Belas</h4>
+            <p data-pt="Interfaces hipnóticas e agradáveis. Beleza que mantém as pessoas a bordo." data-en="Hypnotic, pleasant interfaces. Beauty that keeps people aboard.">Interfaces hipnóticas e agradáveis. Beleza que mantém as pessoas a bordo.</p>
+          </div>
+        </div>
+        <div class="pillar reveal d3">
+          <span class="pn">03</span>
+          <div>
+            <h4 data-pt="Impactantes" data-en="Impactful">Impactantes</h4>
+            <p data-pt="Como uma onda, geramos força: impacto no caixa e na conversão do cliente." data-en="Like a wave, we generate force: impact on revenue and conversion.">Como uma onda, geramos força: impacto no caixa e na conversão do cliente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="studio-stats reveal d2">
+        <div class="stat"><b>+80</b><span data-pt="produtos lançados" data-en="products launched">produtos lançados</span></div>
+        <div class="stat"><b>4,9</b><span data-pt="nota média dos clientes" data-en="avg. client rating">nota média dos clientes</span></div>
+        <div class="stat"><b>9</b><span data-pt="anos navegando" data-en="years sailing">anos navegando</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STROKE DIVIDER ===================== -->
+<svg class="stroke-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+  <path class="sd-path" d="M0 40 C 160 64, 300 12, 500 42 S 860 74, 1020 38 S 1160 18, 1200 46" stroke="url(#strokeGrad)"/>
+</svg>
+
+<!-- ============================ PROJETOS ============================ -->
+<section class="section" id="projetos" style="background:var(--sand-deep)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal" data-pt="Projetos selecionados" data-en="Selected work">Projetos selecionados</span>
+        <h2 class="display reveal d1" style="margin-top:16px" data-pt="Ilhas que construímos." data-en="Islands we've built.">Ilhas que construímos.</h2>
+      </div>
+      <p class="reveal d2" data-pt="Cada projeto é uma jangada própria — desenhada para navegar o problema do cliente. Arraste uma imagem para preencher os cases com seus prints reais." data-en="Each project is its own raft — designed to navigate the client's problem. Drop an image to fill each case with your real screenshots.">Cada projeto é uma jangada própria — desenhada para navegar o problema do cliente. Arraste uma imagem para preencher os cases com seus prints reais.</p>
+    </div>
+
+    <div class="proj-filter reveal" id="projFilter">
+      <button class="chip active" data-filter="all" data-pt="Todos" data-en="All">Todos</button>
+      <button class="chip" data-filter="sistema" data-pt="Sistemas" data-en="Systems">Sistemas</button>
+      <button class="chip" data-filter="app" data-pt="Apps" data-en="Apps">Apps</button>
+      <button class="chip" data-filter="site" data-pt="Sites &amp; LP" data-en="Sites &amp; LP">Sites &amp; LP</button>
+      <button class="chip" data-filter="ecom" data-pt="E-commerce" data-en="E-commerce">E-commerce</button>
+    </div>
+
+    <div class="proj-grid" id="projGrid">
+      <article class="proj reveal" data-cat="sistema">
+        <div class="proj-card">
+          <div class="proj-thumb">
+            <span class="proj-badge">SaaS · 2025</span>
+            <a class="proj-go" href="#contato" aria-label="Ver"><svg><use href="#ic-external"/></svg></a>
+            <image-slot id="proj-mare" placeholder="Print do produto Maré"></image-slot>
+          </div>
+          <div class="proj-body">
+            <span class="proj-cat" data-pt="Sistema · SaaS" data-en="System · SaaS">Sistema · SaaS</span>
+            <h3>Maré</h3>
+            <p class="proj-desc" data-pt="Plataforma de gestão para pousadas e hotéis do litoral: reservas, equipe e ocupação em tempo real." data-en="Management platform for coastal inns and hotels: bookings, staff and occupancy in real time.">Plataforma de gestão para pousadas e hotéis do litoral: reservas, equipe e ocupação em tempo real.</p>
+            <div class="proj-tag-row"><i>React</i><i>Node</i><i>Multi-tenant</i></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj reveal d1" data-cat="app">
+        <div class="proj-card">
+          <div class="proj-thumb">
+            <span class="proj-badge">App · 2025</span>
+            <a class="proj-go" href="#contato" aria-label="Ver"><svg><use href="#ic-external"/></svg></a>
+            <image-slot id="proj-jangada" placeholder="Print do app Jangada"></image-slot>
+          </div>
+          <div class="proj-body">
+            <span class="proj-cat" data-pt="App mobile" data-en="Mobile app">App mobile</span>
+            <h3>Jangada</h3>
+            <p class="proj-desc" data-pt="App de logística para cooperativas de pesca: rotas, vendas e rastreio do mar à mesa." data-en="Logistics app for fishing co-ops: routes, sales and tracking from sea to table.">App de logística para cooperativas de pesca: rotas, vendas e rastreio do mar à mesa.</p>
+            <div class="proj-tag-row"><i>Flutter</i><i>Mapas</i><i>Offline-first</i></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj reveal" data-cat="ecom">
+        <div class="proj-card">
+          <div class="proj-thumb">
+            <span class="proj-badge">E-commerce · 2024</span>
+            <a class="proj-go" href="#contato" aria-label="Ver"><svg><use href="#ic-external"/></svg></a>
+            <image-slot id="proj-brisa" placeholder="Print da loja Brisa"></image-slot>
+          </div>
+          <div class="proj-body">
+            <span class="proj-cat" data-pt="E-commerce" data-en="E-commerce">E-commerce</span>
+            <h3>Brisa</h3>
+            <p class="proj-desc" data-pt="Loja de moda praia com checkout transparente e +38% de conversão no primeiro trimestre." data-en="Beachwear store with transparent checkout and +38% conversion in the first quarter.">Loja de moda praia com checkout transparente e +38% de conversão no primeiro trimestre.</p>
+            <div class="proj-tag-row"><i>Shopify</i><i>CRO</i><i>Headless</i></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj reveal d1" data-cat="site">
+        <div class="proj-card">
+          <div class="proj-thumb">
+            <span class="proj-badge">Landing · 2025</span>
+            <a class="proj-go" href="#contato" aria-label="Ver"><svg><use href="#ic-external"/></svg></a>
+            <image-slot id="proj-coral" placeholder="Print da landing Coral"></image-slot>
+          </div>
+          <div class="proj-body">
+            <span class="proj-cat" data-pt="Site · Landing page" data-en="Site · Landing page">Site · Landing page</span>
+            <h3>Coral</h3>
+            <p class="proj-desc" data-pt="Landing de lançamento para infoproduto: carregamento em 0,8s e recorde de inscrições." data-en="Launch landing for an info-product: 0.8s load and a record sign-up rate.">Landing de lançamento para infoproduto: carregamento em 0,8s e recorde de inscrições.</p>
+            <div class="proj-tag-row"><i>Astro</i><i>Edge</i><i>A/B test</i></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj reveal" data-cat="sistema">
+        <div class="proj-card">
+          <div class="proj-thumb">
+            <span class="proj-badge">Sistema · 2024</span>
+            <a class="proj-go" href="#contato" aria-label="Ver"><svg><use href="#ic-external"/></svg></a>
+            <image-slot id="proj-sertao" placeholder="Print do sistema Sertão"></image-slot>
+          </div>
+          <div class="proj-body">
+            <span class="proj-cat" data-pt="Sistema sob medida · B2B" data-en="Custom system · B2B">Sistema sob medida · B2B</span>
+            <h3>Sertão</h3>
+            <p class="proj-desc" data-pt="ERP agro para cooperativas do interior: do plantio à nota fiscal, com dados que decidem." data-en="Agro ERP for inland co-ops: from planting to invoice, with data that decides.">ERP agro para cooperativas do interior: do plantio à nota fiscal, com dados que decidem.</p>
+            <div class="proj-tag-row"><i>Next.js</i><i>Postgres</i><i>BI</i></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj reveal d1" data-cat="app">
+        <div class="proj-card">
+          <div class="proj-thumb">
+            <span class="proj-badge">App · 2025</span>
+            <a class="proj-go" href="#contato" aria-label="Ver"><svg><use href="#ic-external"/></svg></a>
+            <image-slot id="proj-farol" placeholder="Print do app Farol"></image-slot>
+          </div>
+          <div class="proj-body">
+            <span class="proj-cat" data-pt="App · Turismo" data-en="App · Travel">App · Turismo</span>
+            <h3>Farol</h3>
+            <p class="proj-desc" data-pt="Roteiros inteligentes pela costa cearense, com reservas e experiências locais num só app." data-en="Smart itineraries along the Ceará coast, with bookings and local experiences in one app.">Roteiros inteligentes pela costa cearense, com reservas e experiências locais num só app.</p>
+            <div class="proj-tag-row"><i>React Native</i><i>IA</i><i>Geo</i></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ A JORNADA (scrollytelling) ============================ -->
+<section class="journey" id="jornada" aria-label="A jornada de um projeto Onda — do nascer ao pôr do sol">
+  <div class="journey-sticky">
+    <!-- 5 fundos (mesmo cenário, sol em posições diferentes) — cross-fade no scroll -->
+    <div class="jr-frames" aria-hidden="true">
+      <img class="jr-frame on" src="assets/img/jr-1.webp" alt="" data-i="0" />
+      <img class="jr-frame" src="assets/img/jr-2.webp" alt="" data-i="1" />
+      <img class="jr-frame" src="assets/img/jr-3.webp" alt="" data-i="2" />
+      <img class="jr-frame" src="assets/img/jr-4.webp" alt="" data-i="3" />
+      <img class="jr-frame" src="assets/img/jr-5.webp" alt="" data-i="4" />
+    </div>
+
+    <!-- Véu para legibilidade -->
+    <div class="jr-scrim" aria-hidden="true"></div>
+
+    <!-- Conteúdo / fases -->
+    <div class="jr-content">
+      <span class="jr-kicker" data-pt="Nossa metodologia · do nascer ao pôr do sol" data-en="Our methodology · from sunrise to sunset">Nossa metodologia · do nascer ao pôr do sol</span>
+      <div class="jr-chapters" id="jrChapters">
+
+        <div class="jr-chapter on" data-ch="0">
+          <div class="jr-ch-meta">
+            <span class="jr-ch-num">FASE 01</span>
+            <span class="jr-ch-time" data-pt="Nascer do sol" data-en="Sunrise">Nascer do sol</span>
+          </div>
+          <h2 class="jr-ch-title" data-pt="Spec Viva" data-en="Living Spec">Spec Viva</h2>
+          <p class="jr-ch-desc" data-pt="A ideia desperta. Traduzimos sua visão em épicos, histórias de usuário e critérios claros — uma especificação que vive e guia todo o resto." data-en="The idea awakens. We turn your vision into epics, user stories and clear criteria — a living spec that guides everything that follows.">A ideia desperta. Traduzimos sua visão em épicos, histórias de usuário e critérios claros — uma especificação que vive e guia todo o resto.</p>
+          <div class="jr-ch-tags"><i>Épicos</i><i>User Stories</i><i>Gherkin</i><i>CLAUDE.md</i></div>
+        </div>
+
+        <div class="jr-chapter" data-ch="1">
+          <div class="jr-ch-meta">
+            <span class="jr-ch-num">FASE 02</span>
+            <span class="jr-ch-time" data-pt="Manhã" data-en="Morning">Manhã</span>
+          </div>
+          <h2 class="jr-ch-title" data-pt="Layout" data-en="Layout">Layout</h2>
+          <p class="jr-ch-desc" data-pt="A luz revela a forma. Desenhamos as telas e a experiência inteira; você aprova o visual antes de uma única linha de código. Aprovado, o layout é congelado — mudanças futuras exigem renegociação de escopo." data-en="Light reveals the form. We design the screens and the whole experience; you approve the look before a single line of code. Once approved, the layout is frozen — future changes require scope renegotiation.">A luz revela a forma. Desenhamos as telas e a experiência inteira; você aprova o visual antes de uma única linha de código. Aprovado, o layout é congelado — mudanças futuras exigem renegociação de escopo.</p>
+          <div class="jr-ch-tags"><i>UI / UX</i><i>Protótipo</i><i>Congelamento visual</i></div>
+        </div>
+
+        <div class="jr-chapter" data-ch="2">
+          <div class="jr-ch-meta">
+            <span class="jr-ch-num">FASE 03</span>
+            <span class="jr-ch-time" data-pt="Meio-dia" data-en="Midday">Meio-dia</span>
+          </div>
+          <h2 class="jr-ch-title" data-pt="Blueprint" data-en="Blueprint">Blueprint</h2>
+          <p class="jr-ch-desc" data-pt="Sol a pino: o plano técnico no auge. Arquitetura, contratos de API e módulos definidos — prazo técnico calculado, não estimado." data-en="High noon: the technical plan at its peak. Architecture, API contracts and modules defined — deadline calculated, not estimated.">Sol a pino: o plano técnico no auge. Arquitetura, contratos de API e módulos definidos — prazo técnico calculado, não estimado.</p>
+          <div class="jr-ch-tags"><i>Arquitetura</i><i>API-First</i><i>Prazo exato</i></div>
+        </div>
+
+        <div class="jr-chapter" data-ch="3">
+          <div class="jr-ch-meta">
+            <span class="jr-ch-num">FASE 04</span>
+            <span class="jr-ch-time" data-pt="Tarde" data-en="Afternoon">Tarde</span>
+          </div>
+          <h2 class="jr-ch-title" data-pt="Codificação XP" data-en="XP Coding">Codificação XP</h2>
+          <p class="jr-ch-desc" data-pt="A tarde rende. Ciclo Red → Green → Refactor: os testes vêm primeiro, depois o código, depois a higiene. IA de alta performance acelera cada onda — cada commit sai limpo e pronto para produção." data-en="The afternoon delivers. Red → Green → Refactor cycle: tests come first, then code, then hygiene. High-performance AI accelerates each wave — every commit ships clean and production-ready.">A tarde rende. Ciclo Red → Green → Refactor: os testes vêm primeiro, depois o código, depois a higiene. IA de alta performance acelera cada onda — cada commit sai limpo e pronto para produção.</p>
+          <div class="jr-ch-tags"><i>TDD</i><i>IA + XP</i><i>Small Releases</i></div>
+        </div>
+
+        <div class="jr-chapter" data-ch="4">
+          <div class="jr-ch-meta">
+            <span class="jr-ch-num">FASE 05</span>
+            <span class="jr-ch-time" data-pt="Pôr do sol" data-en="Sunset">Pôr do sol</span>
+          </div>
+          <h2 class="jr-ch-title" data-pt="Homologação" data-en="Homologation">Homologação</h2>
+          <p class="jr-ch-desc" data-pt="No fim do dia, a entrega. Smoke test, validação humana de ponta a ponta e deploy automatizado via CI/CD — no ar, testado e gerando impacto." data-en="At day's end, delivery. Smoke test, end-to-end human validation and automated CI/CD deploy — live, tested and making an impact.">No fim do dia, a entrega. Smoke test, validação humana de ponta a ponta e deploy automatizado via CI/CD — no ar, testado e gerando impacto.</p>
+          <div class="jr-ch-tags"><i>Smoke Test</i><i>CI/CD</i><i>Go-live</i></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Trilho -->
+    <div class="jr-rail" id="jrRail" aria-hidden="true">
+      <button class="on" data-go="0"><span class="rlabel">Spec Viva</span><span class="rdot"></span></button>
+      <button data-go="1"><span class="rlabel">Layout</span><span class="rdot"></span></button>
+      <button data-go="2"><span class="rlabel">Blueprint</span><span class="rdot"></span></button>
+      <button data-go="3"><span class="rlabel" data-pt="Codificação XP" data-en="XP Coding">Codificação XP</span><span class="rdot"></span></button>
+      <button data-go="4"><span class="rlabel" data-pt="Homologação" data-en="Homologation">Homologação</span><span class="rdot"></span></button>
+    </div>
+
+    <div class="jr-hint" id="jrHint">
+      <span data-pt="role para ver o dia passar" data-en="scroll to watch the day pass">role para ver o dia passar</span>
+      <svg><use href="#ic-chevron"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ · GESTÃO DE MUDANÇAS ============================ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal" data-pt="Perguntas frequentes" data-en="Frequently asked">Perguntas frequentes</span>
+        <h2 class="display reveal d1" style="margin-top:16px" data-pt="Escopo protegido." data-en="Protected scope.">Escopo protegido.</h2>
+      </div>
+      <p class="reveal d2" data-pt="Transparência total sobre como lidamos com mudanças, prazos e imprevistos." data-en="Full transparency on how we handle changes, deadlines and the unexpected.">Transparência total sobre como lidamos com mudanças, prazos e imprevistos.</p>
+    </div>
+
+    <div class="faq-grid">
+      <details class="faq reveal" open>
+        <summary data-pt="E se eu mudar de ideia no meio do projeto?" data-en="What if I change my mind mid-project?">E se eu mudar de ideia no meio do projeto?</summary>
+        <p data-pt="Sem problema — mas com processo. O fluxo retorna à Fase 1: atualizamos a especificação, ajustamos os testes e só depois codificamos. Isso protege o que já foi construído e mantém a qualidade." data-en="No problem — but with process. The flow returns to Phase 1: we update the spec, adjust tests, and only then code. This protects what's already built and keeps quality high.">Sem problema — mas com processo. O fluxo retorna à Fase 1: atualizamos a especificação, ajustamos os testes e só depois codificamos. Isso protege o que já foi construído e mantém a qualidade.</p>
+      </details>
+      <details class="faq reveal d1">
+        <summary data-pt="E se eu quiser mudar o visual depois de aprovado?" data-en="What if I want to change the design after approval?">E se eu quiser mudar o visual depois de aprovado?</summary>
+        <p data-pt="Alterar o layout congelado impacta tabelas e estrutura do sistema. Caracteriza mudança de escopo e exige um aditivo de prazo — sempre com total transparência." data-en="Changing the frozen layout impacts tables and system structure. This is a scope change and requires a deadline addendum — always with full transparency.">Alterar o layout congelado impacta tabelas e estrutura do sistema. Caracteriza mudança de escopo e exige um aditivo de prazo — sempre com total transparência.</p>
+      </details>
+      <details class="faq reveal d2">
+        <summary data-pt="Como os prazos são definidos?" data-en="How are deadlines defined?">Como os prazos são definidos?</summary>
+        <p data-pt="Prazo técnico calculado, não estimado. Somamos o tempo de aprovação visual + peso dos módulos (pequeno, médio, grande) + 2 dias de homologação. Você recebe uma data exata e blindada." data-en="Deadlines are calculated, not estimated. We sum visual approval time + module weight (small, medium, large) + 2 days for homologation. You get an exact, bulletproof date.">Prazo técnico calculado, não estimado. Somamos o tempo de aprovação visual + peso dos módulos (pequeno, médio, grande) + 2 dias de homologação. Você recebe uma data exata e blindada.</p>
+      </details>
+      <details class="faq reveal d3">
+        <summary data-pt="Vocês usam IA no desenvolvimento?" data-en="Do you use AI in development?">Vocês usam IA no desenvolvimento?</summary>
+        <p data-pt="Sim. Operamos com IA de alta performance como acelerador de engenharia — não como substituto. A IA gera testes, sugere código e otimiza, mas toda decisão de arquitetura e qualidade é humana." data-en="Yes. We use high-performance AI as an engineering accelerator — not a replacement. AI generates tests, suggests code and optimizes, but every architecture and quality decision is human.">Sim. Operamos com IA de alta performance como acelerador de engenharia — não como substituto. A IA gera testes, sugere código e otimiza, mas toda decisão de arquitetura e qualidade é humana.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DEPOIMENTOS ============================ -->
+<section class="section" id="vozes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal" data-pt="Vozes de quem navegou" data-en="Voices aboard">Vozes de quem navegou</span>
+        <h2 class="display reveal d1" style="margin-top:16px" data-pt="Confiança que vira maré." data-en="Trust that turns the tide.">Confiança que vira maré.</h2>
+      </div>
+      <p class="reveal d2" data-pt="Parceiros que cruzaram o mar aberto com a gente — e chegaram mais longe." data-en="Partners who crossed the open sea with us — and went further.">Parceiros que cruzaram o mar aberto com a gente — e chegaram mais longe.</p>
+    </div>
+
+    <div class="tst-grid">
+      <article class="tst feature reveal">
+        <div class="tst-mark">”</div>
+        <p class="tst-quote" data-pt="A Onda entregou um SaaS que parecia impossível no nosso prazo. Fluido, lindo e — o que importa — <em>dobrou nossa receita recorrente</em> em seis meses." data-en="Onda shipped a SaaS we thought impossible in our timeline. Fluid, beautiful and — what matters — <em>doubled our recurring revenue</em> in six months.">A Onda entregou um SaaS que parecia impossível no nosso prazo. Fluido, lindo e — o que importa — <em>dobrou nossa receita recorrente</em> em seis meses.</p>
+        <div class="tst-who">
+          <span class="tst-av"><image-slot id="tst-1" placeholder="Foto"></image-slot></span>
+          <div><b>Marina Fontenele</b><span data-pt="CEO · Pousada Maré Mansa" data-en="CEO · Maré Mansa Inn">CEO · Pousada Maré Mansa</span></div>
+        </div>
+      </article>
+
+      <article class="tst reveal d1">
+        <div class="tst-mark">”</div>
+        <p class="tst-quote" data-pt="Eles entenderam o sertão e o mar. Nosso ERP virou a <em>espinha dorsal</em> da cooperativa." data-en="They understood both the backlands and the sea. Our ERP became the cooperative's <em>backbone</em>.">Eles entenderam o sertão e o mar. Nosso ERP virou a <em>espinha dorsal</em> da cooperativa.</p>
+        <div class="tst-who">
+          <span class="tst-av"><image-slot id="tst-2" placeholder="Foto"></image-slot></span>
+          <div><b>Joel Bezerra</b><span data-pt="Diretor · CoopSertão" data-en="Director · CoopSertão">Diretor · CoopSertão</span></div>
+        </div>
+      </article>
+
+      <article class="tst reveal d2">
+        <div class="tst-mark">”</div>
+        <p class="tst-quote" data-pt="A landing page deles <em>vendeu sozinha</em>. Carregamento instantâneo e design que prende." data-en="Their landing page <em>sold by itself</em>. Instant load and design that holds you.">A landing page deles <em>vendeu sozinha</em>. Carregamento instantâneo e design que prende.</p>
+        <div class="tst-who">
+          <span class="tst-av"><image-slot id="tst-3" placeholder="Foto"></image-slot></span>
+          <div><b>Tati Albuquerque</b><span data-pt="Fundadora · Curso Brisa" data-en="Founder · Brisa Course">Fundadora · Curso Brisa</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTATO ============================ -->
+<section class="section contact" id="contato">
+  <div class="contact-blob" aria-hidden="true"></div>
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <span class="eyebrow reveal" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar</span>
+      <h2 class="reveal d1" style="margin-top:16px">
+        <span data-pt="Sua próxima" data-en="Your next">Sua próxima</span><br/>
+        <em data-pt="onda começa aqui." data-en="wave starts here.">onda começa aqui.</em>
+      </h2>
+      <p class="contact-lead reveal d2" data-pt="Conte sua ideia. Em até um dia útil devolvemos um plano de rota — sem compromisso." data-en="Tell us your idea. Within one business day we'll send back a route plan — no strings attached.">Conte sua ideia. Em até um dia útil devolvemos um plano de rota — sem compromisso.</p>
+
+      <div class="contact-info reveal d2">
+        <a href="mailto:oi@onda.studio">
+          <span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6" stroke-linecap="round"/></svg></span>
+          <span><span class="lbl">E-mail</span>oi@onda.studio</span>
+        </a>
+        <a href="https://wa.me/5585999999999" target="_blank" rel="noopener">
+          <span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.6-4A8 8 0 1 1 9 19.4L4 20Z" stroke-linejoin="round"/><path d="M8.5 9.5c0 3 2 5 5 5" stroke-linecap="round"/></svg></span>
+          <span><span class="lbl">WhatsApp</span>+55 85 9 9999-9999</span>
+        </a>
+        <a href="https://instagram.com/onda.studio" target="_blank" rel="noopener">
+          <span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></span>
+          <span><span class="lbl">Instagram</span>@onda.studio</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-card reveal d1">
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label data-pt="Nome" data-en="Name" for="f-name">Nome</label>
+          <input id="f-name" name="name" type="text" required placeholder="Seu nome" data-ph-pt="Seu nome" data-ph-en="Your name" />
+          <span class="err" data-pt="Diz teu nome 🙂" data-en="Tell us your name 🙂">Diz teu nome 🙂</span>
+        </div>
+        <div class="field row2">
+          <div class="field">
+            <label data-pt="E-mail" data-en="Email" for="f-email">E-mail</label>
+            <input id="f-email" name="email" type="email" required placeholder="voce@email.com" data-ph-pt="voce@email.com" data-ph-en="you@email.com" />
+            <span class="err" data-pt="E-mail válido, por favor" data-en="A valid email, please">E-mail válido, por favor</span>
+          </div>
+          <div class="field">
+            <label data-pt="Projeto" data-en="Project" for="f-type">Projeto</label>
+            <select id="f-type" name="type">
+              <option data-pt="Produto / SaaS" data-en="Product / SaaS">Produto / SaaS</option>
+              <option data-pt="Sistema sob medida" data-en="Custom system">Sistema sob medida</option>
+              <option data-pt="App mobile" data-en="Mobile app">App mobile</option>
+              <option data-pt="Site / Landing page" data-en="Site / Landing page">Site / Landing page</option>
+              <option data-pt="E-commerce" data-en="E-commerce">E-commerce</option>
+              <option data-pt="Outro" data-en="Other">Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label data-pt="Sua ideia" data-en="Your idea" for="f-msg">Sua ideia</label>
+          <textarea id="f-msg" name="msg" required placeholder="Conta um pouco do que você quer construir…" data-ph-pt="Conta um pouco do que você quer construir…" data-ph-en="Tell us a bit about what you want to build…"></textarea>
+          <span class="err" data-pt="Conta um pouquinho 🌊" data-en="Give us a little detail 🌊">Conta um pouquinho 🌊</span>
+        </div>
+        <button class="btn btn--big" type="submit" data-pt="Enviar mensagem" data-en="Send message">Enviar mensagem
+          <svg><use href="#ic-arrow"/></svg>
+        </button>
+      </form>
+      <div class="form-ok" id="formOk">
+        <b data-pt="Mensagem na maré! 🌊" data-en="Message afloat! 🌊">Mensagem na maré! 🌊</b>
+        <p data-pt="Recebemos sua ideia e voltamos em até um dia útil." data-en="We got your idea and we'll be back within one business day.">Recebemos sua ideia e voltamos em até um dia útil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="#top" aria-label="Onda">
+          <b>Onda<span class="dot">.</span></b>
+        </a>
+        <p class="footer-tag" data-pt="Estúdio de produtos digitais do Ceará. Software fluido, belo e de alto impacto." data-en="Digital product studio from Ceará. Fluid, beautiful, high-impact software.">Estúdio de produtos digitais do Ceará. Software fluido, belo e de alto impacto.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-pt="Serviços" data-en="Services">Serviços</h4>
+        <a href="#servicos" data-pt="Produtos &amp; SaaS" data-en="Products &amp; SaaS">Produtos &amp; SaaS</a>
+        <a href="#servicos" data-pt="Sistemas sob medida" data-en="Custom systems">Sistemas sob medida</a>
+        <a href="#servicos" data-pt="Sites &amp; Landing pages" data-en="Sites &amp; Landing pages">Sites &amp; Landing pages</a>
+        <a href="#servicos" data-pt="Apps mobile" data-en="Mobile apps">Apps mobile</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-pt="Estúdio" data-en="Studio">Estúdio</h4>
+        <a href="#estudio" data-pt="Sobre nós" data-en="About">Sobre nós</a>
+        <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
+        <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
+        <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-pt="Fale com a gente" data-en="Get in touch">Fale com a gente</h4>
+        <a href="mailto:oi@onda.studio">oi@onda.studio</a>
+        <a href="https://wa.me/5585999999999" target="_blank" rel="noopener">+55 85 9 9999-9999</a>
+        <a href="https://instagram.com/onda.studio" target="_blank" rel="noopener">@onda.studio</a>
+      </div>
+    </div>
+    <div class="footer-palette" aria-hidden="true">
+      <i style="background:#274472"></i><i style="background:#7B5283"></i><i style="background:#C16A6B"></i><i style="background:#E68A4A"></i><i style="background:#F4B64A"></i><i style="background:#1F8980"></i><i style="background:#C9893A"></i>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Onda · Fortaleza, Ceará</span>
+      <span data-pt="Paleta e traço inspirados na luz do litoral cearense." data-en="Palette and lines inspired by the light of the Ceará coast.">Paleta e traço inspirados na luz do litoral cearense.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/image-slot.js"></script>
+<script src="js/app.js"></script>
+<script src="js/journey.js"></script>
+
+<!-- Tweaks (React island) — dev-only, remover em produção -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks/tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks/tweaks-app.jsx"></script>
+</body>
+</html>
