@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=6" />
-<link rel="stylesheet" href="css/journey.css?v=6" />
+<link rel="stylesheet" href="css/styles.css?v=8" />
+<link rel="stylesheet" href="css/journey.css?v=8" />
 </head>
 <body data-mood="clara" data-hero="imersivo">
 
@@ -43,7 +43,7 @@
     <a href="#estudio" data-pt="Estúdio" data-en="Studio">Estúdio</a>
     <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
     <a href="#jornada" data-pt="Jornada" data-en="Journey">Jornada</a>
-    <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
+    <a href="#vozes" data-pt="Clientes" data-en="Clients" hidden>Clientes</a>
     <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
   </div>
   <div class="nav-cta">
@@ -66,7 +66,7 @@
     <a href="#estudio" data-pt="Estúdio" data-en="Studio">Estúdio</a>
     <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
     <a href="#jornada" data-pt="Jornada" data-en="Journey">Jornada</a>
-    <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
+    <a href="#vozes" data-pt="Clientes" data-en="Clients" hidden>Clientes</a>
     <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
   </nav>
   <div class="mm-foot">
@@ -463,7 +463,8 @@
 </section>
 
 <!-- ============================ DEPOIMENTOS ============================ -->
-<section class="section" id="vozes">
+<!-- Oculto temporariamente: ainda sem relatos de clientes. Remover "hidden" para reativar. -->
+<section class="section" id="vozes" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -591,7 +592,7 @@
         <h4 data-pt="Estúdio" data-en="Studio">Estúdio</h4>
         <a href="#estudio" data-pt="Sobre nós" data-en="About">Sobre nós</a>
         <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
-        <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
+        <a href="#vozes" data-pt="Clientes" data-en="Clients" hidden>Clientes</a>
         <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
       </div>
       <div class="footer-col">
@@ -618,8 +619,8 @@
 </div>
 
 <script src="js/image-slot.js"></script>
-<script src="js/app.js?v=2"></script>
-<script src="js/journey.js?v=2"></script>
+<script src="js/app.js?v=8"></script>
+<script src="js/journey.js?v=8"></script>
 
 <!-- Tweaks (React island) — dev-only, remover em produção -->
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
