@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=8" />
-<link rel="stylesheet" href="css/journey.css?v=8" />
+<link rel="stylesheet" href="css/styles.css?v=9" />
+<link rel="stylesheet" href="css/journey.css?v=9" />
 </head>
 <body data-mood="clara" data-hero="imersivo">
 
@@ -30,6 +30,7 @@
     <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="ic-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></symbol>
     <symbol id="ic-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="ic-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.46 0 9.91-4.45 9.91-9.91a9.85 9.85 0 0 0-2.9-7.02zM12.04 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.47-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></symbol>
   </defs>
 </svg>
 
@@ -75,7 +76,8 @@
     </a>
     <div class="mm-contact">
       <a href="mailto:ondaempresa1@gmail.com">ondaempresa1@gmail.com</a>
-      <a href="https://wa.me/5585997899006" target="_blank" rel="noopener">+55 85 9 9789-9006</a>
+      <a class="wa-link" href="https://wa.me/5585997899006" target="_blank" rel="noopener"><svg><use href="#ic-whatsapp"/></svg>+55 85 9 9789-9006</a>
+      <a class="wa-link" href="https://wa.me/5585998203980" target="_blank" rel="noopener"><svg><use href="#ic-whatsapp"/></svg>+55 85 9 9820-3980</a>
     </div>
   </div>
 </div>
@@ -523,8 +525,12 @@
           <span><span class="lbl">E-mail</span>ondaempresa1@gmail.com</span>
         </a>
         <a href="https://wa.me/5585997899006" target="_blank" rel="noopener">
-          <span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.6-4A8 8 0 1 1 9 19.4L4 20Z" stroke-linejoin="round"/><path d="M8.5 9.5c0 3 2 5 5 5" stroke-linecap="round"/></svg></span>
+          <span class="ci-ic"><svg><use href="#ic-whatsapp"/></svg></span>
           <span><span class="lbl">WhatsApp</span>+55 85 9 9789-9006</span>
+        </a>
+        <a href="https://wa.me/5585998203980" target="_blank" rel="noopener">
+          <span class="ci-ic"><svg><use href="#ic-whatsapp"/></svg></span>
+          <span><span class="lbl">WhatsApp</span>+55 85 9 9820-3980</span>
         </a>
       </div>
     </div>
@@ -598,7 +604,8 @@
       <div class="footer-col">
         <h4 data-pt="Fale com a gente" data-en="Get in touch">Fale com a gente</h4>
         <a href="mailto:ondaempresa1@gmail.com">ondaempresa1@gmail.com</a>
-        <a href="https://wa.me/5585997899006" target="_blank" rel="noopener">+55 85 9 9789-9006</a>
+        <a class="wa-link" href="https://wa.me/5585997899006" target="_blank" rel="noopener"><svg><use href="#ic-whatsapp"/></svg>+55 85 9 9789-9006</a>
+        <a class="wa-link" href="https://wa.me/5585998203980" target="_blank" rel="noopener"><svg><use href="#ic-whatsapp"/></svg>+55 85 9 9820-3980</a>
       </div>
     </div>
     <div class="footer-palette" aria-hidden="true">
@@ -619,8 +626,8 @@
 </div>
 
 <script src="js/image-slot.js"></script>
-<script src="js/app.js?v=8"></script>
-<script src="js/journey.js?v=8"></script>
+<script src="js/app.js?v=9"></script>
+<script src="js/journey.js?v=9"></script>
 
 <!-- Tweaks (React island) — dev-only, remover em produção -->
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>

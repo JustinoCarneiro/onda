@@ -541,6 +541,9 @@ form { display: grid; gap: 18px; }
 .footer-col h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 16px; }
 .footer-col a { display: block; color: var(--ink-soft); margin-bottom: 10px; transition: color .25s; }
 .footer-col a:hover { color: var(--accent); }
+/* link de WhatsApp com ícone inline (footer + menu mobile) */
+.wa-link { display: inline-flex; align-items: center; gap: 8px; }
+.wa-link svg { width: 16px; height: 16px; flex: none; color: #25D366; }
 .footer-palette { display: flex; height: 12px; margin: 46px 0 22px; border-radius: 6px; overflow: hidden; }
 .footer-palette i { flex: 1; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 18px; font-size: 13px; color: var(--ink-faint); flex-wrap: wrap; }
