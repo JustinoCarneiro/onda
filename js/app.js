@@ -12,11 +12,13 @@
     svc.insertBefore(fill, svc.firstChild);
   });
 
-  /* ---------- Nav: estado ao rolar ---------- */
+  /* ---------- Nav: estado ao rolar + botão voltar ao topo ---------- */
   var nav = document.getElementById('nav');
+  var toTop = document.getElementById('toTop');
   function onScroll() {
     if (window.scrollY > 24) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
+    if (toTop) toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.8);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
