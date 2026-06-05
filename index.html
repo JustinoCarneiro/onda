@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>Onda — Estúdio de Produtos Digitais · Ceará</title>
 <meta name="description" content="Onda é um estúdio de produtos digitais do Ceará. Unimos engenharia de software e performance para criar softwares fluidos, belos e de alto impacto." />
 <meta property="og:title" content="Onda — Estúdio de Produtos Digitais · Ceará" />
@@ -13,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css" />
-<link rel="stylesheet" href="css/journey.css" />
+<link rel="stylesheet" href="css/styles.css?v=6" />
+<link rel="stylesheet" href="css/journey.css?v=6" />
 </head>
 <body data-mood="clara" data-hero="imersivo">
 
@@ -54,15 +57,26 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <button class="close" id="mmClose" aria-label="Fechar">✕</button>
-  <a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a>
-  <a href="#estudio" data-pt="Estúdio" data-en="Studio">Estúdio</a>
-  <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
-  <a href="#jornada" data-pt="Jornada" data-en="Journey">Jornada</a>
-  <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
-  <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
+  <div class="mm-head">
+    <a class="brand" href="#top" aria-label="Onda"><b>Onda<span class="dot">.</span></b></a>
+    <button class="close" id="mmClose" aria-label="Fechar">✕</button>
+  </div>
+  <nav class="mm-links">
+    <a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a>
+    <a href="#estudio" data-pt="Estúdio" data-en="Studio">Estúdio</a>
+    <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
+    <a href="#jornada" data-pt="Jornada" data-en="Journey">Jornada</a>
+    <a href="#vozes" data-pt="Clientes" data-en="Clients">Clientes</a>
+    <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
+  </nav>
   <div class="mm-foot">
-    <a class="btn" href="#contato" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar</a>
+    <a class="btn btn--big" href="#contato" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar
+      <svg><use href="#ic-arrow"/></svg>
+    </a>
+    <div class="mm-contact">
+      <a href="mailto:ondaempresa1@gmail.com">ondaempresa1@gmail.com</a>
+      <a href="https://wa.me/5585997899006" target="_blank" rel="noopener">+55 85 9 9789-9006</a>
+    </div>
   </div>
 </div>
 
@@ -112,11 +126,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
           <span data-pt="Fortaleza · Ceará · Brasil" data-en="Fortaleza · Ceará · Brazil">Fortaleza · Ceará · Brasil</span>
         </span>
-        <span class="sep" aria-hidden="true"></span>
-        <div class="hero-stats">
-          <div><b>+80</b><span data-pt="produtos no ar" data-en="products shipped">produtos no ar</span></div>
-          <div><b>9</b><span data-pt="anos de mar aberto" data-en="years afloat">anos de mar aberto</span></div>
-        </div>
       </div>
     </div>
 
@@ -281,11 +290,6 @@
         </div>
       </div>
 
-      <div class="studio-stats reveal d2">
-        <div class="stat"><b>+80</b><span data-pt="produtos lançados" data-en="products launched">produtos lançados</span></div>
-        <div class="stat"><b>4,9</b><span data-pt="nota média dos clientes" data-en="avg. client rating">nota média dos clientes</span></div>
-        <div class="stat"><b>9</b><span data-pt="anos navegando" data-en="years sailing">anos navegando</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -309,9 +313,7 @@
     <div class="proj-filter reveal" id="projFilter">
       <button class="chip active" data-filter="all" data-pt="Todos" data-en="All">Todos</button>
       <button class="chip" data-filter="sistema" data-pt="Sistemas" data-en="Systems">Sistemas</button>
-      <button class="chip" data-filter="app" data-pt="Apps" data-en="Apps">Apps</button>
       <button class="chip" data-filter="site" data-pt="Sites &amp; LP" data-en="Sites &amp; LP">Sites &amp; LP</button>
-      <button class="chip" data-filter="ecom" data-pt="E-commerce" data-en="E-commerce">E-commerce</button>
     </div>
 
     <div class="proj-grid" id="projGrid">
@@ -398,13 +400,9 @@
 <!-- ============================ A JORNADA (scrollytelling) ============================ -->
 <section class="journey" id="jornada" aria-label="A jornada de um projeto Onda — do nascer ao pôr do sol">
   <div class="journey-sticky">
-    <!-- 5 fundos (mesmo cenário, sol em posições diferentes) — cross-fade no scroll -->
+    <!-- Fundo estático da marinha (mesma arte do hero) -->
     <div class="jr-frames" aria-hidden="true">
-      <img class="jr-frame on" src="assets/img/jr-1.webp" alt="" data-i="0" />
-      <img class="jr-frame" src="assets/img/jr-2.webp" alt="" data-i="1" />
-      <img class="jr-frame" src="assets/img/jr-3.webp" alt="" data-i="2" />
-      <img class="jr-frame" src="assets/img/jr-4.webp" alt="" data-i="3" />
-      <img class="jr-frame" src="assets/img/jr-5.webp" alt="" data-i="4" />
+      <img class="jr-frame" src="assets/img/marinha.webp" alt="" />
     </div>
 
     <!-- Véu para legibilidade -->
@@ -416,102 +414,50 @@
       <div class="jr-chapters" id="jrChapters">
 
         <div class="jr-chapter on" data-ch="0">
-          <div class="jr-ch-meta">
-            <span class="jr-ch-num">FASE 01</span>
-            <span class="jr-ch-time" data-pt="Nascer do sol" data-en="Sunrise">Nascer do sol</span>
-          </div>
           <h2 class="jr-ch-title" data-pt="Spec Viva" data-en="Living Spec">Spec Viva</h2>
           <p class="jr-ch-desc" data-pt="A ideia desperta. Traduzimos sua visão em épicos, histórias de usuário e critérios claros — uma especificação que vive e guia todo o resto." data-en="The idea awakens. We turn your vision into epics, user stories and clear criteria — a living spec that guides everything that follows.">A ideia desperta. Traduzimos sua visão em épicos, histórias de usuário e critérios claros — uma especificação que vive e guia todo o resto.</p>
-          <div class="jr-ch-tags"><i>Épicos</i><i>User Stories</i><i>Gherkin</i><i>CLAUDE.md</i></div>
+          <div class="jr-ch-tags"><span>Épicos</span><span>User Stories</span><span>Gherkin</span><span>CLAUDE.md</span></div>
         </div>
 
         <div class="jr-chapter" data-ch="1">
-          <div class="jr-ch-meta">
-            <span class="jr-ch-num">FASE 02</span>
-            <span class="jr-ch-time" data-pt="Manhã" data-en="Morning">Manhã</span>
-          </div>
           <h2 class="jr-ch-title" data-pt="Layout" data-en="Layout">Layout</h2>
           <p class="jr-ch-desc" data-pt="A luz revela a forma. Desenhamos as telas e a experiência inteira; você aprova o visual antes de uma única linha de código. Aprovado, o layout é congelado — mudanças futuras exigem renegociação de escopo." data-en="Light reveals the form. We design the screens and the whole experience; you approve the look before a single line of code. Once approved, the layout is frozen — future changes require scope renegotiation.">A luz revela a forma. Desenhamos as telas e a experiência inteira; você aprova o visual antes de uma única linha de código. Aprovado, o layout é congelado — mudanças futuras exigem renegociação de escopo.</p>
-          <div class="jr-ch-tags"><i>UI / UX</i><i>Protótipo</i><i>Congelamento visual</i></div>
+          <div class="jr-ch-tags"><span>UI / UX</span><span>Protótipo</span><span>Congelamento visual</span></div>
         </div>
 
         <div class="jr-chapter" data-ch="2">
-          <div class="jr-ch-meta">
-            <span class="jr-ch-num">FASE 03</span>
-            <span class="jr-ch-time" data-pt="Meio-dia" data-en="Midday">Meio-dia</span>
-          </div>
           <h2 class="jr-ch-title" data-pt="Blueprint" data-en="Blueprint">Blueprint</h2>
           <p class="jr-ch-desc" data-pt="Sol a pino: o plano técnico no auge. Arquitetura, contratos de API e módulos definidos — prazo técnico calculado, não estimado." data-en="High noon: the technical plan at its peak. Architecture, API contracts and modules defined — deadline calculated, not estimated.">Sol a pino: o plano técnico no auge. Arquitetura, contratos de API e módulos definidos — prazo técnico calculado, não estimado.</p>
-          <div class="jr-ch-tags"><i>Arquitetura</i><i>API-First</i><i>Prazo exato</i></div>
+          <div class="jr-ch-tags"><span>Arquitetura</span><span>API-First</span><span>Prazo exato</span></div>
         </div>
 
         <div class="jr-chapter" data-ch="3">
-          <div class="jr-ch-meta">
-            <span class="jr-ch-num">FASE 04</span>
-            <span class="jr-ch-time" data-pt="Tarde" data-en="Afternoon">Tarde</span>
-          </div>
           <h2 class="jr-ch-title" data-pt="Codificação XP" data-en="XP Coding">Codificação XP</h2>
           <p class="jr-ch-desc" data-pt="A tarde rende. Ciclo Red → Green → Refactor: os testes vêm primeiro, depois o código, depois a higiene. IA de alta performance acelera cada onda — cada commit sai limpo e pronto para produção." data-en="The afternoon delivers. Red → Green → Refactor cycle: tests come first, then code, then hygiene. High-performance AI accelerates each wave — every commit ships clean and production-ready.">A tarde rende. Ciclo Red → Green → Refactor: os testes vêm primeiro, depois o código, depois a higiene. IA de alta performance acelera cada onda — cada commit sai limpo e pronto para produção.</p>
-          <div class="jr-ch-tags"><i>TDD</i><i>IA + XP</i><i>Small Releases</i></div>
+          <div class="jr-ch-tags"><span>TDD</span><span>IA + XP</span><span>Small Releases</span></div>
         </div>
 
         <div class="jr-chapter" data-ch="4">
-          <div class="jr-ch-meta">
-            <span class="jr-ch-num">FASE 05</span>
-            <span class="jr-ch-time" data-pt="Pôr do sol" data-en="Sunset">Pôr do sol</span>
-          </div>
           <h2 class="jr-ch-title" data-pt="Homologação" data-en="Homologation">Homologação</h2>
           <p class="jr-ch-desc" data-pt="No fim do dia, a entrega. Smoke test, validação humana de ponta a ponta e deploy automatizado via CI/CD — no ar, testado e gerando impacto." data-en="At day's end, delivery. Smoke test, end-to-end human validation and automated CI/CD deploy — live, tested and making an impact.">No fim do dia, a entrega. Smoke test, validação humana de ponta a ponta e deploy automatizado via CI/CD — no ar, testado e gerando impacto.</p>
-          <div class="jr-ch-tags"><i>Smoke Test</i><i>CI/CD</i><i>Go-live</i></div>
+          <div class="jr-ch-tags"><span>Smoke Test</span><span>CI/CD</span><span>Go-live</span></div>
         </div>
 
       </div>
     </div>
 
     <!-- Trilho -->
-    <div class="jr-rail" id="jrRail" aria-hidden="true">
-      <button class="on" data-go="0"><span class="rlabel">Spec Viva</span><span class="rdot"></span></button>
-      <button data-go="1"><span class="rlabel">Layout</span><span class="rdot"></span></button>
-      <button data-go="2"><span class="rlabel">Blueprint</span><span class="rdot"></span></button>
-      <button data-go="3"><span class="rlabel" data-pt="Codificação XP" data-en="XP Coding">Codificação XP</span><span class="rdot"></span></button>
-      <button data-go="4"><span class="rlabel" data-pt="Homologação" data-en="Homologation">Homologação</span><span class="rdot"></span></button>
-    </div>
+    <nav class="jr-rail" id="jrRail" aria-label="Fases da metodologia">
+      <button class="on" data-go="0" aria-current="true" aria-label="Fase 1: Spec Viva"><span class="rlabel">Spec Viva</span><span class="rdot" aria-hidden="true"></span></button>
+      <button data-go="1" aria-current="false" aria-label="Fase 2: Layout"><span class="rlabel">Layout</span><span class="rdot" aria-hidden="true"></span></button>
+      <button data-go="2" aria-current="false" aria-label="Fase 3: Blueprint"><span class="rlabel">Blueprint</span><span class="rdot" aria-hidden="true"></span></button>
+      <button data-go="3" aria-current="false" aria-label="Fase 4: Codificação XP"><span class="rlabel" data-pt="Codificação XP" data-en="XP Coding">Codificação XP</span><span class="rdot" aria-hidden="true"></span></button>
+      <button data-go="4" aria-current="false" aria-label="Fase 5: Homologação"><span class="rlabel" data-pt="Homologação" data-en="Homologation">Homologação</span><span class="rdot" aria-hidden="true"></span></button>
+    </nav>
 
     <div class="jr-hint" id="jrHint">
       <span data-pt="role para ver o dia passar" data-en="scroll to watch the day pass">role para ver o dia passar</span>
       <svg><use href="#ic-chevron"/></svg>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ FAQ · GESTÃO DE MUDANÇAS ============================ -->
-<section class="section" id="faq">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="eyebrow reveal" data-pt="Perguntas frequentes" data-en="Frequently asked">Perguntas frequentes</span>
-        <h2 class="display reveal d1" style="margin-top:16px" data-pt="Escopo protegido." data-en="Protected scope.">Escopo protegido.</h2>
-      </div>
-      <p class="reveal d2" data-pt="Transparência total sobre como lidamos com mudanças, prazos e imprevistos." data-en="Full transparency on how we handle changes, deadlines and the unexpected.">Transparência total sobre como lidamos com mudanças, prazos e imprevistos.</p>
-    </div>
-
-    <div class="faq-grid">
-      <details class="faq reveal" open>
-        <summary data-pt="E se eu mudar de ideia no meio do projeto?" data-en="What if I change my mind mid-project?">E se eu mudar de ideia no meio do projeto?</summary>
-        <p data-pt="Sem problema — mas com processo. O fluxo retorna à Fase 1: atualizamos a especificação, ajustamos os testes e só depois codificamos. Isso protege o que já foi construído e mantém a qualidade." data-en="No problem — but with process. The flow returns to Phase 1: we update the spec, adjust tests, and only then code. This protects what's already built and keeps quality high.">Sem problema — mas com processo. O fluxo retorna à Fase 1: atualizamos a especificação, ajustamos os testes e só depois codificamos. Isso protege o que já foi construído e mantém a qualidade.</p>
-      </details>
-      <details class="faq reveal d1">
-        <summary data-pt="E se eu quiser mudar o visual depois de aprovado?" data-en="What if I want to change the design after approval?">E se eu quiser mudar o visual depois de aprovado?</summary>
-        <p data-pt="Alterar o layout congelado impacta tabelas e estrutura do sistema. Caracteriza mudança de escopo e exige um aditivo de prazo — sempre com total transparência." data-en="Changing the frozen layout impacts tables and system structure. This is a scope change and requires a deadline addendum — always with full transparency.">Alterar o layout congelado impacta tabelas e estrutura do sistema. Caracteriza mudança de escopo e exige um aditivo de prazo — sempre com total transparência.</p>
-      </details>
-      <details class="faq reveal d2">
-        <summary data-pt="Como os prazos são definidos?" data-en="How are deadlines defined?">Como os prazos são definidos?</summary>
-        <p data-pt="Prazo técnico calculado, não estimado. Somamos o tempo de aprovação visual + peso dos módulos (pequeno, médio, grande) + 2 dias de homologação. Você recebe uma data exata e blindada." data-en="Deadlines are calculated, not estimated. We sum visual approval time + module weight (small, medium, large) + 2 days for homologation. You get an exact, bulletproof date.">Prazo técnico calculado, não estimado. Somamos o tempo de aprovação visual + peso dos módulos (pequeno, médio, grande) + 2 dias de homologação. Você recebe uma data exata e blindada.</p>
-      </details>
-      <details class="faq reveal d3">
-        <summary data-pt="Vocês usam IA no desenvolvimento?" data-en="Do you use AI in development?">Vocês usam IA no desenvolvimento?</summary>
-        <p data-pt="Sim. Operamos com IA de alta performance como acelerador de engenharia — não como substituto. A IA gera testes, sugere código e otimiza, mas toda decisão de arquitetura e qualidade é humana." data-en="Yes. We use high-performance AI as an engineering accelerator — not a replacement. AI generates tests, suggests code and optimizes, but every architecture and quality decision is human.">Sim. Operamos com IA de alta performance como acelerador de engenharia — não como substituto. A IA gera testes, sugere código e otimiza, mas toda decisão de arquitetura e qualidade é humana.</p>
-      </details>
     </div>
   </div>
 </section>
@@ -672,8 +618,8 @@
 </div>
 
 <script src="js/image-slot.js"></script>
-<script src="js/app.js"></script>
-<script src="js/journey.js"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/journey.js?v=2"></script>
 
 <!-- Tweaks (React island) — dev-only, remover em produção -->
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>

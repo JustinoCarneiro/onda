@@ -4,6 +4,14 @@
 (function () {
   'use strict';
 
+  /* ---------- Cards de serviço: injetar fill para efeito hover ---------- */
+  document.querySelectorAll('.svc').forEach(function (svc) {
+    var fill = document.createElement('div');
+    fill.className = 'svc-fill';
+    fill.setAttribute('aria-hidden', 'true');
+    svc.insertBefore(fill, svc.firstChild);
+  });
+
   /* ---------- Nav: estado ao rolar ---------- */
   var nav = document.getElementById('nav');
   function onScroll() {
@@ -129,7 +137,7 @@
     var W = 0, H = 0, grains = [];
     var mouse = { x: -9999, y: -9999, active: false };
     var RADIUS = 140;     // raio de influência do cursor
-    var raf = null, idleStop = false;
+    var raf = null;
 
     function rand(a, b) { return a + Math.random() * (b - a); }
 
