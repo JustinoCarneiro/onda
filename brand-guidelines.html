@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Onda · Sistema de Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sand:#F3ECDC; --sand-deep:#EAE0CB; --card:#FCF8EE; --card-2:#F6EEDC;
+    --ink:#0E2A33; --ink-soft:#4C636A; --ink-faint:#8A989B;
+    --ocean:#0E3F52; --ocean-2:#15596E; --sky:#B7DCE3; --sea:#1B8C84;
+    --turq:#14A8A0; --turq-bright:#1AC6B6;
+    --sun:#F2B015; --terra:#DA6A32; --coral:#E07C61; --moss:#3C7A4E; --cobalt:#244C86;
+    --line:#DCD2BC; --line-soft:#E6DDC9;
+    --display:'Instrument Serif',Georgia,serif;
+    --body:'Plus Jakarta Sans',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  @page{ size:A4; margin:0; }
+  html{ font-size:10.5px; }
+  body{ font-family:var(--body); color:var(--ink); line-height:1.6; background:#fff; }
+
+  .page{
+    position:relative; width:210mm; min-height:297mm; padding:20mm 18mm;
+    background:var(--sand); overflow:hidden; page-break-after:always;
+    display:flex; flex-direction:column;
+  }
+  .page:last-child{ page-break-after:auto; }
+  .page.dark{ background:var(--ocean); color:#fff; }
+
+  /* film grain overlay */
+  .page::after{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.30; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    background-size:180px 180px; z-index:0;
+  }
+  .page.dark::after{ mix-blend-mode:soft-light; opacity:.25; }
+  .page > *{ position:relative; z-index:1; }
+
+  h1,h2,h3,h4,.serif{ font-family:var(--display); font-weight:400; letter-spacing:-.012em; }
+  .eyebrow{ font-size:11px; letter-spacing:.26em; text-transform:uppercase; font-weight:600;
+    color:var(--turq); display:inline-flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .eyebrow::before{ content:""; width:26px; height:2px; background:var(--turq); border-radius:2px; }
+  .dark .eyebrow{ color:var(--turq-bright); } .dark .eyebrow::before{ background:var(--turq-bright); }
+
+  .sec-title{ font-size:42px; line-height:1; margin-bottom:10px; }
+  .lead{ color:var(--ink-soft); max-width:62ch; font-size:13px; }
+  .dark .lead{ color:rgba(255,255,255,.8); }
+  .pgnum{ position:absolute; bottom:12mm; right:18mm; font-size:10px; color:var(--ink-faint); letter-spacing:.1em; z-index:1; }
+  .ital{ font-style:italic; color:var(--turq); }
+
+  /* ---- COVER ---- */
+  .cover{ justify-content:center; }
+  .cover .wave{ position:absolute; left:0; right:0; bottom:0; height:46%;
+    background:linear-gradient(180deg, var(--ocean) 0%, #0a2c3a 100%); z-index:0; }
+  .cover .sun{ position:absolute; right:-60px; top:60px; width:280px; height:280px; border-radius:50%;
+    background:radial-gradient(circle, #F7D27A 0%, #F2B015 45%, transparent 70%); opacity:.85; z-index:0; }
+  .cover-inner{ position:relative; z-index:2; }
+  .cover .brand{ font-family:var(--display); font-size:96px; line-height:1; }
+  .cover .brand .dot{ color:var(--turq); }
+  .cover h1{ font-size:54px; line-height:1.02; margin:26px 0 16px; max-width:14ch; }
+  .cover .sub{ color:var(--ink-soft); font-size:14px; max-width:52ch; }
+  .cover .meta{ position:absolute; left:18mm; bottom:16mm; z-index:2; color:rgba(255,255,255,.85);
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+  .cover .meta b{ color:var(--turq-bright); }
+  .strokebar{ height:6px; width:200px; border-radius:6px; margin-top:30px;
+    background:linear-gradient(90deg,#244C86,#3C7A4E,#D9663A,#F2B015,#14A8A0); }
+
+  /* ---- generic blocks ---- */
+  .block{ margin-top:22px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .note{ background:var(--card); border:1px solid var(--line-soft); border-radius:14px; padding:16px 18px; }
+  .note h4{ font-size:17px; margin-bottom:6px; }
+  .note p{ font-size:12px; color:var(--ink-soft); }
+
+  /* pillars */
+  .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px; }
+  .pillar{ background:var(--card); border:1px solid var(--line-soft); border-radius:18px; padding:20px;
+    box-shadow:0 18px 40px -28px rgba(14,42,51,.45); }
+  .pillar .pn{ font-family:var(--display); font-size:34px; color:var(--turq); line-height:1; }
+  .pillar h4{ font-size:20px; margin:8px 0 6px; }
+  .pillar p{ font-size:11.5px; color:var(--ink-soft); }
+
+  .keywords{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .keywords span{ font-size:11px; padding:6px 13px; border-radius:100px; background:var(--card-2);
+    border:1px solid var(--line); color:var(--ink-soft); }
+
+  /* ---- swatches ---- */
+  .swatches{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .sw{ }
+  .sw .chip{ height:62px; border-radius:12px; border:1px solid rgba(0,0,0,.06); box-shadow:0 8px 18px -12px rgba(14,42,51,.4); }
+  .sw .nm{ font-weight:700; font-size:11px; margin-top:7px; }
+  .sw .hx{ font-family:ui-monospace,Menlo,monospace; font-size:10.5px; color:var(--ink-faint); }
+  .sw .role{ font-size:10px; color:var(--ink-soft); }
+  .star{ color:var(--turq); }
+
+  .paletteStrip{ display:flex; height:40px; border-radius:10px; overflow:hidden; margin-top:6px;
+    box-shadow:0 10px 24px -16px rgba(14,42,51,.5); }
+  .paletteStrip i{ flex:1; }
+  .mono{ font-family:ui-monospace,Menlo,monospace; font-size:10px; }
+
+  .miniswatch{ display:flex; gap:6px; flex-wrap:wrap; }
+  .miniswatch .m{ display:flex; align-items:center; gap:6px; font-size:10.5px; }
+  .miniswatch .m i{ width:16px; height:16px; border-radius:4px; display:inline-block; border:1px solid rgba(0,0,0,.08); }
+
+  table{ width:100%; border-collapse:collapse; font-size:11px; margin-top:6px; }
+  th,td{ text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-faint); font-weight:700; }
+  td .dotc{ width:13px;height:13px;border-radius:50%;display:inline-block;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.08); }
+
+  /* ---- typography specimens ---- */
+  .spec{ background:var(--card); border:1px solid var(--line-soft); border-radius:16px; padding:18px 20px; }
+  .spec .big{ font-family:var(--display); line-height:.98; color:var(--ink); }
+  .spec .tag{ font-size:10px; color:var(--ink-faint); font-family:ui-monospace,monospace; }
+  .specrow{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px dashed var(--line); }
+  .specrow:last-child{ border-bottom:0; }
+
+  /* ---- icons ---- */
+  .iconwall{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+  .ic{ background:var(--card); border:1px solid var(--line-soft); border-radius:16px; padding:16px 10px;
+    text-align:center; }
+  .ic svg{ width:34px; height:34px; color:var(--ocean); }
+  .ic .lab{ font-size:9.5px; color:var(--ink-soft); margin-top:8px; }
+  .ic.brand svg{ color:#25D366; }
+  .dodont{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  .do,.dont{ border-radius:14px; padding:14px 16px; font-size:11px; }
+  .do{ background:#E7F4F0; border:1px solid #Bfe3da; } .do b{ color:var(--moss); }
+  .dont{ background:#FBEBE6; border:1px solid #F0CFC4; } .dont b{ color:var(--terra); }
+  .do ul,.dont ul{ margin:6px 0 0 16px; } .do li,.dont li{ margin:2px 0; }
+
+  /* ---- components ---- */
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600;
+    padding:12px 22px; border-radius:100px; background:var(--turq); color:#fff;
+    box-shadow:0 10px 22px -12px rgba(20,168,160,.8); }
+  .btn svg{ width:14px; height:14px; }
+  .btn.ink{ background:var(--ocean); box-shadow:0 10px 22px -14px var(--ocean); }
+  .btn.ghost{ background:transparent; color:var(--ink); box-shadow:inset 0 0 0 1.5px var(--line); }
+  .demorow{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+
+  .svccard{ background:var(--card); border:1px solid var(--line-soft); border-radius:22px; padding:20px;
+    box-shadow:0 18px 40px -28px rgba(14,42,51,.45); position:relative; overflow:hidden; }
+  .svccard .num{ font-family:var(--display); font-size:16px; color:var(--ink-faint); }
+  .svccard h4{ font-size:22px; margin:12px 0 6px; }
+  .svccard p{ font-size:11px; color:var(--ink-soft); }
+  .svccard .tags{ display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
+  .svccard .tags i{ font-style:normal; font-size:10px; color:var(--ink-faint);
+    box-shadow:inset 0 0 0 1.2px var(--line); padding:3px 9px; border-radius:100px; }
+  .svccard .mark{ position:absolute; top:18px; right:18px; width:30px; height:30px; color:var(--turq); }
+
+  .chips{ display:flex; gap:7px; flex-wrap:wrap; }
+  .chips .c{ font-size:11px; padding:7px 15px; border-radius:100px; box-shadow:inset 0 0 0 1.5px var(--line); color:var(--ink-soft); }
+  .chips .c.active{ background:var(--ink); color:var(--sand); box-shadow:none; }
+
+  .shadowdemo{ display:flex; gap:16px; }
+  .shadowdemo .s{ flex:1; height:80px; background:var(--card); border-radius:18px; border:1px solid var(--line-soft);
+    display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--ink-faint); }
+  .s.soft{ box-shadow:0 18px 40px -28px rgba(14,42,51,.45); }
+  .s.float{ box-shadow:0 30px 60px -34px rgba(14,42,51,.55); }
+
+  .radiusdemo{ display:flex; gap:14px; align-items:flex-end; }
+  .radiusdemo .r{ background:var(--ocean); color:#fff; font-size:9px; display:flex; align-items:flex-end;
+    justify-content:center; padding:6px; }
+  .glassdemo{ height:90px; border-radius:16px; position:relative; overflow:hidden;
+    background:linear-gradient(135deg,#15596E,#14A8A0); display:flex; align-items:center; justify-content:center; }
+  .glassdemo .g{ background:rgba(255,255,255,.42); border:1px solid rgba(255,255,255,.55);
+    backdrop-filter:blur(8px); padding:8px 14px; border-radius:100px; font-size:11px; color:#06303a; font-weight:600; }
+
+  .cheat{ background:var(--ocean); color:#fff; border-radius:18px; padding:22px 24px; font-family:ui-monospace,Menlo,monospace; font-size:11px; line-height:1.9; }
+  .cheat b{ color:var(--turq-bright); }
+  .footnote{ margin-top:auto; font-size:10px; color:var(--ink-faint); padding-top:18px; }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<section class="page cover">
+  <div class="sun"></div>
+  <div class="wave"></div>
+  <div class="cover-inner">
+    <div class="brand">Onda<span class="dot">.</span></div>
+    <h1>Sistema de Design <span class="ital">&amp; Iconografia</span></h1>
+    <p class="sub">Guia de marca para criação de artes, conceitos e peças em qualquer
+    plataforma. Tudo extraído da identidade real do produto — tipografia, cor, ícones,
+    textura e movimento.</p>
+    <div class="strokebar"></div>
+  </div>
+  <div class="meta">Estúdio de Produtos Digitais · <b>Fortaleza · Ceará · Brasil</b><br/>Versão 1.0 — Junho/2026</div>
+</section>
+
+<!-- ============ ESSÊNCIA ============ -->
+<section class="page">
+  <span class="eyebrow">01 · A marca</span>
+  <h2 class="sec-title">Tecnologia com <span class="ital">sotaque de mar.</span></h2>
+  <p class="lead">O conceito visual é <b>“Tropical Tech”</b>: a <i>Marinha</i> de Aldemir Martins
+  traduzida para interface. Alta tecnologia que não é fria — traz o calor, a organicidade e a luz
+  do litoral cearense para dentro do software. A narrativa-guia é <b>“do nascer ao pôr do sol”</b>.</p>
+
+  <div class="block">
+    <div class="pillars">
+      <div class="pillar"><div class="pn">01</div><h4>Fluido</h4><p>Sem atrito, natural como a água. Curvas orgânicas, transições suaves, ritmo.</p></div>
+      <div class="pillar"><div class="pn">02</div><h4>Belo</h4><p>Interfaces hipnóticas. Serifa elegante, paleta quente, textura de tela.</p></div>
+      <div class="pillar"><div class="pn">03</div><h4>Impactante</h4><p>Gera força e resultado. Cor de destaque vibrante, contraste, CTA claro.</p></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="eyebrow">Palavras-chave estéticas</span>
+    <div class="keywords">
+      <span>maré</span><span>litoral</span><span>do nascer ao pôr do sol</span><span>formas orgânicas</span>
+      <span>pinceladas</span><span>squircles flutuantes</span><span>areia + oceano + turquesa</span>
+      <span>grão de tela</span><span>calor</span><span>jangada</span><span>horizonte</span>
+    </div>
+  </div>
+
+  <div class="block grid2">
+    <div class="note"><h4>Logotipo</h4><p>Wordmark <b>“Onda.”</b> em Instrument Serif (400). O ponto é sempre
+    turquesa. Sobre fundo escuro, texto branco + ponto turquesa. Respiro mínimo = altura do “O”.
+    Nunca aplicar contorno, sombra dura ou gradiente.</p></div>
+    <div class="note"><h4>Narrativa</h4><p>A jornada de um projeto é contada como o passar de um dia —
+    5 fases do amanhecer ao entardecer. Use essa metáfora solar/temporal em campanhas, storyboards e
+    transições (luz nascendo à esquerda, se pondo à direita).</p></div>
+  </div>
+  <div class="pgnum">Onda · Design System — 02</div>
+</section>
+
+<!-- ============ COR (clara) ============ -->
+<section class="page">
+  <span class="eyebrow">02 · Cor</span>
+  <h2 class="sec-title">Maré Clara <span style="font-size:18px;color:var(--ink-faint)">— tema padrão</span></h2>
+  <p class="lead">Hierarquia: areia (fundo) → ink (texto) → <span class="star">turquesa</span> (1 ação por tela).
+  Oceano para grandes blocos sólidos. Acentos quentes em pequenas doses. <span class="star">★</span> = institucional / ação.</p>
+
+  <div class="block swatches">
+    <div class="sw"><div class="chip" style="background:#F3ECDC"></div><div class="nm">Areia</div><div class="hx">#F3ECDC</div><div class="role">Fundo principal</div></div>
+    <div class="sw"><div class="chip" style="background:#EAE0CB"></div><div class="nm">Areia profunda</div><div class="hx">#EAE0CB</div><div class="role">Seção alternada</div></div>
+    <div class="sw"><div class="chip" style="background:#FCF8EE"></div><div class="nm">Card</div><div class="hx">#FCF8EE</div><div class="role">Superfícies</div></div>
+    <div class="sw"><div class="chip" style="background:#0E2A33"></div><div class="nm">Ink</div><div class="hx">#0E2A33</div><div class="role">Texto principal</div></div>
+
+    <div class="sw"><div class="chip" style="background:#4C636A"></div><div class="nm">Ink soft</div><div class="hx">#4C636A</div><div class="role">Texto secundário</div></div>
+    <div class="sw"><div class="chip" style="background:#8A989B"></div><div class="nm">Ink faint</div><div class="hx">#8A989B</div><div class="role">Legendas</div></div>
+    <div class="sw"><div class="chip" style="background:#0E3F52"></div><div class="nm star">★ Oceano</div><div class="hx">#0E3F52</div><div class="role">Cor institucional</div></div>
+    <div class="sw"><div class="chip" style="background:#15596E"></div><div class="nm">Oceano 2</div><div class="hx">#15596E</div><div class="role">Mar médio</div></div>
+
+    <div class="sw"><div class="chip" style="background:#14A8A0"></div><div class="nm star">★ Turquesa</div><div class="hx">#14A8A0</div><div class="role">Ação / CTA</div></div>
+    <div class="sw"><div class="chip" style="background:#1AC6B6"></div><div class="nm">Turquesa bright</div><div class="hx">#1AC6B6</div><div class="role">Hover / detalhe</div></div>
+    <div class="sw"><div class="chip" style="background:#B7DCE3"></div><div class="nm">Céu</div><div class="hx">#B7DCE3</div><div class="role">Céu claro</div></div>
+    <div class="sw"><div class="chip" style="background:#1B8C84"></div><div class="nm">Mar</div><div class="hx">#1B8C84</div><div class="role">Faixa de mar</div></div>
+
+    <div class="sw"><div class="chip" style="background:#F2B015"></div><div class="nm">Sol</div><div class="hx">#F2B015</div><div class="role">Acento quente</div></div>
+    <div class="sw"><div class="chip" style="background:#DA6A32"></div><div class="nm">Terra</div><div class="hx">#DA6A32</div><div class="role">Duna</div></div>
+    <div class="sw"><div class="chip" style="background:#E07C61"></div><div class="nm">Coral</div><div class="hx">#E07C61</div><div class="role">Detalhe</div></div>
+    <div class="sw"><div class="chip" style="background:#3C7A4E"></div><div class="nm">Musgo</div><div class="hx">#3C7A4E</div><div class="role">Capim</div></div>
+  </div>
+
+  <div class="block grid2">
+    <div>
+      <span class="eyebrow">Paleta “Marinha” (apoio p/ ilustração)</span>
+      <div class="paletteStrip">
+        <i style="background:#274472"></i><i style="background:#7B5283"></i><i style="background:#C16A6B"></i>
+        <i style="background:#E68A4A"></i><i style="background:#F4B64A"></i><i style="background:#1F8980"></i><i style="background:#C9893A"></i>
+      </div>
+      <div class="mono" style="margin-top:6px;color:var(--ink-faint)">274472 · 7B5283 · C16A6B · E68A4A · F4B64A · 1F8980 · C9893A</div>
+    </div>
+    <div>
+      <span class="eyebrow">Gradiente pincelada-assinatura</span>
+      <div class="paletteStrip" style="background:linear-gradient(90deg,#244C86,#3C7A4E,#D9663A,#F2B015,#14A8A0)"></div>
+      <div class="mono" style="margin-top:6px;color:var(--ink-faint)">244C86 → 3C7A4E → D9663A → F2B015 → 14A8A0</div>
+    </div>
+  </div>
+  <div class="pgnum">Onda · Design System — 03</div>
+</section>
+
+<!-- ============ COR (temas + serviços) ============ -->
+<section class="page">
+  <span class="eyebrow">02 · Cor — temas alternativos</span>
+  <h2 class="sec-title">Maré Noite, Tela &amp; categorias</h2>
+  <p class="lead">A marca tem 3 modos. Trabalhe primariamente na Maré Clara; Noite (dark) e Tela
+  (pictórico) são variações. Cada categoria de serviço tem uma cor-assinatura própria.</p>
+
+  <div class="block grid2">
+    <div class="note" style="background:#07242F;border-color:#123;color:#EAF2EE">
+      <h4 style="color:#fff">Maré Noite (dark)</h4>
+      <div class="miniswatch" style="margin-top:10px">
+        <div class="m" style="color:#cfe">&nbsp;<i style="background:#07242F"></i> Areia 07242F</div>
+        <div class="m" style="color:#cfe">&nbsp;<i style="background:#0C3140"></i> Card 0C3140</div>
+        <div class="m" style="color:#cfe">&nbsp;<i style="background:#EAF2EE"></i> Ink EAF2EE</div>
+        <div class="m" style="color:#cfe">&nbsp;<i style="background:#114F62"></i> Oceano2 114F62</div>
+        <div class="m" style="color:#cfe">&nbsp;<i style="background:#14A8A0"></i> Turquesa (mantém)</div>
+      </div>
+    </div>
+    <div class="note" style="background:#ECE2CB">
+      <h4 style="color:#2A2014">Tela (pictórico)</h4>
+      <div class="miniswatch" style="margin-top:10px;color:#2A2014">
+        <div class="m"><i style="background:#ECE2CB"></i> Areia ECE2CB</div>
+        <div class="m"><i style="background:#F6EFDD"></i> Card F6EFDD</div>
+        <div class="m"><i style="background:#2A2014"></i> Ink 2A2014</div>
+        <div class="m"><i style="background:#DA6A32"></i> Ação = Terra</div>
+        <div class="m"><i style="background:#F2B015"></i> Acento = Sol</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="eyebrow">Cores-assinatura por serviço</span>
+    <table>
+      <tr><th>Serviço</th><th>Cor</th><th>Hex</th></tr>
+      <tr><td>Produtos &amp; SaaS</td><td><span class="dotc" style="background:#0E3F52"></span>Oceano</td><td class="mono">#0E3F52</td></tr>
+      <tr><td>Apps mobile</td><td><span class="dotc" style="background:#14A8A0"></span>Turquesa</td><td class="mono">#14A8A0</td></tr>
+      <tr><td>Sites &amp; Landing</td><td><span class="dotc" style="background:#DA6A32"></span>Terra</td><td class="mono">#DA6A32</td></tr>
+      <tr><td>Design &amp; Branding</td><td><span class="dotc" style="background:#244C86"></span>Cobalto</td><td class="mono">#244C86</td></tr>
+      <tr><td>E-commerce</td><td><span class="dotc" style="background:#3C7A4E"></span>Musgo</td><td class="mono">#3C7A4E</td></tr>
+      <tr><td>Automação</td><td><span class="dotc" style="background:#F2B015"></span>Sol</td><td class="mono">#F2B015</td></tr>
+      <tr><td>Consultoria</td><td><span class="dotc" style="background:#E07C61"></span>Coral</td><td class="mono">#E07C61</td></tr>
+    </table>
+  </div>
+  <div class="pgnum">Onda · Design System — 04</div>
+</section>
+
+<!-- ============ TIPOGRAFIA ============ -->
+<section class="page">
+  <span class="eyebrow">03 · Tipografia</span>
+  <h2 class="sec-title">Serifa elegante <span class="ital">+</span> sans humanista</h2>
+  <p class="lead">O par tipográfico é a assinatura da marca: <b>Instrument Serif</b> para títulos e
+  <b>Plus Jakarta Sans</b> para corpo/UI. Ambas no Google Fonts. Mantenha sempre essa dupla.</p>
+
+  <div class="block grid2">
+    <div class="spec">
+      <div class="tag">Display · Instrument Serif 400</div>
+      <div class="big" style="font-size:56px">Aa Bb Cc</div>
+      <div class="big" style="font-size:30px; font-style:italic; color:var(--turq)">softwares fluidos.</div>
+      <p style="font-size:10.5px;color:var(--ink-faint);margin-top:8px">Itálico = destaque da palavra-chave no título. Tracking −0.012 a −0.022em.</p>
+    </div>
+    <div class="spec">
+      <div class="tag">Corpo · Plus Jakarta Sans</div>
+      <div style="font-weight:800;font-size:18px">800 Extra-bold</div>
+      <div style="font-weight:600;font-size:15px">600 Semibold</div>
+      <div style="font-weight:500;font-size:14px">500 Medium</div>
+      <div style="font-weight:400;font-size:13px">400 Regular — corpo 17px, line-height 1.62</div>
+    </div>
+  </div>
+
+  <div class="block spec">
+    <div class="tag" style="margin-bottom:6px">Escala fluida — clamp(min, vw, max)</div>
+    <div class="specrow"><span class="big" style="font-size:40px">Display gigante</span><span class="tag">72 → 232px</span></div>
+    <div class="specrow"><span class="big" style="font-size:30px">Título de seção</span><span class="tag">36 → 78px</span></div>
+    <div class="specrow"><span class="big" style="font-size:22px">Título de card</span><span class="tag">~29px</span></div>
+    <div class="specrow"><span style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--turq)">— Eyebrow / rótulo</span><span class="tag">12–13px · tracking .2–.3em</span></div>
+    <div class="specrow"><span style="font-size:13px;color:var(--ink-soft)">Corpo de texto padrão</span><span class="tag">15–20px · lh 1.62</span></div>
+  </div>
+  <div class="pgnum">Onda · Design System — 05</div>
+</section>
+
+<!-- ============ ICONOGRAFIA ============ -->
+<section class="page">
+  <span class="eyebrow">04 · Iconografia</span>
+  <h2 class="sec-title">Linear, leve <span class="ital">e</span> arredondada</h2>
+  <p class="lead">Grid 24×24 · contorno (line), sem preenchimento · traço 1.6–2.2px · terminações
+  arredondadas · <span class="mono">currentColor</span>. Metáforas náuticas e litorâneas. Exceção:
+  logos de terceiros (WhatsApp) são preenchidos.</p>
+
+  <div class="block iconwall">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="lab">Seta / CTA</div></div>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg><div class="lab">Link externo</div></div>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg><div class="lab">Chevron</div></div>
+    <div class="ic brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.46 0 9.91-4.45 9.91-9.91a9.85 9.85 0 0 0-2.9-7.02zM12.04 20.15a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg><div class="lab">WhatsApp (fill)</div></div>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 9h18" stroke-linecap="round"/><path d="M8 21h8M12 18v3" stroke-linecap="round"/></svg><div class="lab">Monitor</div></div>
+
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2" stroke-linecap="round"/></svg><div class="lab">Smartphone</div></div>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c4-7 14-7 18 0-4 7-14 7-18 0Z"/><circle cx="12" cy="12" r="3"/></svg><div class="lab">Visão</div></div>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a14 14 0 0 0 0 18M12 3a14 14 0 0 1 0 18M3.5 9h17M3.5 15h17" stroke-linecap="round"/></svg><div class="lab">Globo</div></div>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7h14l-1.5 11.5A2 2 0 0 1 15.5 20h-7a2 2 0 0 1-2-1.5L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0" stroke-linecap="round"/></svg><div class="lab">Sacola</div></div>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2"/></svg><div class="lab">Sol radiante</div></div>
+  </div>
+
+  <div class="dodont">
+    <div class="do"><b>FAÇA</b><ul>
+      <li>Cantos sempre arredondados (linejoin round)</li>
+      <li>Traço uniforme em todo o ícone</li>
+      <li>Curvas orgânicas (ondas, dunas, velas)</li>
+      <li>Alinhe ao grid de 24px, ~2px de margem</li>
+    </ul></div>
+    <div class="dont"><b>NÃO FAÇA</b><ul>
+      <li>Ícones preenchidos (exceto logos de terceiros)</li>
+      <li>Misturar line + glyph na mesma peça</li>
+      <li>Sombra, gradiente ou 3D</li>
+      <li>Traço &lt;1.4px ou &gt;2.4px</li>
+    </ul></div>
+  </div>
+  <div class="pgnum">Onda · Design System — 06</div>
+</section>
+
+<!-- ============ LAYOUT / SOMBRA / RAIO ============ -->
+<section class="page">
+  <span class="eyebrow">05 · Layout, forma &amp; elevação</span>
+  <h2 class="sec-title">Cantos generosos, sombra de sol</h2>
+  <p class="lead">Conteúdo até 1280px, margem fluida 20→76px. Preferência por “squircles flutuantes”.
+  Sombras suaves, azuladas e direcionadas para baixo — luz natural.</p>
+
+  <div class="block grid2">
+    <div class="note"><h4>Raios de canto</h4>
+      <div class="radiusdemo" style="margin-top:12px">
+        <div class="r" style="width:70px;height:70px;border-radius:30px">Card 30px</div>
+        <div class="r" style="width:120px;height:40px;border-radius:100px">Pílula 100px</div>
+        <div class="r" style="width:60px;height:60px;border-radius:14px">14px</div>
+      </div>
+    </div>
+    <div class="note"><h4>Grid &amp; espaçamento</h4>
+      <table style="margin-top:4px">
+        <tr><td>Largura máx.</td><td class="mono">1280px</td></tr>
+        <tr><td>Gutter</td><td class="mono">20 → 76px</td></tr>
+        <tr><td>Pad. de seção</td><td class="mono">74 → 156px</td></tr>
+        <tr><td>Grid serviços</td><td class="mono">bento 6 col</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="eyebrow">Elevação</span>
+    <div class="shadowdemo">
+      <div class="s soft">shadow-soft · repouso</div>
+      <div class="s float">shadow-float · hover / flutuante</div>
+    </div>
+    <p style="font-size:10.5px;color:var(--ink-faint);margin-top:8px" class="mono">
+      soft: 0 18px 40px -28px rgba(14,42,51,.45) &nbsp;·&nbsp; float: 0 30px 60px -34px rgba(14,42,51,.55)</p>
+  </div>
+
+  <div class="block grid2">
+    <div>
+      <span class="eyebrow">Vidro (glass)</span>
+      <div class="glassdemo"><div class="g">badge translúcido</div></div>
+    </div>
+    <div class="note"><h4>Textura de tela</h4><p>Grão de filme (ruído fractal) sobre tudo, ~30–42% no
+      claro, blend multiply. Em artes, aplique 5–15% de grão para o toque autoral. Pinceladas sinuosas
+      separam seções com o gradiente da paleta marinha.</p></div>
+  </div>
+  <div class="pgnum">Onda · Design System — 07</div>
+</section>
+
+<!-- ============ COMPONENTES + MOVIMENTO ============ -->
+<section class="page">
+  <span class="eyebrow">06 · Componentes &amp; movimento</span>
+  <h2 class="sec-title">Peças do sistema</h2>
+
+  <div class="block">
+    <span class="eyebrow">Botões</span>
+    <div class="demorow">
+      <span class="btn">Vamos conversar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <span class="btn ink">Botão oceano</span>
+      <span class="btn ghost">Botão contorno</span>
+    </div>
+  </div>
+
+  <div class="block grid2">
+    <div class="svccard">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 9h18" stroke-linecap="round"/><path d="M8 21h8M12 18v3" stroke-linecap="round"/></svg>
+      <div class="num">01</div>
+      <h4>Produtos &amp; SaaS</h4>
+      <p>Cartão com numeração serifada, ícone de linha, título e tags em pílula. Hover faz a cor-assinatura subir.</p>
+      <div class="tags"><i>Discovery</i><i>Arquitetura</i><i>MVP</i></div>
+    </div>
+    <div>
+      <span class="eyebrow">Chips / filtros</span>
+      <div class="chips" style="margin-bottom:16px">
+        <span class="c active">Todos</span><span class="c">Sistemas</span><span class="c">Sites &amp; LP</span>
+      </div>
+      <span class="eyebrow">Badge sobre imagem</span>
+      <div class="glassdemo" style="height:60px"><div class="g">● Sistema Web</div></div>
+    </div>
+  </div>
+
+  <div class="block note">
+    <h4>Princípios de movimento</h4>
+    <table style="margin-top:4px">
+      <tr><td>Curva padrão</td><td class="mono">cubic-bezier(.2,.7,.2,1) — “deslizante como água”</td></tr>
+      <tr><td>Reveal ao rolar</td><td>sobe 28px + fade 1s, em cascata</td></tr>
+      <tr><td>Hover de card</td><td>sobe 6px + flood da cor de baixo p/ cima (0.5s)</td></tr>
+      <tr><td>Direção da luz</td><td>nascer (esq./baixo) → pôr do sol (dir.)</td></tr>
+      <tr><td>Acessibilidade</td><td>tudo desliga com prefers-reduced-motion</td></tr>
+    </table>
+  </div>
+  <div class="pgnum">Onda · Design System — 08</div>
+</section>
+
+<!-- ============ VOZ / ARTE / A11Y ============ -->
+<section class="page">
+  <span class="eyebrow">07 · Conteúdo, arte &amp; acessibilidade</span>
+  <h2 class="sec-title">Tom de voz <span class="ital">litorâneo</span></h2>
+
+  <div class="block grid2">
+    <div class="note"><h4>Voz &amp; idioma</h4><p><b>Bilíngue</b> PT-BR (padrão) + EN em toda peça-chave.
+      Tom caloroso, confiante, com metáforas de <b>mar, maré, onda, navegação, jangada, horizonte</b>.
+      Ex.: “Sua próxima <i>onda</i> começa aqui”, “anos de mar aberto”. Direto, humano, técnico quando preciso.</p></div>
+    <div class="note"><h4>Direção de arte</h4><p>Inspiração central: a <i>Marinha</i> de Aldemir Martins —
+      mar, jangadas, dunas, sol, horizonte cearense em pinceladas quentes. Preferir ilustração estilizada
+      a foto de banco. Emoldurar artes como quadro levemente girado.</p></div>
+  </div>
+
+  <div class="block note">
+    <h4>Acessibilidade (obrigatório)</h4>
+    <p style="margin-top:4px">• Contraste mínimo <b>AA</b> (texto ≥ 4.5:1, grande ≥ 3:1). &nbsp;
+      • Nunca comunicar só por cor — use ícone/rótulo. &nbsp; • Áreas de toque ≥ 44×44px. &nbsp;
+      • Sempre prever versão estática para movimento.</p>
+  </div>
+
+  <div class="block">
+    <span class="eyebrow">Referência rápida</span>
+    <div class="cheat">
+COR INSTITUCIONAL  <b>Oceano   #0E3F52</b><br/>
+COR DE AÇÃO / CTA  <b>Turquesa #14A8A0</b>  (hover #1AC6B6)<br/>
+ACENTO QUENTE      <b>Sol      #F2B015</b><br/>
+FUNDO  Areia #F3ECDC   ·   TEXTO  Ink #0E2A33<br/>
+<br/>
+DISPLAY  Instrument Serif (400), itálico p/ destaque<br/>
+CORPO    Plus Jakarta Sans (400–800), 17px / lh 1.62<br/>
+RAIO     Card 30px · Pílula 100px&nbsp;&nbsp;·&nbsp;&nbsp;GUTTER 20→76px<br/>
+ÍCONES   line · grid 24px · traço 1.6–2.2 · cantos redondos<br/>
+CURVA    cubic-bezier(.2,.7,.2,1)<br/>
+NARRATIVA  do nascer ao pôr do sol · maré · litoral cearense
+    </div>
+  </div>
+
+  <div class="footnote">Onda · Estúdio de Produtos Digitais — Fortaleza, Ceará · Sistema de Design v1.0 (Jun/2026).
+    Manter coerência com <span class="mono">css/styles.css</span>. Versionar a cada mudança de marca.</div>
+  <div class="pgnum">Onda · Design System — 09</div>
+</section>
+
+</body>
+</html>
