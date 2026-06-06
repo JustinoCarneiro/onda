@@ -5,7 +5,8 @@
 > artes, posts, apresentações, peças impressas e conceitos em qualquer plataforma
 > (Figma, Illustrator, Canva, Photoshop, etc.).
 
-**Versão:** 1.0 · **Atualizado:** Junho/2026 · **Origem:** `css/styles.css`, `css/journey.css`
+**Versão:** 1.1 · **Atualizado:** Junho/2026 · **Origem:** `css/styles.css`, `css/journey.css`
+· Posicionamento de marca: ver [BRANDING.md](BRANDING.md).
 
 ---
 
@@ -17,20 +18,25 @@ O conceito visual é **"Tropical Tech"**: a *Marinha* de Aldemir Martins (escola
 pintura) traduzida para interface digital. Alta tecnologia que **não é fria** — traz o calor,
 a organicidade e a luz do litoral nordestino para dentro do software.
 
-### Três pilares (use como guia de tom em qualquer peça)
-| Pilar | Significado | Tradução visual |
+### Os três pilares (ver [BRANDING.md](BRANDING.md))
+A marca mantém os três termos, cada um com um **domínio**: **Belo** no design, **Fluido** nas
+funcionalidades, **Impactante** na segurança. No visual, eles se traduzem em:
+
+| Pilar | Domínio | Tradução visual |
 |---|---|---|
-| **Fluido** | Sem atrito, natural como a água | Curvas orgânicas, transições suaves, ritmo |
-| **Belo** | Interfaces hipnóticas | Tipografia serifada elegante, paleta quente, textura |
-| **Impactante** | Gera força e resultado | Cor de destaque vibrante, contraste, CTAs claros |
+| **Belo** | Design | Tipografia serifada elegante, paleta quente, textura, hierarquia clara |
+| **Fluido** | Funcionalidades (a solução funciona) | Layout sem atrito, transições suaves, legibilidade, ritmo |
+| **Impactante** | Segurança | Clareza, precisão e sinais de confiança — solidez que sustenta o impacto |
 
 ### Palavras-chave estéticas
-Maré · litoral · luz do amanhecer ao pôr do sol · formas orgânicas · pinceladas ·
-squircles flutuantes · areia + oceano + turquesa · grão de tela · calor.
+Litoral · luz quente · formas orgânicas · pinceladas · squircles · areia + oceano + turquesa ·
+grão de tela · clareza · precisão.
 
-### Metáfora narrativa
-A jornada de um projeto é contada como **"do nascer ao pôr do sol"** — 5 fases que
-acompanham a luz do dia. Use essa metáfora temporal/solar em campanhas e storytelling.
+### Sobre a metáfora
+A imagem da onda **explica a marca**: flui leve (fluido) e carrega força (impacto sólido/seguro) —
+por isso vale usá-la, com bom senso. A inspiração litorânea (a *Marinha* de Aldemir Martins) é a base
+**visual**, legítima e autoral. O equilíbrio: técnica na frente, arte e região **na entrelinha** —
+metáfora quando *explica*, nunca como enfeite repetido nem militância regional.
 
 ---
 
@@ -347,9 +353,15 @@ metáfora temporal que pode guiar transições e storyboards.
 ## 12. Voz, idioma & conteúdo
 
 - **Bilíngue:** Português (padrão, `pt-BR`) e Inglês. Toda peça-chave deve ter as duas versões.
-- **Tom:** caloroso, confiante, litorâneo — metáforas de **mar, maré, onda, navegação,
-  jangada, horizonte**. Ex.: "Sua próxima *onda* começa aqui", "anos de mar aberto".
-- Direto e sem jargão excessivo; técnico quando preciso, humano sempre.
+- **Tom:** equilíbrio entre a veia **técnica** e a **artística** — passa segurança e qualidade sem
+  arrogância, com calor sem ser piegas. Direto, sem jargão vazio.
+- **Mensagem central:** software **belo no design, fluido no uso e impactante na segurança** —
+  qualidade verificada (testes, validação), não só prometida.
+- **Metáfora a serviço da clareza:** use a imagem da onda quando *ajuda a explicar* (“flui leve e
+  chega com força”); evite encher de termos marítimos.
+- **Região na entrelinha:** a origem cearense aparece como sotaque, nunca como bandeira.
+- ✅ Ex.: *"Belo no design, fluido no uso, sólido na segurança."*
+- ❌ Evitar: jargão disruptivo vazio e metáfora náutica exagerada ("navegue a maré rumo ao horizonte").
 - Localização: **Fortaleza · Ceará · Brasil**.
 
 ---
@@ -382,7 +394,7 @@ SOMBRA    azul translúcido, difusa, para baixo
 ÍCONES    line, 24px grid, traço 1.6–2.2px, cantos redondos, currentColor
 CURVA     cubic-bezier(.2,.7,.2,1)
 TEXTURA   grão de filme sutil + pinceladas + vidro
-NARRATIVA do nascer ao pôr do sol · maré · litoral cearense
+MARCA     belo (design) · fluido (uso) · impactante (segurança) · região na entrelinha
 ```
 
 ---
