@@ -71,6 +71,53 @@ Por ser desenvolvido utilizando apenas web standards nativos, basta subir um ser
 └── index.html      # Página principal
 ```
 
+## 🔍 SEO
+
+O site implementa uma estratégia completa de otimização para motores de busca e compartilhamento social:
+
+### Meta tags essenciais
+- `<meta name="description">` — descrição única e relevante da página
+- `<meta name="robots" content="index, follow, max-image-preview:large">` — autoriza indexação com prévia de imagem grande
+- `<link rel="canonical">` — evita conteúdo duplicado apontando a URL canônica
+
+### Open Graph (Facebook, LinkedIn, WhatsApp)
+```html
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:title" content="Onda — Estúdio de Produtos Digitais · Ceará" />
+<meta property="og:description" content="..." />
+<meta property="og:image" content=".../og-cover.jpg" />  <!-- 1200×630px -->
+<meta property="og:image:alt" content="..." />
+```
+
+### Twitter Card
+```html
+<meta name="twitter:card" content="summary_large_image" />
+```
+Exibe preview com imagem grande no X/Twitter.
+
+### Dados Estruturados (Schema.org)
+Bloco `application/ld+json` do tipo `ProfessionalService` com:
+- Nome, URL, logo e imagem
+- Endereço (`PostalAddress`) → Fortaleza, CE, BR
+- `areaServed: "BR"` e `knowsLanguage: ["pt-BR", "en"]`
+- Dois `ContactPoint` (comercial e suporte) com telefone e e-mail
+
+### Rastreamento e indexação
+| Arquivo | Função |
+|---|---|
+| `robots.txt` | Libera todos os agentes e aponta o sitemap |
+| `sitemap.xml` | URL canônica com `lastmod`, `changefreq: monthly`, `priority: 1.0` |
+| `site.webmanifest` | PWA metadata (nome, tema, ícones) |
+
+### PWA / Favicons
+- `favicon.svg` — símbolo oficial vetorial (qualquer resolução)
+- `apple-touch-icon.png` — ícone 180×180px para iOS
+- `theme-color` → `#0E3F52` (teal da marca) na barra do sistema
+
+---
+
 ## 📝 Gestão de Escopo
 
 O projeto adota e divulga a política de **Escopo Protegido**. Mudanças de layout pós-aprovação visual ou redefinições no meio do fluxo retornam à prancheta (Fase 1) gerando um aditivo de prazo transparente. Isso defende a qualidade do código já construído e preserva a sanidade arquitetural do software.
