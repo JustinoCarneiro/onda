@@ -1,0 +1,14 @@
+{
+  "name": "Onda — Estúdio de Produtos Digitais",
+  "short_name": "Onda",
+  "description": "Estúdio de produtos digitais do Ceará. Software fluido, belo e de alto impacto.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCF8EE",
+  "theme_color": "#0E3F52",
+  "icons": [
+    { "src": "/assets/favicon.svg?v=11", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/apple-touch-icon.png?v=11", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -53,8 +53,8 @@
   opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; pointer-events: none; }
 .jr-chapter.on { opacity: 1; transform: none; pointer-events: auto; }
 
-.jr-ch-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 7.6vw, 108px);
-  line-height: .98; letter-spacing: -.022em;
+.jr-ch-title { font-family: var(--font-body); font-weight: 800; font-size: clamp(48px, 7.6vw, 108px);
+  line-height: 1.0; letter-spacing: -.04em;
   text-shadow: 0 2px 30px rgba(0,0,0,.32), 0 24px 60px rgba(0,0,0,.4); }
 /* fio luminoso sob o título — substitui o antigo rótulo de fase */
 .jr-ch-title::after { content: ""; display: block; width: 56px; height: 2px; margin: 22px auto 0;

@@ -3,21 +3,41 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 <title>Onda — Estúdio de Produtos Digitais · Ceará</title>
 <meta name="description" content="Onda é um estúdio de produtos digitais do Ceará. Unimos engenharia de software e performance para criar softwares fluidos, belos e de alto impacto." />
+<meta name="author" content="Onda — Estúdio de Produtos Digitais" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0E3F52" />
+<link rel="canonical" href="https://onda-empresa.vercel.app/" />
+
+<!-- Ícones -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=11" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=11" />
+<link rel="manifest" href="site.webmanifest" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Onda" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:url" content="https://onda-empresa.vercel.app/" />
 <meta property="og:title" content="Onda — Estúdio de Produtos Digitais · Ceará" />
 <meta property="og:description" content="Engenharia de software e performance, com o calor do litoral cearense. Produtos belos, jornadas sem atrito e impacto real." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="assets/img/marinha.webp" />
+<meta property="og:image" content="https://onda-empresa.vercel.app/assets/img/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Marinha — arte original Onda, inspirada na luz do litoral cearense." />
+
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Onda — Estúdio de Produtos Digitais · Ceará" />
+<meta name="twitter:description" content="Engenharia de software e performance, com o calor do litoral cearense. Produtos belos, jornadas sem atrito e impacto real." />
+<meta name="twitter:image" content="https://onda-empresa.vercel.app/assets/img/og-cover.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=10" />
-<link rel="stylesheet" href="css/journey.css?v=10" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=15" />
+<link rel="stylesheet" href="css/journey.css?v=13" />
 </head>
 <body data-mood="clara" data-hero="imersivo">
 
@@ -37,7 +57,7 @@
 <!-- ============================ NAV ============================ -->
 <nav class="nav" id="nav">
   <a class="brand" href="#top" aria-label="Onda">
-    <b>Onda<span class="dot">.</span></b>
+    <img class="brand-logo" src="assets/brand/logo-onda.png?v=15" alt="Onda" width="118" height="34" />
   </a>
   <div class="nav-links">
     <a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a>
@@ -59,7 +79,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mm-head">
-    <a class="brand" href="#top" aria-label="Onda"><b>Onda<span class="dot">.</span></b></a>
+    <a class="brand" href="#top" aria-label="Onda"><img class="brand-logo" src="assets/brand/logo-onda.png?v=15" alt="Onda" width="132" height="38" /></a>
     <button class="close" id="mmClose" aria-label="Fechar">✕</button>
   </div>
   <nav class="mm-links">
@@ -82,25 +102,27 @@
   </div>
 </div>
 
+<main id="conteudo">
 <!-- ===================== HERO IMERSIVO ===================== -->
 <header class="cine">
   <div class="cine-bg">
     <image-slot id="cine-photo" src="assets/img/marinha.webp" fit="cover" placeholder="Solte uma foto do litoral cearense"></image-slot>
-    <img class="cine-bg-mobile" src="assets/img/marinha.webp" alt="" aria-hidden="true">
+    <img class="cine-bg-mobile" src="assets/img/marinha.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
   </div>
   <div class="cine-scrim" aria-hidden="true"></div>
   <canvas class="cine-salt" id="cineSalt" aria-hidden="true"></canvas>
 
   <div class="cine-inner">
-    <div class="cine-stage" id="cineStage">
+    <h1 class="sr-only" data-pt="Onda — estúdio de produtos digitais do Ceará: software fluido, belo e de alto impacto." data-en="Onda — a digital product studio from Ceará: fluid, beautiful and high-impact software.">Onda — estúdio de produtos digitais do Ceará: software fluido, belo e de alto impacto.</h1>
+    <div class="cine-stage" id="cineStage" aria-hidden="true">
       <article class="cine-slide active">
-        <h1 class="cine-word" data-pt="Impactante" data-en="Impactful">Impactante</h1>
+        <span class="cine-word" data-pt="Impactante" data-en="Impactful">Impactante</span>
       </article>
       <article class="cine-slide">
-        <h1 class="cine-word" data-pt="Fluido" data-en="Fluid">Fluido</h1>
+        <span class="cine-word" data-pt="Fluido" data-en="Fluid">Fluido</span>
       </article>
       <article class="cine-slide">
-        <h1 class="cine-word" data-pt="Belo" data-en="Beautiful">Belo</h1>
+        <span class="cine-word" data-pt="Belo" data-en="Beautiful">Belo</span>
       </article>
     </div>
   </div>
@@ -113,10 +135,10 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow reveal" data-pt="Estúdio de produtos digitais" data-en="Digital product studio">Estúdio de produtos digitais</span>
-      <h1 class="display reveal d1" style="margin-top:18px">
+      <p class="display reveal d1" style="margin-top:18px" role="heading" aria-level="2">
         <span data-pt="Transformamos ideias em" data-en="We turn ideas into">Transformamos ideias em</span>
         <span class="ital" data-pt="softwares fluidos." data-en="fluid software.">softwares fluidos.</span>
-      </h1>
+      </p>
       <p class="hero-lead reveal d2" data-pt="Engenharia de software e performance, com o calor do litoral cearense. Produtos belos, jornadas sem atrito e impacto real no caixa dos nossos clientes." data-en="Software engineering and performance, with the warmth of Brazil's northeast coast. Beautiful products, frictionless journeys and real impact on our clients' bottom line.">Engenharia de software e performance, com o calor do litoral cearense. Produtos belos, jornadas sem atrito e impacto real no caixa dos nossos clientes.</p>
       <div class="hero-actions reveal d3">
         <a class="btn btn--big" href="#projetos" data-pt="Ver projetos" data-en="See our work">Ver projetos
@@ -273,21 +295,21 @@
         <div class="pillar reveal d1">
           <span class="pn">01</span>
           <div>
-            <h4 data-pt="Fluidas" data-en="Fluid">Fluidas</h4>
+            <h3 data-pt="Fluidas" data-en="Fluid">Fluidas</h3>
             <p data-pt="Sem atrito. A jornada do usuário corre natural como a água." data-en="Frictionless. The user journey flows as naturally as water.">Sem atrito. A jornada do usuário corre natural como a água.</p>
           </div>
         </div>
         <div class="pillar reveal d2">
           <span class="pn">02</span>
           <div>
-            <h4 data-pt="Belas" data-en="Beautiful">Belas</h4>
+            <h3 data-pt="Belas" data-en="Beautiful">Belas</h3>
             <p data-pt="Interfaces hipnóticas e agradáveis. Beleza que mantém as pessoas a bordo." data-en="Hypnotic, pleasant interfaces. Beauty that keeps people aboard.">Interfaces hipnóticas e agradáveis. Beleza que mantém as pessoas a bordo.</p>
           </div>
         </div>
         <div class="pillar reveal d3">
           <span class="pn">03</span>
           <div>
-            <h4 data-pt="Impactantes" data-en="Impactful">Impactantes</h4>
+            <h3 data-pt="Impactantes" data-en="Impactful">Impactantes</h3>
             <p data-pt="Como uma onda, geramos força: impacto no caixa e na conversão do cliente." data-en="Like a wave, we generate force: impact on revenue and conversion.">Como uma onda, geramos força: impacto no caixa e na conversão do cliente.</p>
           </div>
         </div>
@@ -327,7 +349,7 @@
             <a class="proj-go" href="https://institutomelvin.org" target="_blank" rel="noopener" aria-label="Visitar site"><svg><use href="#ic-external"/></svg></a>
             <div class="proj-slider">
               <a href="https://institutomelvin.org" target="_blank" rel="noopener">
-                <img src="assets/img/proj-melvin-site.webp" alt="Print do Site Institucional" width="800" height="450">
+                <img src="assets/img/proj-melvin-site.webp" alt="Print do Site Institucional" width="800" height="450" loading="lazy" decoding="async">
               </a>
             </div>
           </div>
@@ -383,7 +405,7 @@
             <a class="proj-go" href="https://zooagency.com.br/" target="_blank" rel="noopener" aria-label="Visitar site"><svg><use href="#ic-external"/></svg></a>
             <div class="proj-slider">
               <a href="https://zooagency.com.br/" target="_blank" rel="noopener">
-                <img src="assets/img/proj-zoo.webp" alt="Print da Zoo Agency" width="800" height="450">
+                <img src="assets/img/proj-zoo.webp" alt="Print da Zoo Agency" width="800" height="450" loading="lazy" decoding="async">
               </a>
             </div>
           </div>
@@ -405,7 +427,7 @@
   <div class="journey-sticky">
     <!-- Fundo estático da marinha (mesma arte do hero) -->
     <div class="jr-frames" aria-hidden="true">
-      <img class="jr-frame" src="assets/img/marinha.webp" alt="" />
+      <img class="jr-frame" src="assets/img/marinha.webp" alt="" loading="lazy" decoding="async" />
     </div>
 
     <!-- Véu para legibilidade -->
@@ -515,8 +537,7 @@
     <div class="contact-copy">
       <span class="eyebrow reveal" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar</span>
       <h2 class="reveal d1" style="margin-top:16px">
-        <span data-pt="Sua próxima" data-en="Your next">Sua próxima</span><br/>
-        <em data-pt="onda começa aqui." data-en="wave starts here.">onda começa aqui.</em>
+        <span data-pt="Sua próxima " data-en="Your next ">Sua próxima </span><em data-pt="onda começa aqui." data-en="wave starts here.">onda começa aqui.</em>
       </h2>
       <p class="contact-lead reveal d2" data-pt="Conte sua ideia. Em até um dia útil devolvemos um plano de rota — sem compromisso." data-en="Tell us your idea. Within one business day we'll send back a route plan — no strings attached.">Conte sua ideia. Em até um dia útil devolvemos um plano de rota — sem compromisso.</p>
 
@@ -577,6 +598,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- ============================ FOOTER ============================ -->
 <footer class="footer">
@@ -584,26 +606,26 @@
     <div class="footer-top">
       <div>
         <a class="brand" href="#top" aria-label="Onda">
-          <b>Onda<span class="dot">.</span></b>
+          <img class="brand-logo" src="assets/brand/logo-onda.png?v=15" alt="Onda" width="150" height="43" />
         </a>
         <p class="footer-tag" data-pt="Estúdio de produtos digitais do Ceará. Software fluido, belo e de alto impacto." data-en="Digital product studio from Ceará. Fluid, beautiful, high-impact software.">Estúdio de produtos digitais do Ceará. Software fluido, belo e de alto impacto.</p>
       </div>
       <div class="footer-col">
-        <h4 data-pt="Serviços" data-en="Services">Serviços</h4>
+        <h3 data-pt="Serviços" data-en="Services">Serviços</h3>
         <a href="#servicos" data-pt="Produtos &amp; SaaS" data-en="Products &amp; SaaS">Produtos &amp; SaaS</a>
         <a href="#servicos" data-pt="Sistemas sob medida" data-en="Custom systems">Sistemas sob medida</a>
         <a href="#servicos" data-pt="Sites &amp; Landing pages" data-en="Sites &amp; Landing pages">Sites &amp; Landing pages</a>
         <a href="#servicos" data-pt="Apps mobile" data-en="Mobile apps">Apps mobile</a>
       </div>
       <div class="footer-col">
-        <h4 data-pt="Estúdio" data-en="Studio">Estúdio</h4>
+        <h3 data-pt="Estúdio" data-en="Studio">Estúdio</h3>
         <a href="#estudio" data-pt="Sobre nós" data-en="About">Sobre nós</a>
         <a href="#projetos" data-pt="Projetos" data-en="Work">Projetos</a>
         <a href="#vozes" data-pt="Clientes" data-en="Clients" hidden>Clientes</a>
         <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
       </div>
       <div class="footer-col">
-        <h4 data-pt="Fale com a gente" data-en="Get in touch">Fale com a gente</h4>
+        <h3 data-pt="Fale com a gente" data-en="Get in touch">Fale com a gente</h3>
         <a href="mailto:ondaempresa1@gmail.com">ondaempresa1@gmail.com</a>
         <a class="wa-link" href="https://wa.me/5585997899006" target="_blank" rel="noopener"><svg><use href="#ic-whatsapp"/></svg>+55 85 9 9789-9006</a>
         <a class="wa-link" href="https://wa.me/5585998203980" target="_blank" rel="noopener"><svg><use href="#ic-whatsapp"/></svg>+55 85 9 9820-3980</a>
@@ -642,5 +664,35 @@
 <script type="text/babel" src="tweaks/tweaks-panel.jsx"></script>
 <script type="text/babel" src="tweaks/tweaks-app.jsx"></script>
 -->
+
+<!-- Dados estruturados (SEO / rich results) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://onda-empresa.vercel.app/#onda",
+  "name": "Onda",
+  "alternateName": "Onda — Estúdio de Produtos Digitais",
+  "url": "https://onda-empresa.vercel.app/",
+  "logo": "https://onda-empresa.vercel.app/assets/apple-touch-icon.png",
+  "image": "https://onda-empresa.vercel.app/assets/img/og-cover.jpg",
+  "description": "Estúdio de produtos digitais do Ceará. Engenharia de software e performance para criar softwares fluidos, belos e de alto impacto.",
+  "email": "ondaempresa1@gmail.com",
+  "telephone": "+5585997899006",
+  "slogan": "Belo no design. Fluido no uso. Sólido na segurança.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Fortaleza",
+    "addressRegion": "CE",
+    "addressCountry": "BR"
+  },
+  "areaServed": "BR",
+  "knowsLanguage": ["pt-BR", "en"],
+  "contactPoint": [
+    { "@type": "ContactPoint", "contactType": "sales", "telephone": "+5585997899006", "email": "ondaempresa1@gmail.com", "availableLanguage": ["Portuguese", "English"] },
+    { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+5585998203980", "availableLanguage": ["Portuguese", "English"] }
+  ]
+}
+</script>
 </body>
 </html>
