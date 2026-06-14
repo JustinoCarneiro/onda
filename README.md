@@ -9,7 +9,7 @@ O site da Onda reflete a cultura e a [metodologia de desenvolvimento (Onda-Dev)]
 ## 🛠️ Tecnologias e Arquitetura
 
 - **Frontend:** HTML5, CSS3 (Vanilla), JavaScript (ES6+).
-- **Design System ("Tropical Tech"):** Paleta de cores inspirada na luz do litoral cearense e no artista Aldemir Martins (squircles flutuantes, pinceladas e texturas de grão).
+- **Design System ("Tropical Tech"):** Paleta de cores inspirada na luz do litoral cearense e no artista Aldemir Martins (squircles flutuantes, pinceladas e texturas de grão). Tipografia **Manrope** (família única) com gradiente-assinatura oficial `#88399A → #C05171 → #ED7735 → #FEA31B`.
 - **Otimizações:**
   - Imagens servidas no formato **WebP** (alta redução de peso garantindo carregamento rápido).
   - Ícones padronizados e reutilizáveis via **SVG Sprites**.
@@ -50,11 +50,21 @@ Por ser desenvolvido utilizando apenas web standards nativos, basta subir um ser
 
 ```text
 .
-├── assets/         # Imagens otimizadas (WebP) e assets gráficos
+├── assets/
+│   ├── brand/      # Identidade visual oficial (logo, símbolo, brand sheet, SVGs)
+│   ├── img/        # Imagens e vídeos (WebP/mp4)
+│   ├── favicon.svg
+│   └── apple-touch-icon.png
 ├── css/            # Estilos principais (styles.css e journey.css)
-├── docs/           # Documentação, referências visuais e Playbook Onda-Dev
-├── js/             # Interações (app.js, journey.js e fallback de componentes)
+├── docs/
+│   ├── brand/      # Documentação de marca (BRANDING, DESIGN_SYSTEM, guidelines)
+│   ├── referencias/
+│   └── Metodologia de Desenvolvimento - Onda.pdf
+├── js/             # Interações (app.js, journey.js, image-slot.js)
 ├── tweaks/         # Ferramentas internas (React Island dev-only)
+├── robots.txt
+├── sitemap.xml
+├── site.webmanifest
 ├── .gitignore
 └── index.html      # Página principal
 ```
