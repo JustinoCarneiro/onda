@@ -296,6 +296,8 @@ body[data-hero="imersivo"] .hero + .stroke-divider { display: none; }
 
 .cine-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .cine-bg image-slot { width: 100%; height: 100%; position: absolute; inset: 0; }
+/* fallback img para mobile — image-slot usa shadow DOM, object-position não penetra; este img aplica posição correta */
+.cine-bg-mobile { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 5% 45%; }
 .cine-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
     radial-gradient(46% 36% at 50% 47%, rgba(34,18,34,.5), rgba(34,18,34,.16) 70%, transparent 100%),
@@ -337,6 +339,10 @@ body[data-hero="imersivo"] .nav:not(.scrolled) .burger span { background: #fff; 
 
 @media (max-width: 620px) {
   .cine-desc { font-size: 15px; }
+  /* no portrait mobile o image-slot (shadow DOM) centra a imagem e corta o sol (esquerda ~10%);
+     usa img direto com object-position ajustada */
+  .cine-bg image-slot { display: none; }
+  .cine-bg-mobile { display: block; }
 }
 /* palavras longas ("Impactante") cortavam no overflow:hidden do .cine */
 @media (max-width: 400px) {
