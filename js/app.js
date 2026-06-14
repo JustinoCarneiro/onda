@@ -333,4 +333,39 @@
       if (e.key === 'Escape' && videoModal.classList.contains('active')) closeModal();
     });
   }
+
+  /* ---------- Carrossel de serviços (mobile) ---------- */
+  (function () {
+    var grid = document.querySelector('.svc-grid');
+    var dotsWrap = document.getElementById('svcDots');
+    if (!grid || !dotsWrap) return;
+
+    var cards = [].slice.call(grid.querySelectorAll('.svc'));
+    var n = cards.length;
+
+    // cria dots
+    var dots = cards.map(function (_, i) {
+      var btn = document.createElement('button');
+      btn.setAttribute('aria-label', 'Serviço ' + (i + 1));
+      dotsWrap.appendChild(btn);
+      btn.addEventListener('click', function () {
+        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      });
+      return btn;
+    });
+
+    function updateDots() {
+      if (window.innerWidth > 620) return;
+      var center = grid.scrollLeft + grid.offsetWidth / 2;
+      var active = 0;
+      cards.forEach(function (c, i) {
+        if (c.offsetLeft + c.offsetWidth / 2 <= center) active = i;
+      });
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === active); });
+    }
+
+    grid.addEventListener('scroll', updateDots, { passive: true });
+    window.addEventListener('resize', updateDots);
+    updateDots();
+  })();
 })();
