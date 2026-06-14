@@ -242,7 +242,7 @@
     }
     function next() { go(cur + 1); }
     function prev() { go(cur - 1); }
-    function start() { if (reduce) return; stop(); timer = setInterval(next, 5000); }
+    function start() { if (reduce) return; stop(); timer = setInterval(next, 2000); }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
     var cine = document.querySelector('.cine');
