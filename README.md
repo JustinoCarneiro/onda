@@ -9,11 +9,13 @@ O site da Onda reflete a cultura e a [metodologia de desenvolvimento (Onda-Dev)]
 ## 🛠️ Tecnologias e Arquitetura
 
 - **Frontend:** HTML5, CSS3 (Vanilla), JavaScript (ES6+).
-- **Design System ("Tropical Tech"):** Paleta de cores inspirada na luz do litoral cearense e no artista Aldemir Martins (squircles flutuantes, pinceladas e texturas de grão). Tipografia **Manrope** (família única) com gradiente-assinatura oficial `#88399A → #C05171 → #ED7735 → #FEA31B`.
+- **Design System ("Tropical Tech"):** Paleta de cores inspirada na obra *"Marinha"* (1978), de Aldemir Martins (squircles flutuantes, pinceladas e texturas de grão). Tipografia **Manrope** (família única) com gradiente-assinatura oficial `#88399A → #C05171 → #ED7735 → #FEA31B`.
 - **Otimizações:**
   - Imagens servidas no formato **WebP** (alta redução de peso garantindo carregamento rápido).
   - Ícones padronizados e reutilizáveis via **SVG Sprites**.
   - Componentização nativa e tags Open Graph (OG) prontas para compartilhamento em redes sociais.
+  - **Navegação centralizada** (links absolutamente centrados no eixo horizontal da tela).
+  - **Carrossel mobile** de serviços com scroll-snap centralizado e dots de navegação.
 
 ## 📖 Metodologia (Onda-Dev)
 
