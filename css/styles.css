@@ -281,6 +281,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero-grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(30px, 5vw, 72px); align-items: center; }
 .hero h1 { font-size: clamp(50px, 7.6vw, 112px); }
 .hero h1 .ital { white-space: nowrap; }
+.hero-value { font-size: clamp(18px, 1.8vw, 22px); font-weight: 600; color: var(--ink); margin-top: 16px; max-width: 38ch; line-height: 1.45; }
 .hero-lead { margin-top: 28px; max-width: 34ch; font-size: clamp(17px, 1.55vw, 20px); color: var(--ink-soft); }
 .hero-actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-meta { margin-top: 40px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
@@ -329,6 +330,9 @@ body[data-hero="imersivo"] .hero + .stroke-divider { display: none; }
 .cine-word { font-family: var(--font-display); font-weight: 800; font-size: clamp(64px, 14vw, 210px);
   line-height: .96; letter-spacing: -0.04em; color: #fff;
   text-shadow: 0 8px 42px rgba(0,0,0,.42), 0 2px 12px rgba(0,0,0,.32); }
+.cine-value { position: absolute; bottom: clamp(34px, 6vh, 66px); left: 0; right: 0; text-align: center;
+  font-size: clamp(16px, 1.6vw, 20px); font-weight: 500; color: rgba(255,255,255,.78);
+  max-width: 46ch; margin-inline: auto; padding-inline: var(--gutter); }
 
 @media (prefers-reduced-motion: reduce) {
   .cine-slide { transition: opacity .35s ease; }
@@ -463,6 +467,7 @@ body[data-hero="imersivo"] .nav:not(.scrolled) .burger span { background: #fff; 
 .proj-desc { color: var(--ink-soft); font-size: 15px; margin-top: 9px; }
 .proj-tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
 .proj-tag-row i { font-style: normal; font-size: 12px; color: var(--ink-faint); box-shadow: inset 0 0 0 1.2px var(--line); padding: 4px 10px; border-radius: var(--r-pill); }
+.proj-result { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--turq-deep); background: color-mix(in srgb, var(--turq) 12%, transparent); padding: 6px 14px; border-radius: var(--r-pill); margin-top: 12px; }
 
 /* ============================================================
    ESTÚDIO — filosofia da onda
@@ -485,6 +490,17 @@ body[data-hero="imersivo"] .nav:not(.scrolled) .burger span { background: #fff; 
 .studio-stats { display: flex; gap: 30px; margin-top: 36px; flex-wrap: wrap; }
 .stat b { font-family: var(--font-display); font-size: clamp(40px, 5vw, 58px); font-weight: 800; display: block; line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
 .stat span { font-size: 13.5px; color: var(--ink-soft); display: block; margin-top: 6px; }
+
+/* equipe */
+.studio-team { margin-top: 42px; }
+.studio-team h3 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 22px; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 28px; }
+.team-member { text-align: center; }
+.team-photo { width: 96px; height: 96px; border-radius: 50%; overflow: hidden; margin: 0 auto 12px; border: 3px solid var(--line-soft); transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s; }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; }
+.team-member:hover .team-photo { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.team-member b { font-family: var(--font-display); font-size: 15px; font-weight: 700; display: block; }
+.team-member span { font-size: 13px; color: var(--ink-soft); display: block; margin-top: 2px; }
 
 /* ============================================================
    DEPOIMENTOS
@@ -548,6 +564,24 @@ form { display: grid; gap: 18px; }
 .form-ok.show { display: flex; }
 .form-ok b { font-family: var(--font-display); font-size: 26px; font-weight: 700; }
 .form-ok p { color: rgba(255,255,255,.75); font-size: 15px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+/* ============================================================
+   FAQ — accordion nativo
+   ============================================================ */
+.faq-grid { display: grid; gap: 12px; max-width: 800px; margin-top: 54px; }
+.faq-item { background: var(--card); border-radius: 18px; border: 1px solid var(--line-soft); box-shadow: var(--shadow-soft); overflow: hidden; transition: box-shadow .3s; }
+.faq-item[open] { box-shadow: var(--shadow-float); }
+.faq-item summary { font-family: var(--font-display); font-size: clamp(17px, 1.5vw, 20px); font-weight: 600; padding: 22px 26px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; list-style: none; transition: color .25s; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 22px; font-weight: 400; color: var(--accent); flex: none; transition: transform .3s; }
+.faq-item[open] summary::after { content: "−"; transform: rotate(180deg); }
+.faq-item summary:hover { color: var(--accent); }
+.faq-body { padding: 0 26px 22px; }
+.faq-body p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.65; max-width: 60ch; }
 
 /* ============================================================
    FOOTER
