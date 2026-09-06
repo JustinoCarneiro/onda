@@ -1,0 +1,6 @@
+title = "Onda (site do estúdio) — gitleaks"
+
+# Site estático sem backend nem credenciais. Regras padrão do gitleaks bastam;
+# nenhum allowlist de fixture é necessário.
+[extend]
+useDefault = true
