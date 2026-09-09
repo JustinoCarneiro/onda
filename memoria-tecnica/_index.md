@@ -24,3 +24,5 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
 ## Decisões
 - [[hidden-placeholder-pattern]] — Padrão para seções que dependem de conteúdo real do cliente
 - [[pendencias-feedback-cliente]] — Lista de conteúdo pendente para ativar seções ocultas
+- [[dominio-canonico-onda-business]] — onda.business como domínio canônico (apex, sem www); DNS
+  segue na Hostinger; merge bloqueado até o domínio resolver com SSL no Vercel
