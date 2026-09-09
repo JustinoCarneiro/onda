@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://onda-empresa.vercel.app/sitemap.xml
+Sitemap: https://onda.business/sitemap.xml
