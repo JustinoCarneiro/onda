@@ -61,7 +61,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=16" />
+<link rel="stylesheet" href="css/styles.css?v=17" />
 <link rel="stylesheet" href="css/journey.css?v=13" />
 </head>
 <body data-mood="clara" data-hero="imersivo">
@@ -670,14 +670,18 @@
 </a>
 
 <div id="videoModal" class="video-modal">
-  <button class="modal-close" aria-label="Fechar vídeo">&times;</button>
-  <div class="modal-content">
-    <video id="modalVideo" controls playsinline></video>
+  <div class="modal-content" id="modalContent">
+    <div class="story-progress"><div class="story-progress-fill" id="storyProgress"></div></div>
+    <button class="modal-close" aria-label="Fechar vídeo">&times;</button>
+    <video id="modalVideo" muted loop playsinline></video>
+    <div class="story-pause-hint" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5h3v14H8zM13 5h3v14h-3z"/></svg>
+    </div>
   </div>
 </div>
 
 <script src="js/image-slot.js"></script>
-<script src="js/app.js?v=11"></script>
+<script src="js/app.js?v=12"></script>
 <script src="js/journey.js?v=10"></script>
 
 <!-- Tweaks (React island) — dev-only, descomentar para editar visualmente
