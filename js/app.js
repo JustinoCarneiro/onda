@@ -300,28 +300,49 @@
     a.addEventListener('click', function () { closeMenu(); });
   });
 
-  /* ---------- Video Modal Logic ---------- */
+  /* ---------- Video Modal Logic (estilo Stories: sem controle nativo, sem áudio) ---------- */
   const videoLinks = document.querySelectorAll('.video-lightbox');
   const videoModal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
+  const modalContent = document.getElementById('modalContent');
   const modalClose = document.querySelector('.modal-close');
+  const storyProgress = document.getElementById('storyProgress');
 
   if (videoModal && modalVideo) {
     videoLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const videoSrc = link.getAttribute('href');
+        if (storyProgress) storyProgress.style.width = '0%';
+        if (modalContent) modalContent.classList.remove('paused');
         modalVideo.src = videoSrc;
         videoModal.classList.add('active');
         modalVideo.play().catch(e => console.log('Autoplay prevented', e));
       });
     });
 
+    // barra de progresso estilo Stories
+    modalVideo.addEventListener('timeupdate', () => {
+      if (!storyProgress || !modalVideo.duration) return;
+      storyProgress.style.width = (modalVideo.currentTime / modalVideo.duration * 100) + '%';
+    });
+
+    // tocar no vídeo pausa/retoma, sem controle nativo
+    if (modalContent) {
+      modalContent.addEventListener('click', (e) => {
+        if (e.target === modalClose) return;
+        if (modalVideo.paused) { modalVideo.play(); modalContent.classList.remove('paused'); }
+        else { modalVideo.pause(); modalContent.classList.add('paused'); }
+      });
+    }
+
     const closeModal = () => {
       videoModal.classList.remove('active');
       setTimeout(() => {
         modalVideo.pause();
         modalVideo.src = '';
+        if (storyProgress) storyProgress.style.width = '0%';
+        if (modalContent) modalContent.classList.remove('paused');
       }, 300);
     };
 

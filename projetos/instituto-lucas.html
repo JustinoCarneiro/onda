@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case: Sistema Lucas — prontuário eletrônico e agendamento clínico | Onda</title>
+<meta name="description" content="Como a Onda construiu para uma clínica um sistema de prontuário eletrônico e agendamento com quatro perfis de acesso e conformidade LGPD de dado de saúde." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0E3F52" />
+<link rel="canonical" href="https://onda.business/projetos/instituto-lucas" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Onda" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://onda.business/projetos/instituto-lucas" />
+<meta property="og:title" content="Case: Sistema Lucas — prontuário eletrônico e agendamento clínico" />
+<meta property="og:description" content="Prontuário eletrônico e agendamento para clínica, com quatro perfis de acesso e conformidade LGPD de dado de saúde." />
+<meta property="og:image" content="https://onda.business/assets/img/og-cover.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=11" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=11" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sistema Lucas — gestão clínica com agendamento, prontuário e múltiplos perfis em um único sistema",
+  "about": "Desenvolvimento de sistema de prontuário eletrônico e agendamento clínico sob medida",
+  "publisher": { "@type": "Organization", "name": "Onda", "url": "https://onda.business/" },
+  "inLanguage": "pt-BR",
+  "mainEntityOfPage": "https://onda.business/projetos/instituto-lucas"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/styles.css?v=16" />
+
+<style>
+  body { background: var(--sand); color: var(--ink); font-family: var(--font-body); }
+  .case-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+
+  .case-nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px 24px; background: color-mix(in srgb, var(--sand) 88%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft, var(--line));
+  }
+  .case-nav-left { display: flex; align-items: center; gap: 16px; }
+  .case-nav-right { display: flex; align-items: center; gap: 12px; }
+  .case-nav .brand-logo { height: 28px; width: auto; display: block; }
+  .case-nav .back {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft); text-decoration: none;
+    padding: 6px 13px 6px 10px; border: 1px solid var(--line); border-radius: var(--r-pill);
+    background: var(--card, #fff); transition: color .2s ease, border-color .2s ease;
+  }
+  .case-nav .back:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .case-nav .btn { padding: 9px 18px; font-size: 14px; }
+  @media (max-width: 560px) {
+    .case-nav { padding: 12px 18px; }
+    .case-nav .btn { display: none; }
+  }
+
+  main { padding: 56px 0 40px; }
+  .case-section { padding-top: 44px; padding-bottom: 44px; border-top: 1px solid var(--line-soft, var(--line)); }
+  .case-section:first-of-type { border-top: 0; padding-top: 8px; }
+  .case-eyebrow {
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--turq); margin: 0 0 14px;
+  }
+  .case-h1 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.06; font-size: clamp(30px, 4.6vw, 46px); color: var(--ocean); margin: 0 0 16px;
+  }
+  .case-h2 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
+    font-size: clamp(21px, 2.6vw, 27px); color: var(--ink); margin: 0 0 14px;
+  }
+  .case-lead { font-size: 18px; color: var(--ink-soft); max-width: 64ch; margin: 0 0 20px; }
+  .case-section p { font-size: 16px; color: var(--ink-soft); max-width: 68ch; margin: 0 0 12px; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+  .case-tags i {
+    font-style: normal; font-size: 12.5px; color: var(--ink-faint);
+    box-shadow: inset 0 0 0 1.3px var(--line); padding: 5px 13px; border-radius: var(--r-pill);
+  }
+
+  .shot { border-radius: 14px; box-shadow: var(--shadow-float);
+    border: 1px solid var(--line); background: var(--card); display: block; padding: 10px; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 7px; }
+  .shot-fig { margin: 0; }
+  .shot-cap { font-size: 13.5px; font-weight: 500; color: var(--ink-soft); margin: 12px 4px 0; line-height: 1.45; }
+  .hero-shot { margin-top: 28px; }
+
+  .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+  @media (max-width: 720px) { .shot-grid { grid-template-columns: 1fr; } }
+
+  .mod-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  @media (max-width: 720px) { .mod-list { grid-template-columns: 1fr; } }
+  .mod-list li { position: relative; padding-left: 22px; font-size: 15px; color: var(--ink-soft); }
+  .mod-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
+    border-radius: 2px; background: var(--turq); }
+  .mod-list li b { color: var(--ink); font-weight: 600; }
+
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  @media (max-width: 720px) { .res-grid { grid-template-columns: 1fr; } }
+  .res {
+    background: var(--card); border: 1px solid var(--line-soft, var(--line));
+    border-left: 3px solid var(--turq); border-radius: 12px; padding: 16px 18px;
+  }
+  .res b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+  .res span { font-size: 14px; color: var(--ink-soft); }
+  .res-note { font-size: 13px; color: var(--ink-faint); margin-top: 14px; }
+
+  .eng { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 28px; margin-top: 8px; }
+  @media (max-width: 720px) { .eng { grid-template-columns: 1fr; } }
+  .eng div { font-size: 14.5px; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px dashed var(--line-soft, var(--line)); }
+  .eng div b { color: var(--ink); font-weight: 600; }
+
+  .case-cta {
+    margin: 48px 0 8px; padding: 40px 32px; border-radius: 18px;
+    background: var(--ocean); color: #fff; text-align: center;
+  }
+  .case-cta h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: -0.02em; margin: 0 0 10px; color: #fff; }
+  .case-cta p { color: rgba(255,255,255,.82); max-width: 52ch; margin: 0 auto 22px; font-size: 16px; }
+  .case-cta .btn { background: var(--turq); color: #042027; border: 0; }
+  .case-cta .btn:hover { background: var(--turq-bright); }
+
+  .case-foot { border-top: 1px solid var(--line-soft, var(--line)); padding: 28px 0 48px; margin-top: 20px; }
+  .case-foot .case-wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  .case-foot a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
+  .case-foot a:hover { color: var(--ink); }
+  .case-foot .muted { font-size: 13px; color: var(--ink-faint); }
+
+  @media (max-width: 560px) {
+    .case-wrap { padding: 0 18px; }
+    main { padding: 40px 0 32px; }
+    .case-section { padding-top: 34px; padding-bottom: 34px; }
+    .case-h1 { font-size: clamp(24px, 6.4vw, 31px); }
+    .case-lead { font-size: 16px; }
+    .case-section p { font-size: 15.5px; }
+    .hero-shot { margin-top: 22px; }
+    .shot-grid { gap: 18px; }
+    .case-cta { padding: 30px 20px; margin: 36px 0 8px; }
+    .case-cta p { font-size: 15px; }
+    .case-foot .case-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
+</head>
+<body data-mood="clara">
+
+<header class="case-nav">
+  <div class="case-nav-left">
+    <a class="brand" href="../index.html" aria-label="Onda — página inicial">
+      <img class="brand-logo" src="../assets/brand/logo-onda.png?v=15" alt="Onda" width="118" height="34" />
+    </a>
+    <a class="back" href="../index.html#projetos">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      <span data-pt="Projetos" data-en="Work">Projetos</span>
+    </a>
+  </div>
+  <div class="case-nav-right">
+    <div class="lang" id="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" class="on">PT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="btn" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+  </div>
+</header>
+
+<main>
+  <!-- C01 · HERO -->
+  <section class="case-section case-wrap">
+    <p class="case-eyebrow" data-pt="Case · Sistema sob medida" data-en="Case · Custom software">Case · Sistema sob medida</p>
+    <h1 class="case-h1" data-pt="Sistema Lucas: agendamento e prontuário de uma clínica em um sistema só" data-en="Sistema Lucas: a clinic's scheduling and records in one system">Sistema Lucas: agendamento e prontuário de uma clínica em um sistema só</h1>
+    <p class="case-lead" data-pt="Plataforma de prontuário eletrônico e agendamento de consultas para uma clínica, com quatro perfis de acesso e conformidade LGPD tratada desde a modelagem — porque aqui o dado é de saúde." data-en="An electronic health record and appointment-scheduling platform for a clinic, with four access roles and LGPD compliance built in from the data model — because this is health data.">Plataforma de prontuário eletrônico e agendamento de consultas para uma clínica, com quatro perfis de acesso e conformidade LGPD tratada desde a modelagem — porque aqui o dado é de saúde.</p>
+    <div class="case-tags">
+      <i data-pt="Prontuário eletrônico" data-en="Electronic health record">Prontuário eletrônico</i>
+      <i data-pt="Agendamento clínico" data-en="Clinic scheduling">Agendamento clínico</i>
+      <i data-pt="4 perfis de acesso" data-en="4 access roles">4 perfis de acesso</i>
+      <i data-pt="Conformidade LGPD" data-en="LGPD compliance">Conformidade LGPD</i>
+    </div>
+    <figure class="shot-fig hero-shot">
+      <div class="shot"><img src="../assets/img/cases/lucas/admin-inicio.webp" width="1800" height="1250" alt="Painel inicial da administração do Sistema Lucas" loading="eager" /></div>
+    </figure>
+  </section>
+
+  <!-- C02 · CONTEXTO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Contexto" data-en="Context">Contexto</h2>
+    <p data-pt="Uma clínica com profissionais de saúde atendendo pacientes em agenda recorrente. Três atores diferentes mexem no mesmo recurso o tempo todo: o paciente marca e remarca, o profissional abre e fecha horário, a administração organiza a agenda geral." data-en="A clinic with healthcare professionals seeing patients on a recurring schedule. Three different actors constantly touch the same resource: the patient books and reschedules, the professional opens and closes time slots, the administration organises the overall agenda.">Uma clínica com profissionais de saúde atendendo pacientes em agenda recorrente. Três atores diferentes mexem no mesmo recurso o tempo todo: o paciente marca e remarca, o profissional abre e fecha horário, a administração organiza a agenda geral.</p>
+    <p data-pt="O dado em jogo é sensível — identificação, contato, histórico clínico. Isso muda tudo: não basta o sistema funcionar, ele precisa registrar quem acessou o quê, proteger o dado em repouso e respeitar as regras de retenção de prontuário." data-en="The data at stake is sensitive — identification, contact details, clinical history. That changes everything: it isn't enough for the system to work, it has to log who accessed what, protect data at rest and follow the record-retention rules.">O dado em jogo é sensível — identificação, contato, histórico clínico. Isso muda tudo: não basta o sistema funcionar, ele precisa registrar quem acessou o quê, proteger o dado em repouso e respeitar as regras de retenção de prontuário.</p>
+  </section>
+
+  <!-- C03 · PROBLEMA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O problema" data-en="The problem">O problema</h2>
+    <p data-pt="Sem um sistema próprio, a operação clínica esbarrava em pontos que são risco, não só incômodo:" data-en="Without a system of its own, the clinical operation ran into points that are real risk, not just inconvenience:">Sem um sistema próprio, a operação clínica esbarrava em pontos que são risco, não só incômodo:</p>
+    <ul class="mod-list">
+      <li data-pt="Agenda combinada por mensagem, sem regra de quem pode marcar, remarcar ou cancelar o quê." data-en="Scheduling agreed by message, with no rule for who can book, reschedule or cancel what.">Agenda combinada por mensagem, sem regra de quem pode marcar, remarcar ou cancelar o quê.</li>
+      <li data-pt="Prontuário em arquivo, difícil de consultar na hora do atendimento." data-en="Records kept in files, hard to consult during the appointment.">Prontuário em arquivo, difícil de consultar na hora do atendimento.</li>
+      <li data-pt="Dado de paciente sem controle de acesso por perfil." data-en="Patient data with no role-based access control.">Dado de paciente sem controle de acesso por perfil.</li>
+      <li data-pt="Nenhuma trilha de quem visualizou ou alterou informação sensível." data-en="No trail of who viewed or changed sensitive information.">Nenhuma trilha de quem visualizou ou alterou informação sensível.</li>
+      <li data-pt="Exclusão de cadastro sem tratar a retenção obrigatória de prontuário." data-en="Record deletion with no handling of mandatory record retention.">Exclusão de cadastro sem tratar a retenção obrigatória de prontuário.</li>
+    </ul>
+  </section>
+
+  <!-- C04 · SOLUÇÃO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="A solução" data-en="The solution">A solução</h2>
+    <p data-pt="Um sistema sob medida com o agendamento como coração — uma máquina de estados que arbitra os três atores — e a conformidade tratada como comportamento transversal, não como remendo. Principais frentes:" data-en="A custom system with scheduling as its core — a state machine that arbitrates the three actors — and compliance treated as cross-cutting behaviour, not a patch job. Main fronts:">Um sistema sob medida com o agendamento como coração — uma máquina de estados que arbitra os três atores — e a conformidade tratada como comportamento transversal, não como remendo. Principais frentes:</p>
+    <ul class="mod-list">
+      <li data-pt="<b>Autenticação &amp; sessão</b> — login com MFA (código de segunda etapa), token curto e refresh rotativo com revogação no logout." data-en="<b>Authentication &amp; session</b> — MFA login (second-step code), short-lived token and rotating refresh with revocation on logout."><b>Autenticação &amp; sessão</b> — login com MFA (código de segunda etapa), token curto e refresh rotativo com revogação no logout.</li>
+      <li data-pt="<b>Disponibilidade</b> — o profissional define seus horários; o sistema deriva os encaixes possíveis." data-en="<b>Availability</b> — the professional sets their hours; the system derives the possible slots."><b>Disponibilidade</b> — o profissional define seus horários; o sistema deriva os encaixes possíveis.</li>
+      <li data-pt="<b>Agendamento</b> — marcação, remarcação e cancelamento com regras de transição no sistema, não no combinado." data-en="<b>Scheduling</b> — booking, rescheduling and cancellation with transition rules in the system, not by verbal agreement."><b>Agendamento</b> — marcação, remarcação e cancelamento com regras de transição no sistema, não no combinado.</li>
+      <li data-pt="<b>Prontuário eletrônico</b> — registro do atendimento; só o profissional conclui a consulta." data-en="<b>Electronic health record</b> — visit documentation; only the professional closes the appointment."><b>Prontuário eletrônico</b> — registro do atendimento; só o profissional conclui a consulta.</li>
+      <li data-pt="<b>Documentos e exportação</b> — anexos do paciente e exportação de dados sob demanda." data-en="<b>Documents &amp; export</b> — patient attachments and on-demand data export."><b>Documentos e exportação</b> — anexos do paciente e exportação de dados sob demanda.</li>
+      <li data-pt="<b>Segurança &amp; LGPD</b> — auditoria de todo acesso a dado sensível, cifragem por campo, consentimento versionado." data-en="<b>Security &amp; LGPD</b> — audit trail for every access to sensitive data, per-field encryption, versioned consent."><b>Segurança &amp; LGPD</b> — auditoria de todo acesso a dado sensível, cifragem por campo, consentimento versionado.</li>
+      <li data-pt="<b>Lista de espera e NPS</b> — encaixe de vagas liberadas e medição de satisfação pós-consulta." data-en="<b>Waitlist &amp; NPS</b> — filling freed-up slots and post-visit satisfaction measurement."><b>Lista de espera e NPS</b> — encaixe de vagas liberadas e medição de satisfação pós-consulta.</li>
+      <li data-pt="<b>Painel de logs</b> — todo WARN/ERROR do sistema visível para a administração, sem depender de acesso ao servidor." data-en="<b>System log panel</b> — every WARN/ERROR in the system visible to the administration, no server access needed."><b>Painel de logs</b> — todo WARN/ERROR do sistema visível para a administração, sem depender de acesso ao servidor.</li>
+    </ul>
+  </section>
+
+  <!-- C05 · PRODUTO EM USO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O produto em uso" data-en="The product in use">O produto em uso</h2>
+    <div class="shot-grid">
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/lucas/agenda-geral.webp" width="1800" height="1250" alt="Agenda geral da administração" /></div>
+        <figcaption class="shot-cap" data-pt="Administração — agenda geral da clínica" data-en="Administration — the clinic's overall agenda">Administração — agenda geral da clínica</figcaption>
+      </figure>
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/lucas/agenda-hoje.webp" width="1800" height="1250" alt="Agenda do dia do profissional" /></div>
+        <figcaption class="shot-cap" data-pt="Profissional — agenda do dia" data-en="Professional — today's agenda">Profissional — agenda do dia</figcaption>
+      </figure>
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/lucas/prontuario.webp" width="1800" height="1250" alt="Tela de prontuário do paciente" /></div>
+        <figcaption class="shot-cap" data-pt="Prontuário — registro do atendimento" data-en="Records — visit documentation">Prontuário — registro do atendimento</figcaption>
+      </figure>
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/lucas/seguranca.webp" width="1800" height="1250" alt="Painel de segurança da administração" /></div>
+        <figcaption class="shot-cap" data-pt="Segurança — controles de acesso e conformidade" data-en="Security — access controls and compliance">Segurança — controles de acesso e conformidade</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- C06 · RESULTADOS -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Resultados" data-en="Results">Resultados</h2>
+    <div class="res-grid">
+      <div class="res"><b data-pt="Agenda com regra, não com combinado" data-en="Scheduling by rule, not by agreement">Agenda com regra, não com combinado</b><span data-pt="Marcar, remarcar e cancelar seguem transições válidas do sistema, com os três atores no mesmo recurso sem conflito." data-en="Booking, rescheduling and cancelling follow valid system transitions, with all three actors on the same resource without conflict.">Marcar, remarcar e cancelar seguem transições válidas do sistema, com os três atores no mesmo recurso sem conflito.</span></div>
+      <div class="res"><b data-pt="Todo acesso a dado sensível fica registrado" data-en="Every access to sensitive data is logged">Todo acesso a dado sensível fica registrado</b><span data-pt="Trilha de auditoria de leitura e escrita — quem viu, quem alterou, quando." data-en="Read/write audit trail — who viewed, who changed, when.">Trilha de auditoria de leitura e escrita — quem viu, quem alterou, quando.</span></div>
+      <div class="res"><b data-pt="Dado protegido em repouso" data-en="Data protected at rest">Dado protegido em repouso</b><span data-pt="Campos sensíveis cifrados individualmente, com suporte a rotação de chave." data-en="Sensitive fields individually encrypted, with key-rotation support.">Campos sensíveis cifrados individualmente, com suporte a rotação de chave.</span></div>
+      <div class="res"><b data-pt="Exclusão que respeita a lei" data-en="Deletion that respects the law">Exclusão que respeita a lei</b><span data-pt="Cadastro de paciente com vínculo clínico é anonimizado, não apagado — o prontuário fica retido como exige o CFM." data-en="A patient record with a clinical link is anonymised, not deleted — the health record stays retained as the CFM requires.">Cadastro de paciente com vínculo clínico é anonimizado, não apagado — o prontuário fica retido como exige o CFM.</span></div>
+    </div>
+    <p class="res-note" data-pt="Indicadores de uso (volume de agendamentos, profissionais ativos, redução de retrabalho) estão em levantamento com o cliente e serão publicados após validação." data-en="Usage indicators (appointment volume, active professionals, reduced rework) are being gathered with the client and will be published after validation.">Indicadores de uso (volume de agendamentos, profissionais ativos, redução de retrabalho) estão em levantamento com o cliente e serão publicados após validação.</p>
+  </section>
+
+  <!-- C07 · ENGENHARIA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Engenharia" data-en="Engineering">Engenharia</h2>
+    <div class="eng">
+      <div data-pt="<b>Frontend:</b> Angular 21 (Signals) · Tailwind CSS v4" data-en="<b>Frontend:</b> Angular 21 (Signals) · Tailwind CSS v4"><b>Frontend:</b> Angular 21 (Signals) · Tailwind CSS v4</div>
+      <div data-pt="<b>Backend:</b> Java 21 · Spring Boot 3.4" data-en="<b>Backend:</b> Java 21 · Spring Boot 3.4"><b>Backend:</b> Java 21 · Spring Boot 3.4</div>
+      <div data-pt="<b>Banco:</b> PostgreSQL 15 · migrations com Flyway" data-en="<b>Database:</b> PostgreSQL 15 · migrations with Flyway"><b>Banco:</b> PostgreSQL 15 · migrations com Flyway</div>
+      <div data-pt="<b>Sessão:</b> JWT curto (cookie HttpOnly) · refresh rotativo · denylist no logout" data-en="<b>Session:</b> short-lived JWT (HttpOnly cookie) · rotating refresh · denylist on logout"><b>Sessão:</b> JWT curto (cookie HttpOnly) · refresh rotativo · denylist no logout</div>
+      <div data-pt="<b>Dado sensível:</b> cifragem AES-256-GCM por campo · rotação de chave · CPF por HMAC-SHA256" data-en="<b>Sensitive data:</b> per-field AES-256-GCM encryption · key rotation · CPF via HMAC-SHA256"><b>Dado sensível:</b> cifragem AES-256-GCM por campo · rotação de chave · CPF por HMAC-SHA256</div>
+      <div data-pt="<b>Defesa:</b> rate limiting por IP (Bucket4j) · MFA/TOTP (RFC 6238)" data-en="<b>Defence:</b> per-IP rate limiting (Bucket4j) · MFA/TOTP (RFC 6238)"><b>Defesa:</b> rate limiting por IP (Bucket4j) · MFA/TOTP (RFC 6238)</div>
+      <div data-pt="<b>Conformidade:</b> auditoria transversal · consentimento LGPD versionado · retenção CFM" data-en="<b>Compliance:</b> cross-cutting audit trail · versioned LGPD consent · CFM retention"><b>Conformidade:</b> auditoria transversal · consentimento LGPD versionado · retenção CFM</div>
+      <div data-pt="<b>Testes:</b> 164 testes de backend · entrega via Docker Compose" data-en="<b>Tests:</b> 164 backend tests · delivered via Docker Compose"><b>Testes:</b> 164 testes de backend · entrega via Docker Compose</div>
+    </div>
+  </section>
+
+  <!-- C08 · DEPOIMENTO (placeholder oculto até autorização) -->
+  <section class="case-section case-wrap" hidden data-placeholder="depoimento">
+    <h2 class="case-h2" data-pt="Depoimento" data-en="Testimonial">Depoimento</h2>
+    <blockquote></blockquote>
+    <p class="res-note" data-pt="Publicar apenas com nome, cargo, organização e autorização registrada." data-en="Publish only with name, role, organisation and recorded authorisation.">Publicar apenas com nome, cargo, organização e autorização registrada.</p>
+  </section>
+
+  <!-- C09 · CTA -->
+  <section class="case-wrap">
+    <div class="case-cta">
+      <h2 data-pt="Tem um desafio parecido?" data-en="Have a similar challenge?">Tem um desafio parecido?</h2>
+      <p data-pt="Operação com múltiplos perfis, dado sensível e regras que não podem falhar? Conte o cenário e voltamos em até um dia útil com os próximos passos." data-en="Operation with multiple roles, sensitive data and rules that can't fail? Tell us the scenario and we'll get back within one business day with the next steps.">Operação com múltiplos perfis, dado sensível e regras que não podem falhar? Conte o cenário e voltamos em até um dia útil com os próximos passos.</p>
+      <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+    </div>
+  </section>
+</main>
+
+<footer class="case-foot">
+  <div class="case-wrap">
+    <a href="../index.html" data-pt="← Onda · Estúdio de produtos digitais" data-en="← Onda · Digital product studio">← Onda · Estúdio de produtos digitais</a>
+    <a href="../index.html#projetos" data-pt="Ver outros projetos" data-en="See other work">Ver outros projetos</a>
+    <span class="muted">© 2026 Onda · Fortaleza, Ceará</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var K = 'onda-lang';
+  function apply(l) {
+    l = l === 'en' ? 'en' : 'pt';
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+    document.querySelectorAll('[data-pt]').forEach(function (el) {
+      var v = el.getAttribute('data-' + l);
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === l);
+    });
+    try { localStorage.setItem(K, l); } catch (e) {}
+  }
+  var wrap = document.getElementById('lang');
+  if (wrap) wrap.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-lang]');
+    if (b) apply(b.getAttribute('data-lang'));
+  });
+  var saved = 'pt';
+  try { saved = localStorage.getItem(K) || 'pt'; } catch (e) {}
+  apply(saved);
+})();
+</script>
+
+</body>
+</html>

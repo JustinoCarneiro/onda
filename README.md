@@ -98,11 +98,11 @@ O site implementa uma estratégia completa de otimização para motores de busca
 Exibe preview com imagem grande no X/Twitter.
 
 ### Dados Estruturados (Schema.org)
-Bloco `application/ld+json` do tipo `ProfessionalService` com:
+Bloco `application/ld+json` do tipo `Organization`, no `<head>`, com:
 - Nome, URL, logo e imagem
+- E-mail e os dois telefones públicos de contato
 - Endereço (`PostalAddress`) → Fortaleza, CE, BR
 - `areaServed: "BR"` e `knowsLanguage: ["pt-BR", "en"]`
-- Dois `ContactPoint` (comercial e suporte) com telefone e e-mail
 
 ### Rastreamento e indexação
 | Arquivo | Função |

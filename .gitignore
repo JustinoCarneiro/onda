@@ -15,3 +15,5 @@ brand-guidelines.html
 # ─── OndaDev ───
 .ondadev/handoff/current.md
 CLAUDE.local.md
+.vercel
+.env*
