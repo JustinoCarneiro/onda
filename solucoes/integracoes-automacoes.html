@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Integrações, APIs e Automação de Processos | Onda</title>
+<meta name="description" content="Conecte sistemas e reduza trabalho manual com APIs, webhooks, integrações e automações sob medida." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0E3F52" />
+<link rel="canonical" href="https://onda.business/solucoes/integracoes-automacoes" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Onda" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://onda.business/solucoes/integracoes-automacoes" />
+<meta property="og:title" content="Integrações, APIs e Automação de Processos" />
+<meta property="og:description" content="Conecte sistemas e reduza trabalho manual com APIs, webhooks, integrações e automações sob medida." />
+<meta property="og:image" content="https://onda.business/assets/img/og-cover.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=11" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=11" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Integrações e automações",
+  "serviceType": "Integração de sistemas e automação de processos",
+  "provider": { "@type": "Organization", "name": "Onda", "url": "https://onda.business/" },
+  "areaServed": "BR",
+  "inLanguage": "pt-BR",
+  "url": "https://onda.business/solucoes/integracoes-automacoes"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/styles.css?v=18" />
+
+<style>
+  body { background: var(--sand); color: var(--ink); font-family: var(--font-body); }
+  .case-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+
+  .case-nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px 24px; background: color-mix(in srgb, var(--sand) 88%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft, var(--line));
+  }
+  .case-nav-left { display: flex; align-items: center; gap: 16px; }
+  .case-nav-right { display: flex; align-items: center; gap: 12px; }
+  .case-nav .brand-logo { height: 28px; width: auto; display: block; }
+  .case-nav .back {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft); text-decoration: none;
+    padding: 6px 13px 6px 10px; border: 1px solid var(--line); border-radius: var(--r-pill);
+    background: var(--card, #fff); transition: color .2s ease, border-color .2s ease;
+  }
+  .case-nav .back:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .case-nav .btn { padding: 9px 18px; font-size: 14px; }
+  @media (max-width: 560px) {
+    .case-nav { padding: 12px 18px; }
+    .case-nav .btn { display: none; }
+  }
+
+  main { padding: 56px 0 40px; }
+  .case-section { padding-top: 44px; padding-bottom: 44px; border-top: 1px solid var(--line-soft, var(--line)); }
+  .case-section:first-of-type { border-top: 0; padding-top: 8px; }
+  .case-eyebrow {
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--turq); margin: 0 0 14px;
+  }
+  .sol-mark { width: 44px; height: 44px; color: var(--accent); margin-bottom: 18px; }
+  .case-h1 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.06; font-size: clamp(30px, 4.6vw, 46px); color: var(--ocean); margin: 0 0 16px;
+  }
+  .case-h2 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
+    font-size: clamp(21px, 2.6vw, 27px); color: var(--ink); margin: 0 0 14px;
+  }
+  .case-lead { font-size: 18px; color: var(--ink-soft); max-width: 64ch; margin: 0 0 20px; }
+  .case-section p { font-size: 16px; color: var(--ink-soft); max-width: 68ch; margin: 0 0 12px; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+  .case-tags i {
+    font-style: normal; font-size: 12.5px; color: var(--ink-faint);
+    box-shadow: inset 0 0 0 1.3px var(--line); padding: 5px 13px; border-radius: var(--r-pill);
+  }
+  .case-cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+  .mod-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  @media (max-width: 720px) { .mod-list { grid-template-columns: 1fr; } }
+  .mod-list li { position: relative; padding-left: 22px; font-size: 15px; color: var(--ink-soft); }
+  .mod-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
+    border-radius: 2px; background: var(--turq); }
+  .mod-list li b { color: var(--ink); font-weight: 600; }
+
+  .eng { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 28px; margin-top: 8px; }
+  @media (max-width: 720px) { .eng { grid-template-columns: 1fr; } }
+  .eng div { font-size: 14.5px; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px dashed var(--line-soft, var(--line)); }
+  .eng div b { color: var(--ink); font-weight: 600; }
+
+  .rel-case {
+    display: flex; gap: 20px; align-items: center; margin-top: 8px;
+    background: var(--card); border: 1px solid var(--line-soft, var(--line)); border-radius: 16px;
+    padding: 20px 22px; text-decoration: none; transition: box-shadow .3s ease, transform .3s ease;
+  }
+  .rel-case:hover { box-shadow: var(--shadow-float); transform: translateY(-3px); }
+  .rel-case-body b { display: block; color: var(--ink); font-size: 16px; margin-bottom: 4px; }
+  .rel-case-body span { font-size: 14.5px; color: var(--ink-soft); }
+  .rel-case-arrow { flex: none; width: 20px; height: 20px; color: var(--turq); }
+  .rel-case-list { display: grid; gap: 12px; margin-top: 8px; }
+
+  .case-cta {
+    margin: 48px 0 8px; padding: 40px 32px; border-radius: 18px;
+    background: var(--ocean); color: #fff; text-align: center;
+  }
+  .case-cta h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: -0.02em; margin: 0 0 10px; color: #fff; }
+  .case-cta p { color: rgba(255,255,255,.82); max-width: 52ch; margin: 0 auto 22px; font-size: 16px; }
+  .case-cta .btn { background: var(--turq); color: #042027; border: 0; }
+  .case-cta .btn:hover { background: var(--turq-bright); }
+
+  .case-foot { border-top: 1px solid var(--line-soft, var(--line)); padding: 28px 0 48px; margin-top: 20px; }
+  .case-foot .case-wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  .case-foot a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
+  .case-foot a:hover { color: var(--ink); }
+  .case-foot .muted { font-size: 13px; color: var(--ink-faint); }
+
+  @media (max-width: 560px) {
+    .case-wrap { padding: 0 18px; }
+    main { padding: 40px 0 32px; }
+    .case-section { padding-top: 34px; padding-bottom: 34px; }
+    .case-h1 { font-size: clamp(24px, 6.4vw, 31px); }
+    .case-lead { font-size: 16px; }
+    .case-section p { font-size: 15.5px; }
+    .case-cta { padding: 30px 20px; margin: 36px 0 8px; }
+    .case-cta p { font-size: 15px; }
+    .case-foot .case-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .rel-case { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body data-mood="clara">
+
+<header class="case-nav">
+  <div class="case-nav-left">
+    <a class="brand" href="../index.html" aria-label="Onda — página inicial">
+      <img class="brand-logo" src="../assets/brand/logo-onda.png?v=15" alt="Onda" width="118" height="34" />
+    </a>
+    <a class="back" href="../index.html#servicos">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      <span data-pt="Soluções" data-en="Solutions">Soluções</span>
+    </a>
+  </div>
+  <div class="case-nav-right">
+    <div class="lang" id="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" class="on">PT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="btn" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="case-section case-wrap">
+    <svg class="sol-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a14 14 0 0 0 0 18M12 3a14 14 0 0 1 0 18M3.5 9h17M3.5 15h17" stroke-linecap="round"/></svg>
+    <p class="case-eyebrow" data-pt="Solução · Integrações &amp; automações" data-en="Solution · Integrations &amp; automation">Solução · Integrações &amp; automações</p>
+    <h1 class="case-h1" data-pt="Integrações &amp; automações: conecte sistemas e elimine tarefas manuais" data-en="Integrations &amp; automation: connect systems and eliminate manual tasks">Integrações &amp; automações: conecte sistemas e elimine tarefas manuais</h1>
+    <p class="case-lead" data-pt="APIs, webhooks e automações que fazem os dados fluírem entre sistemas — legados ou não — sem depender de alguém copiando informação de um lugar para o outro." data-en="APIs, webhooks and automations that make data flow between systems — legacy or not — with no one manually copying information from one place to another.">APIs, webhooks e automações que fazem os dados fluírem entre sistemas — legados ou não — sem depender de alguém copiando informação de um lugar para o outro.</p>
+    <div class="case-tags">
+      <i data-pt="APIs" data-en="APIs">APIs</i>
+      <i data-pt="Webhooks" data-en="Webhooks">Webhooks</i>
+      <i data-pt="Sistemas legados" data-en="Legacy systems">Sistemas legados</i>
+      <i data-pt="Automação operacional" data-en="Operational automation">Automação operacional</i>
+    </div>
+    <div class="case-cta-row">
+      <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+      <a class="btn btn--ghost" href="../projetos/instituto-melvin-erp.html" data-pt="Ver evidência técnica" data-en="See technical evidence">Ver evidência técnica</a>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Quando o trabalho manual vira o gargalo" data-en="When manual work becomes the bottleneck">Quando o trabalho manual vira o gargalo</h2>
+    <p data-pt="Sistemas que não conversam entre si acabam conversando por meio de uma pessoa copiando dado de um lugar para o outro. Isso não escala e não é seguro." data-en="Systems that don't talk to each other end up talking through a person copying data from one place to another. That doesn't scale and isn't safe.">Sistemas que não conversam entre si acabam conversando por meio de uma pessoa copiando dado de um lugar para o outro. Isso não escala e não é seguro.</p>
+    <ul class="mod-list">
+      <li data-pt="Confirmação de pagamento, cadastro ou pedido tratada manualmente entre sistemas." data-en="Payment confirmation, records or orders handled manually across systems.">Confirmação de pagamento, cadastro ou pedido tratada manualmente entre sistemas.</li>
+      <li data-pt="Sistema legado sem API, exigindo retrabalho para integrar com o resto da operação." data-en="Legacy system with no API, forcing rework to integrate with the rest of the operation.">Sistema legado sem API, exigindo retrabalho para integrar com o resto da operação.</li>
+      <li data-pt="Ausência de defesa contra abuso — sem rate limiting ou controle de tentativas." data-en="No abuse defence — no rate limiting or attempt control.">Ausência de defesa contra abuso — sem rate limiting ou controle de tentativas.</li>
+      <li data-pt="Automação tratada como script isolado, sem monitoramento nem tratamento de erro." data-en="Automation treated as an isolated script, with no monitoring or error handling.">Automação tratada como script isolado, sem monitoramento nem tratamento de erro.</li>
+    </ul>
+  </section>
+
+  <!-- O QUE CONSTRUÍMOS -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O que construímos" data-en="What we build">O que construímos</h2>
+    <p data-pt="Integrações e automações tratadas como parte do sistema — com defesa contra abuso e tratamento de erro, não como script solto." data-en="Integrations and automations treated as part of the system — with abuse defence and error handling, not as a loose script.">Integrações e automações tratadas como parte do sistema — com defesa contra abuso e tratamento de erro, não como script solto.</p>
+    <ul class="mod-list">
+      <li data-pt="<b>APIs &amp; webhooks</b> — integração nativa com serviços externos (pagamento, notificação, dados)." data-en="<b>APIs &amp; webhooks</b> — native integration with external services (payments, notifications, data)."><b>APIs &amp; webhooks</b> — integração nativa com serviços externos (pagamento, notificação, dados).</li>
+      <li data-pt="<b>Integração com sistemas legados</b> — quando viável, sem exigir reescrever tudo." data-en="<b>Legacy system integration</b> — when feasible, with no need to rewrite everything."><b>Integração com sistemas legados</b> — quando viável, sem exigir reescrever tudo.</li>
+      <li data-pt="<b>Defesa contra abuso</b> — rate limiting por IP e controle de tentativas." data-en="<b>Abuse defence</b> — per-IP rate limiting and attempt control."><b>Defesa contra abuso</b> — rate limiting por IP e controle de tentativas.</li>
+      <li data-pt="<b>Automação operacional</b> — regras e permissões configuráveis sem depender de desenvolvedor." data-en="<b>Operational automation</b> — rules and permissions configurable with no developer needed."><b>Automação operacional</b> — regras e permissões configuráveis sem depender de desenvolvedor.</li>
+    </ul>
+  </section>
+
+  <!-- PROVA DE ENGENHARIA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Engenharia aplicada em produção" data-en="Engineering applied in production">Engenharia aplicada em produção</h2>
+    <p data-pt="Evidência real dos dois projetos entregues: webhooks de pagamento em produção no Instituto Melvin e defesa contra abuso (rate limiting) no Instituto Lucas." data-en="Real evidence from both delivered projects: payment webhooks in production at Instituto Melvin and abuse defence (rate limiting) at Instituto Lucas.">Evidência real dos dois projetos entregues: webhooks de pagamento em produção no Instituto Melvin e defesa contra abuso (rate limiting) no Instituto Lucas.</p>
+    <div class="eng">
+      <div data-pt="<b>Webhooks:</b> Stripe (confirmação de pagamento)" data-en="<b>Webhooks:</b> Stripe (payment confirmation)"><b>Webhooks:</b> Stripe (confirmação de pagamento)</div>
+      <div data-pt="<b>RBAC dinâmico:</b> permissões configuráveis sem deploy" data-en="<b>Dynamic RBAC:</b> permissions configurable with no deploy"><b>RBAC dinâmico:</b> permissões configuráveis sem deploy</div>
+      <div data-pt="<b>Defesa:</b> rate limiting por IP (Bucket4j)" data-en="<b>Defence:</b> per-IP rate limiting (Bucket4j)"><b>Defesa:</b> rate limiting por IP (Bucket4j)</div>
+      <div data-pt="<b>Entrega:</b> CI/CD em GitHub Actions · Docker Compose" data-en="<b>Delivery:</b> CI/CD on GitHub Actions · Docker Compose"><b>Entrega:</b> CI/CD em GitHub Actions · Docker Compose</div>
+    </div>
+  </section>
+
+  <!-- CASES RELACIONADOS -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Cases relacionados" data-en="Related cases">Cases relacionados</h2>
+    <div class="rel-case-list">
+      <a class="rel-case" href="../projetos/instituto-melvin-erp.html">
+        <div class="rel-case-body">
+          <b data-pt="Instituto Melvin — webhooks de pagamento em produção" data-en="Instituto Melvin — payment webhooks in production">Instituto Melvin — webhooks de pagamento em produção</b>
+          <span data-pt="Doações recorrentes via Stripe, com confirmação automática integrada ao ERP." data-en="Recurring donations via Stripe, with automatic confirmation integrated into the ERP.">Doações recorrentes via Stripe, com confirmação automática integrada ao ERP.</span>
+        </div>
+        <svg class="rel-case-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="rel-case" href="../projetos/instituto-lucas.html">
+        <div class="rel-case-body">
+          <b data-pt="Instituto Lucas — defesa automatizada contra abuso" data-en="Instituto Lucas — automated abuse defence">Instituto Lucas — defesa automatizada contra abuso</b>
+          <span data-pt="Rate limiting por IP e MFA/TOTP protegendo o sistema em produção." data-en="Per-IP rate limiting and MFA/TOTP protecting the system in production.">Rate limiting por IP e MFA/TOTP protegendo o sistema em produção.</span>
+        </div>
+        <svg class="rel-case-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-wrap">
+    <div class="case-cta">
+      <h2 data-pt="Tem um processo manual para automatizar?" data-en="Have a manual process to automate?">Tem um processo manual para automatizar?</h2>
+      <p data-pt="Conte o cenário e voltamos em até um dia útil com os próximos passos para conectar seus sistemas." data-en="Tell us the scenario and we'll get back within one business day with the next steps to connect your systems.">Conte o cenário e voltamos em até um dia útil com os próximos passos para conectar seus sistemas.</p>
+      <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+    </div>
+  </section>
+</main>
+
+<footer class="case-foot">
+  <div class="case-wrap">
+    <a href="../index.html" data-pt="← Onda · Estúdio de produtos digitais" data-en="← Onda · Digital product studio">← Onda · Estúdio de produtos digitais</a>
+    <a href="../index.html#servicos" data-pt="Ver outras soluções" data-en="See other solutions">Ver outras soluções</a>
+    <span class="muted">© 2026 Onda · Fortaleza, Ceará</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var K = 'onda-lang';
+  function apply(l) {
+    l = l === 'en' ? 'en' : 'pt';
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+    document.querySelectorAll('[data-pt]').forEach(function (el) {
+      var v = el.getAttribute('data-' + l);
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === l);
+    });
+    try { localStorage.setItem(K, l); } catch (e) {}
+  }
+  var wrap = document.getElementById('lang');
+  if (wrap) wrap.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-lang]');
+    if (b) apply(b.getAttribute('data-lang'));
+  });
+  var saved = 'pt';
+  try { saved = localStorage.getItem(K) || 'pt'; } catch (e) {}
+  apply(saved);
+})();
+</script>
+
+</body>
+</html>

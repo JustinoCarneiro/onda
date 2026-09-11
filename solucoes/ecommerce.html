@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Desenvolvimento de E-commerce e Integrações | Onda</title>
+<meta name="description" content="E-commerces e plataformas de venda com checkout, pagamentos, integrações e performance." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0E3F52" />
+<link rel="canonical" href="https://onda.business/solucoes/ecommerce" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Onda" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://onda.business/solucoes/ecommerce" />
+<meta property="og:title" content="Desenvolvimento de E-commerce e Integrações" />
+<meta property="og:description" content="E-commerces e plataformas de venda com checkout, pagamentos, integrações e performance." />
+<meta property="og:image" content="https://onda.business/assets/img/og-cover.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=11" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=11" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "E-commerce e plataformas de venda",
+  "serviceType": "Desenvolvimento de e-commerce",
+  "provider": { "@type": "Organization", "name": "Onda", "url": "https://onda.business/" },
+  "areaServed": "BR",
+  "inLanguage": "pt-BR",
+  "url": "https://onda.business/solucoes/ecommerce"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/styles.css?v=18" />
+
+<style>
+  body { background: var(--sand); color: var(--ink); font-family: var(--font-body); }
+  .case-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+
+  .case-nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px 24px; background: color-mix(in srgb, var(--sand) 88%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft, var(--line));
+  }
+  .case-nav-left { display: flex; align-items: center; gap: 16px; }
+  .case-nav-right { display: flex; align-items: center; gap: 12px; }
+  .case-nav .brand-logo { height: 28px; width: auto; display: block; }
+  .case-nav .back {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft); text-decoration: none;
+    padding: 6px 13px 6px 10px; border: 1px solid var(--line); border-radius: var(--r-pill);
+    background: var(--card, #fff); transition: color .2s ease, border-color .2s ease;
+  }
+  .case-nav .back:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .case-nav .btn { padding: 9px 18px; font-size: 14px; }
+  @media (max-width: 560px) {
+    .case-nav { padding: 12px 18px; }
+    .case-nav .btn { display: none; }
+  }
+
+  main { padding: 56px 0 40px; }
+  .case-section { padding-top: 44px; padding-bottom: 44px; border-top: 1px solid var(--line-soft, var(--line)); }
+  .case-section:first-of-type { border-top: 0; padding-top: 8px; }
+  .case-eyebrow {
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--turq); margin: 0 0 14px;
+  }
+  .sol-mark { width: 44px; height: 44px; color: var(--accent); margin-bottom: 18px; }
+  .case-h1 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.06; font-size: clamp(30px, 4.6vw, 46px); color: var(--ocean); margin: 0 0 16px;
+  }
+  .case-h2 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
+    font-size: clamp(21px, 2.6vw, 27px); color: var(--ink); margin: 0 0 14px;
+  }
+  .case-lead { font-size: 18px; color: var(--ink-soft); max-width: 64ch; margin: 0 0 20px; }
+  .case-section p { font-size: 16px; color: var(--ink-soft); max-width: 68ch; margin: 0 0 12px; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+  .case-tags i {
+    font-style: normal; font-size: 12.5px; color: var(--ink-faint);
+    box-shadow: inset 0 0 0 1.3px var(--line); padding: 5px 13px; border-radius: var(--r-pill);
+  }
+  .case-cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+  .mod-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  @media (max-width: 720px) { .mod-list { grid-template-columns: 1fr; } }
+  .mod-list li { position: relative; padding-left: 22px; font-size: 15px; color: var(--ink-soft); }
+  .mod-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
+    border-radius: 2px; background: var(--turq); }
+  .mod-list li b { color: var(--ink); font-weight: 600; }
+
+  .eng { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 28px; margin-top: 8px; }
+  @media (max-width: 720px) { .eng { grid-template-columns: 1fr; } }
+  .eng div { font-size: 14.5px; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px dashed var(--line-soft, var(--line)); }
+  .eng div b { color: var(--ink); font-weight: 600; }
+
+  .rel-case {
+    display: flex; gap: 20px; align-items: center; margin-top: 8px;
+    background: var(--card); border: 1px solid var(--line-soft, var(--line)); border-radius: 16px;
+    padding: 20px 22px; text-decoration: none; transition: box-shadow .3s ease, transform .3s ease;
+  }
+  .rel-case:hover { box-shadow: var(--shadow-float); transform: translateY(-3px); }
+  .rel-case-body b { display: block; color: var(--ink); font-size: 16px; margin-bottom: 4px; }
+  .rel-case-body span { font-size: 14.5px; color: var(--ink-soft); }
+  .rel-case-arrow { flex: none; width: 20px; height: 20px; color: var(--turq); }
+
+  .case-cta {
+    margin: 48px 0 8px; padding: 40px 32px; border-radius: 18px;
+    background: var(--ocean); color: #fff; text-align: center;
+  }
+  .case-cta h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: -0.02em; margin: 0 0 10px; color: #fff; }
+  .case-cta p { color: rgba(255,255,255,.82); max-width: 52ch; margin: 0 auto 22px; font-size: 16px; }
+  .case-cta .btn { background: var(--turq); color: #042027; border: 0; }
+  .case-cta .btn:hover { background: var(--turq-bright); }
+
+  .case-foot { border-top: 1px solid var(--line-soft, var(--line)); padding: 28px 0 48px; margin-top: 20px; }
+  .case-foot .case-wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  .case-foot a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
+  .case-foot a:hover { color: var(--ink); }
+  .case-foot .muted { font-size: 13px; color: var(--ink-faint); }
+
+  @media (max-width: 560px) {
+    .case-wrap { padding: 0 18px; }
+    main { padding: 40px 0 32px; }
+    .case-section { padding-top: 34px; padding-bottom: 34px; }
+    .case-h1 { font-size: clamp(24px, 6.4vw, 31px); }
+    .case-lead { font-size: 16px; }
+    .case-section p { font-size: 15.5px; }
+    .case-cta { padding: 30px 20px; margin: 36px 0 8px; }
+    .case-cta p { font-size: 15px; }
+    .case-foot .case-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .rel-case { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body data-mood="clara">
+
+<header class="case-nav">
+  <div class="case-nav-left">
+    <a class="brand" href="../index.html" aria-label="Onda — página inicial">
+      <img class="brand-logo" src="../assets/brand/logo-onda.png?v=15" alt="Onda" width="118" height="34" />
+    </a>
+    <a class="back" href="../index.html#servicos">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      <span data-pt="Soluções" data-en="Solutions">Soluções</span>
+    </a>
+  </div>
+  <div class="case-nav-right">
+    <div class="lang" id="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" class="on">PT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="btn" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="case-section case-wrap">
+    <svg class="sol-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l-1.5 11.5A2 2 0 0 1 15.5 20h-7a2 2 0 0 1-2-1.5L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0" stroke-linecap="round"/></svg>
+    <p class="case-eyebrow" data-pt="Solução · E-commerce &amp; plataformas de venda" data-en="Solution · E-commerce &amp; sales platforms">Solução · E-commerce &amp; plataformas de venda</p>
+    <h1 class="case-h1" data-pt="E-commerce &amp; plataformas de venda: checkout, pagamentos e operação conectados de ponta a ponta" data-en="E-commerce &amp; sales platforms: checkout, payments and operations connected end to end">E-commerce &amp; plataformas de venda: checkout, pagamentos e operação conectados de ponta a ponta</h1>
+    <p class="case-lead" data-pt="Jornadas de compra rápidas e integradas, do catálogo e checkout aos pagamentos, estoque, logística e operação — sem gambiarra entre sistemas." data-en="Fast, integrated purchase journeys, from catalog and checkout to payments, inventory, logistics and operations — with no duct-tape between systems.">Jornadas de compra rápidas e integradas, do catálogo e checkout aos pagamentos, estoque, logística e operação — sem gambiarra entre sistemas.</p>
+    <div class="case-tags">
+      <i data-pt="Checkout" data-en="Checkout">Checkout</i>
+      <i data-pt="Pagamentos" data-en="Payments">Pagamentos</i>
+      <i data-pt="Estoque" data-en="Inventory">Estoque</i>
+      <i data-pt="Logística" data-en="Logistics">Logística</i>
+      <i data-pt="Webhooks" data-en="Webhooks">Webhooks</i>
+    </div>
+    <div class="case-cta-row">
+      <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+      <a class="btn btn--ghost" href="../projetos/instituto-melvin-erp.html" data-pt="Ver evidência de pagamentos" data-en="See payments evidence">Ver evidência de pagamentos</a>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Quando a plataforma de venda vira gargalo" data-en="When the sales platform becomes the bottleneck">Quando a plataforma de venda vira gargalo</h2>
+    <p data-pt="Plataformas de e-commerce genéricas resolvem a vitrine, mas travam quando pagamento, estoque e operação interna precisam conversar de verdade." data-en="Generic e-commerce platforms solve the storefront, but stall once payments, inventory and internal operations really need to talk to each other.">Plataformas de e-commerce genéricas resolvem a vitrine, mas travam quando pagamento, estoque e operação interna precisam conversar de verdade.</p>
+    <ul class="mod-list">
+      <li data-pt="Checkout engessado, sem espaço para regra de negócio específica." data-en="Rigid checkout, with no room for specific business rules.">Checkout engessado, sem espaço para regra de negócio específica.</li>
+      <li data-pt="Pagamento recorrente ou por assinatura tratado como exceção pela plataforma." data-en="Recurring or subscription payment handled as an exception by the platform.">Pagamento recorrente ou por assinatura tratado como exceção pela plataforma.</li>
+      <li data-pt="Estoque e logística desconectados do que realmente acontece no financeiro." data-en="Inventory and logistics disconnected from what actually happens in finance.">Estoque e logística desconectados do que realmente acontece no financeiro.</li>
+      <li data-pt="Webhooks e confirmações de pagamento tratados de forma manual ou frágil." data-en="Payment webhooks and confirmations handled manually or fragilely.">Webhooks e confirmações de pagamento tratados de forma manual ou frágil.</li>
+    </ul>
+  </section>
+
+  <!-- O QUE CONSTRUÍMOS -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O que construímos" data-en="What we build">O que construímos</h2>
+    <p data-pt="Catálogo, checkout, pagamentos e operação como um sistema só — construído para as regras reais de venda do seu negócio." data-en="Catalog, checkout, payments and operations as a single system — built for your business's real sales rules.">Catálogo, checkout, pagamentos e operação como um sistema só — construído para as regras reais de venda do seu negócio.</p>
+    <ul class="mod-list">
+      <li data-pt="<b>Checkout sob medida</b> — fluxo de compra ajustado à sua regra de negócio." data-en="<b>Custom checkout</b> — purchase flow adjusted to your business rule."><b>Checkout sob medida</b> — fluxo de compra ajustado à sua regra de negócio.</li>
+      <li data-pt="<b>Pagamentos recorrentes</b> — integração nativa com gateway (SDK + webhooks)." data-en="<b>Recurring payments</b> — native gateway integration (SDK + webhooks)."><b>Pagamentos recorrentes</b> — integração nativa com gateway (SDK + webhooks).</li>
+      <li data-pt="<b>Estoque e logística conectados</b> — operação e financeiro no mesmo fluxo." data-en="<b>Connected inventory and logistics</b> — operations and finance in the same flow."><b>Estoque e logística conectados</b> — operação e financeiro no mesmo fluxo.</li>
+      <li data-pt="<b>Webhooks confiáveis</b> — confirmação de pagamento tratada como parte do sistema, não como exceção." data-en="<b>Reliable webhooks</b> — payment confirmation handled as part of the system, not as an exception."><b>Webhooks confiáveis</b> — confirmação de pagamento tratada como parte do sistema, não como exceção.</li>
+    </ul>
+  </section>
+
+  <!-- PROVA DE ENGENHARIA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Evidência real de pagamentos em produção" data-en="Real payments evidence in production">Evidência real de pagamentos em produção</h2>
+    <p data-pt="Ainda não publicamos um case de e-commerce completo, mas a base de pagamentos já está validada em produção: o módulo <i>Amigos do Melvin</i>, do ERP do Instituto Melvin, processa doações recorrentes via Stripe (SDK nativo + webhooks) — a mesma engenharia que sustenta um checkout." data-en="We haven't published a full e-commerce case yet, but the payments foundation is already validated in production: the <i>Friends of Melvin</i> module, part of the Instituto Melvin ERP, processes recurring donations via Stripe (native SDK + webhooks) — the same engineering that underpins a checkout.">Ainda não publicamos um case de e-commerce completo, mas a base de pagamentos já está validada em produção: o módulo <i>Amigos do Melvin</i>, do ERP do Instituto Melvin, processa doações recorrentes via Stripe (SDK nativo + webhooks) — a mesma engenharia que sustenta um checkout.</p>
+    <div class="eng">
+      <div data-pt="<b>Pagamentos:</b> Stripe (SDK nativo + webhooks)" data-en="<b>Payments:</b> Stripe (native SDK + webhooks)"><b>Pagamentos:</b> Stripe (SDK nativo + webhooks)</div>
+      <div data-pt="<b>Backend:</b> Java 21 · Spring Boot" data-en="<b>Backend:</b> Java 21 · Spring Boot"><b>Backend:</b> Java 21 · Spring Boot</div>
+      <div data-pt="<b>Banco:</b> PostgreSQL · migrations com Flyway" data-en="<b>Database:</b> PostgreSQL · migrations with Flyway"><b>Banco:</b> PostgreSQL · migrations com Flyway</div>
+      <div data-pt="<b>Infra:</b> Docker · Docker Compose · Nginx" data-en="<b>Infra:</b> Docker · Docker Compose · Nginx"><b>Infra:</b> Docker · Docker Compose · Nginx</div>
+    </div>
+  </section>
+
+  <!-- CASE RELACIONADO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Case relacionado" data-en="Related case">Case relacionado</h2>
+    <a class="rel-case" href="../projetos/instituto-melvin-erp.html">
+      <div class="rel-case-body">
+        <b data-pt="Instituto Melvin — pagamentos recorrentes em produção" data-en="Instituto Melvin — recurring payments in production">Instituto Melvin — pagamentos recorrentes em produção</b>
+        <span data-pt="Doações recorrentes via Stripe, integradas à gestão financeira do ERP." data-en="Recurring donations via Stripe, integrated with the ERP's financial management.">Doações recorrentes via Stripe, integradas à gestão financeira do ERP.</span>
+      </div>
+      <svg class="rel-case-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-wrap">
+    <div class="case-cta">
+      <h2 data-pt="Quer vender com um checkout que não trava?" data-en="Want to sell with a checkout that doesn't break?">Quer vender com um checkout que não trava?</h2>
+      <p data-pt="Conte o cenário e voltamos em até um dia útil com os próximos passos para conectar catálogo, pagamento e operação." data-en="Tell us the scenario and we'll get back within one business day with the next steps to connect catalog, payments and operations.">Conte o cenário e voltamos em até um dia útil com os próximos passos para conectar catálogo, pagamento e operação.</p>
+      <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+    </div>
+  </section>
+</main>
+
+<footer class="case-foot">
+  <div class="case-wrap">
+    <a href="../index.html" data-pt="← Onda · Estúdio de produtos digitais" data-en="← Onda · Digital product studio">← Onda · Estúdio de produtos digitais</a>
+    <a href="../index.html#servicos" data-pt="Ver outras soluções" data-en="See other solutions">Ver outras soluções</a>
+    <span class="muted">© 2026 Onda · Fortaleza, Ceará</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var K = 'onda-lang';
+  function apply(l) {
+    l = l === 'en' ? 'en' : 'pt';
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+    document.querySelectorAll('[data-pt]').forEach(function (el) {
+      var v = el.getAttribute('data-' + l);
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === l);
+    });
+    try { localStorage.setItem(K, l); } catch (e) {}
+  }
+  var wrap = document.getElementById('lang');
+  if (wrap) wrap.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-lang]');
+    if (b) apply(b.getAttribute('data-lang'));
+  });
+  var saved = 'pt';
+  try { saved = localStorage.getItem(K) || 'pt'; } catch (e) {}
+  apply(saved);
+})();
+</script>
+
+</body>
+</html>
