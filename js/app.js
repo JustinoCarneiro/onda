@@ -362,6 +362,25 @@
     });
   }
 
+  /* ---------- Lazy-load dos vídeos de demonstração nos cards de projeto ----------
+     preload="none" no HTML evita baixar o .mp4 (1-2MB) até o card entrar na tela;
+     o IntersectionObserver dá o play/pause conforme visibilidade. */
+  (function () {
+    var thumbVideos = document.querySelectorAll('.proj-thumb video');
+    if (!thumbVideos.length || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting) {
+          v.play().catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    thumbVideos.forEach(function (v) { io.observe(v); });
+  })();
+
   /* ---------- Carrossel de serviços (mobile) ---------- */
   (function () {
     var grid = document.querySelector('.svc-grid');
