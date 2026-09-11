@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case: Instituto Melvin — ERP de gestão acadêmica sob medida | Onda</title>
+<meta name="description" content="Como a Onda centralizou a operação do Instituto Social Melvin em um ERP web sob medida: matrículas, alunos, voluntários, frequência e doações em um só sistema." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0E3F52" />
+<link rel="canonical" href="https://onda.business/projetos/instituto-melvin-erp" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Onda" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://onda.business/projetos/instituto-melvin-erp" />
+<meta property="og:title" content="Case: Instituto Melvin — ERP de gestão acadêmica sob medida" />
+<meta property="og:description" content="Matrículas, alunos, voluntários, frequência e doações do Instituto Social Melvin centralizados em um ERP web sob medida." />
+<meta property="og:image" content="https://onda.business/assets/img/og-cover.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=11" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=11" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Instituto Melvin — centralizando a operação acadêmica em um ERP próprio",
+  "about": "Desenvolvimento de sistema de gestão (ERP) sob medida",
+  "publisher": { "@type": "Organization", "name": "Onda", "url": "https://onda.business/" },
+  "inLanguage": "pt-BR",
+  "mainEntityOfPage": "https://onda.business/projetos/instituto-melvin-erp"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/styles.css?v=16" />
+
+<style>
+  body { background: var(--sand); color: var(--ink); font-family: var(--font-body); }
+  .case-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+
+  .case-nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px 24px; background: color-mix(in srgb, var(--sand) 88%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft, var(--line));
+  }
+  .case-nav-left { display: flex; align-items: center; gap: 16px; }
+  .case-nav-right { display: flex; align-items: center; gap: 12px; }
+  .case-nav .brand-logo { height: 28px; width: auto; display: block; }
+  .case-nav .back {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft); text-decoration: none;
+    padding: 6px 13px 6px 10px; border: 1px solid var(--line); border-radius: var(--r-pill);
+    background: var(--card, #fff); transition: color .2s ease, border-color .2s ease;
+  }
+  .case-nav .back:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .case-nav .btn { padding: 9px 18px; font-size: 14px; }
+  @media (max-width: 560px) {
+    .case-nav { padding: 12px 18px; }
+    .case-nav .btn { display: none; }
+  }
+
+  main { padding: 56px 0 40px; }
+  .case-section { padding: 44px 0; border-top: 1px solid var(--line-soft, var(--line)); }
+  .case-section:first-of-type { border-top: 0; padding-top: 8px; }
+  .case-eyebrow {
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--turq); margin: 0 0 14px;
+  }
+  .case-h1 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.06; font-size: clamp(30px, 4.6vw, 46px); color: var(--ocean); margin: 0 0 16px;
+  }
+  .case-h2 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
+    font-size: clamp(21px, 2.6vw, 27px); color: var(--ink); margin: 0 0 14px;
+  }
+  .case-lead { font-size: 18px; color: var(--ink-soft); max-width: 64ch; margin: 0 0 20px; }
+  .case-section p { font-size: 16px; color: var(--ink-soft); max-width: 68ch; margin: 0 0 12px; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+  .case-tags i {
+    font-style: normal; font-size: 12.5px; color: var(--ink-faint);
+    box-shadow: inset 0 0 0 1.3px var(--line); padding: 5px 13px; border-radius: var(--r-pill);
+  }
+
+  .shot { border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-float);
+    border: 1px solid var(--line); background: var(--card); display: block; }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot-fig { margin: 0; }
+  .shot-cap { font-size: 13.5px; font-weight: 500; color: var(--ink-soft); margin: 12px 4px 0; line-height: 1.45; }
+  .hero-shot { margin-top: 28px; }
+
+  .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+  @media (max-width: 720px) { .shot-grid { grid-template-columns: 1fr; } }
+
+  .mod-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  @media (max-width: 720px) { .mod-list { grid-template-columns: 1fr; } }
+  .mod-list li { position: relative; padding-left: 22px; font-size: 15px; color: var(--ink-soft); }
+  .mod-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
+    border-radius: 2px; background: var(--turq); }
+  .mod-list li b { color: var(--ink); font-weight: 600; }
+
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  @media (max-width: 720px) { .res-grid { grid-template-columns: 1fr; } }
+  .res {
+    background: var(--card); border: 1px solid var(--line-soft, var(--line));
+    border-left: 3px solid var(--turq); border-radius: 12px; padding: 16px 18px;
+  }
+  .res b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+  .res span { font-size: 14px; color: var(--ink-soft); }
+  .res-note { font-size: 13px; color: var(--ink-faint); margin-top: 14px; }
+
+  .eng { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 28px; margin-top: 8px; }
+  @media (max-width: 720px) { .eng { grid-template-columns: 1fr; } }
+  .eng div { font-size: 14.5px; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px dashed var(--line-soft, var(--line)); }
+  .eng div b { color: var(--ink); font-weight: 600; }
+
+  .case-cta {
+    margin: 48px 0 8px; padding: 40px 32px; border-radius: 18px;
+    background: var(--ocean); color: #fff; text-align: center;
+  }
+  .case-cta h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: -0.02em; margin: 0 0 10px; color: #fff; }
+  .case-cta p { color: rgba(255,255,255,.82); max-width: 52ch; margin: 0 auto 22px; font-size: 16px; }
+  .case-cta .btn { background: var(--turq); color: #042027; border: 0; }
+  .case-cta .btn:hover { background: var(--turq-bright); }
+
+  .case-foot { border-top: 1px solid var(--line-soft, var(--line)); padding: 28px 0 48px; margin-top: 20px; }
+  .case-foot .case-wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  .case-foot a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
+  .case-foot a:hover { color: var(--ink); }
+  .case-foot .muted { font-size: 13px; color: var(--ink-faint); }
+
+  @media (max-width: 560px) {
+    .case-wrap { padding: 0 18px; }
+    main { padding: 40px 0 32px; }
+    .case-section { padding: 34px 0; }
+    .case-h1 { font-size: clamp(24px, 6.4vw, 31px); }
+    .case-lead { font-size: 16px; }
+    .case-section p { font-size: 15.5px; }
+    .hero-shot { margin-top: 22px; }
+    .shot-grid { gap: 18px; }
+    .case-cta { padding: 30px 20px; margin: 36px 0 8px; }
+    .case-cta p { font-size: 15px; }
+    .case-foot .case-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
+</head>
+<body data-mood="clara">
+
+<header class="case-nav">
+  <div class="case-nav-left">
+    <a class="brand" href="../index.html" aria-label="Onda — página inicial">
+      <img class="brand-logo" src="../assets/brand/logo-onda.png?v=15" alt="Onda" width="118" height="34" />
+    </a>
+    <a class="back" href="../index.html#projetos">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      <span data-pt="Projetos" data-en="Work">Projetos</span>
+    </a>
+  </div>
+  <div class="case-nav-right">
+    <div class="lang" id="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" class="on">PT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="btn" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+  </div>
+</header>
+
+<main>
+  <!-- C01 · HERO -->
+  <section class="case-section case-wrap">
+    <p class="case-eyebrow" data-pt="Case · Sistema sob medida" data-en="Case · Custom software">Case · Sistema sob medida</p>
+    <h1 class="case-h1" data-pt="Instituto Melvin: a operação acadêmica inteira em um ERP próprio" data-en="Instituto Melvin: an entire academic operation in one custom ERP">Instituto Melvin: a operação acadêmica inteira em um ERP próprio</h1>
+    <p class="case-lead" data-pt="Sistema web sob medida para concentrar matrículas, alunos, voluntários, frequência e doações do Instituto Social Melvin em uma única operação — respeitando as regras específicas de um projeto socioeducacional." data-en="A custom web system that brings the Instituto Social Melvin's enrolments, students, volunteers, attendance and donations into a single operation — following the specific rules of a social-education project.">Sistema web sob medida para concentrar matrículas, alunos, voluntários, frequência e doações do Instituto Social Melvin em uma única operação — respeitando as regras específicas de um projeto socioeducacional.</p>
+    <div class="case-tags">
+      <i data-pt="ERP sob medida" data-en="Custom ERP">ERP sob medida</i>
+      <i data-pt="Gestão educacional" data-en="Education management">Gestão educacional</i>
+      <i data-pt="Multi-perfil (RBAC)" data-en="Multi-role (RBAC)">Multi-perfil (RBAC)</i>
+      <i data-pt="Em produção" data-en="In production">Em produção</i>
+    </div>
+    <figure class="shot-fig hero-shot">
+      <div class="shot"><img src="../assets/img/cases/melvin/dashboard.webp" width="1440" height="1046" alt="Painel administrativo do Sistema Melvin com indicadores da operação" loading="eager" decoding="async" /></div>
+    </figure>
+  </section>
+
+  <!-- C02 · CONTEXTO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Contexto" data-en="Context">Contexto</h2>
+    <p data-pt="O Instituto Social Melvin é uma instituição socioeducacional que atende crianças e adolescentes e mobiliza uma rede de voluntários, embaixadores e doadores em torno do projeto." data-en="Instituto Social Melvin is a social-education organisation that serves children and teenagers and mobilises a network of volunteers, ambassadors and donors around the project.">O Instituto Social Melvin é uma instituição socioeducacional que atende crianças e adolescentes e mobiliza uma rede de voluntários, embaixadores e doadores em torno do projeto.</p>
+    <p data-pt="A operação envolve frentes que normalmente vivem em planilhas e cadernos separados: matrícula e acompanhamento de alunos, escala e dados de voluntários, controle de presença, campanha de doações e distribuição de cestas. Cada frente com regras próprias, e nenhuma conversando com a outra." data-en="The operation spans fronts that usually live in separate spreadsheets and notebooks: student enrolment and follow-up, volunteer scheduling and records, attendance control, the donation campaign and food-basket distribution. Each front with its own rules, and none of them talking to the others.">A operação envolve frentes que normalmente vivem em planilhas e cadernos separados: matrícula e acompanhamento de alunos, escala e dados de voluntários, controle de presença, campanha de doações e distribuição de cestas. Cada frente com regras próprias, e nenhuma conversando com a outra.</p>
+  </section>
+
+  <!-- C03 · PROBLEMA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O problema" data-en="The problem">O problema</h2>
+    <p data-pt="Sem um sistema central, a coordenação gastava tempo consolidando informação à mão e não tinha uma visão única da operação. Alguns gargalos concretos:" data-en="Without a central system, the coordination spent time consolidating information by hand and had no single view of the operation. A few concrete bottlenecks:">Sem um sistema central, a coordenação gastava tempo consolidando informação à mão e não tinha uma visão única da operação. Alguns gargalos concretos:</p>
+    <ul class="mod-list">
+      <li data-pt="Matrícula e histórico de aluno espalhados entre arquivos e pessoas." data-en="Enrolment and student history scattered across files and people.">Matrícula e histórico de aluno espalhados entre arquivos e pessoas.</li>
+      <li data-pt="Controle de frequência feito no papel, difícil de auditar e somar." data-en="Attendance tracked on paper, hard to audit and add up.">Controle de frequência feito no papel, difícil de auditar e somar.</li>
+      <li data-pt="Dados de voluntários sem cadastro padronizado nem controle de acesso." data-en="Volunteer data with no standard record and no access control.">Dados de voluntários sem cadastro padronizado nem controle de acesso.</li>
+      <li data-pt="Doações e campanhas sem registro integrado ao resto da operação." data-en="Donations and campaigns with no record tied to the rest of the operation.">Doações e campanhas sem registro integrado ao resto da operação.</li>
+      <li data-pt="Quem podia ver ou editar o quê dependia de combinação informal, não de regra do sistema." data-en="Who could see or edit what depended on informal agreement, not on a system rule.">Quem podia ver ou editar o quê dependia de combinação informal, não de regra do sistema.</li>
+    </ul>
+  </section>
+
+  <!-- C04 · SOLUÇÃO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="A solução" data-en="The solution">A solução</h2>
+    <p data-pt="Um ERP web sob medida, construído módulo a módulo a partir das regras reais do instituto. Dezessete módulos em produção, entre eles:" data-en="A custom web ERP, built module by module from the institute's real rules. Seventeen modules in production, among them:">Um ERP web sob medida, construído módulo a módulo a partir das regras reais do instituto. Dezessete módulos em produção, entre eles:</p>
+    <ul class="mod-list">
+      <li data-pt="<b>Autenticação &amp; RBAC dinâmico</b> — perfis e permissões configuráveis pela própria coordenação, sem depender de desenvolvedor." data-en="<b>Authentication &amp; dynamic RBAC</b> — roles and permissions configurable by the coordination itself, with no developer needed."><b>Autenticação &amp; RBAC dinâmico</b> — perfis e permissões configuráveis pela própria coordenação, sem depender de desenvolvedor.</li>
+      <li data-pt="<b>Gestão de discentes</b> — matrícula, ficha do aluno e acompanhamento em um só lugar." data-en="<b>Student management</b> — enrolment, student profile and follow-up in one place."><b>Gestão de discentes</b> — matrícula, ficha do aluno e acompanhamento em um só lugar.</li>
+      <li data-pt="<b>Gestão de voluntários</b> — cadastro padronizado, dados e vínculo com a operação." data-en="<b>Volunteer management</b> — standard records, data and link to the operation."><b>Gestão de voluntários</b> — cadastro padronizado, dados e vínculo com a operação.</li>
+      <li data-pt="<b>Frequência (ponto eletrônico)</b> — presença registrada no sistema, pronta para relatório." data-en="<b>Attendance (digital check-in)</b> — presence recorded in the system, ready for reporting."><b>Frequência (ponto eletrônico)</b> — presença registrada no sistema, pronta para relatório.</li>
+      <li data-pt="<b>Amigos do Melvin</b> — doações recorrentes online integradas à gestão financeira (Stripe + webhooks)." data-en="<b>Friends of Melvin</b> — recurring online donations tied to financial management (Stripe + webhooks)."><b>Amigos do Melvin</b> — doações recorrentes online integradas à gestão financeira (Stripe + webhooks).</li>
+      <li data-pt="<b>Cestas, embaixadores e avisos</b> — solicitação, triagem e comunicação num fluxo só." data-en="<b>Food baskets, ambassadors and notices</b> — request, triage and communication in a single flow."><b>Cestas, embaixadores e avisos</b> — solicitação, triagem e comunicação num fluxo só.</li>
+      <li data-pt="<b>Ocorrências técnicas</b> — registro e tratamento de incidentes da operação." data-en="<b>Technical incidents</b> — logging and handling of operational incidents."><b>Ocorrências técnicas</b> — registro e tratamento de incidentes da operação.</li>
+      <li data-pt="<b>Relatórios e rendimento</b> — números da operação consolidados para a coordenação." data-en="<b>Reports and performance</b> — the operation's numbers consolidated for the coordination."><b>Relatórios e rendimento</b> — números da operação consolidados para a coordenação.</li>
+    </ul>
+  </section>
+
+  <!-- C05 · PRODUTO EM USO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O produto em uso" data-en="The product in use">O produto em uso</h2>
+    <div class="shot-grid">
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/melvin/alunos-lista.webp" width="1440" height="900" alt="Lista de alunos com filtros e ações" loading="lazy" decoding="async" /></div>
+        <figcaption class="shot-cap" data-pt="Discentes — lista, filtros e ficha do aluno" data-en="Students — list, filters and student profile">Discentes — lista, filtros e ficha do aluno</figcaption>
+      </figure>
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/melvin/frequencia.webp" width="1440" height="900" alt="Tela de frequência do aluno" loading="lazy" decoding="async" /></div>
+        <figcaption class="shot-cap" data-pt="Frequência — presença registrada direto no sistema" data-en="Attendance — presence recorded straight in the system">Frequência — presença registrada direto no sistema</figcaption>
+      </figure>
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/melvin/permissoes.webp" width="1440" height="1303" alt="Tela de configuração de permissões por perfil" loading="lazy" decoding="async" /></div>
+        <figcaption class="shot-cap" data-pt="Permissões — cada perfil vê só o que deve, ajustável pela coordenação" data-en="Permissions — each role sees only what it should, adjustable by the coordination">Permissões — cada perfil vê só o que deve, ajustável pela coordenação</figcaption>
+      </figure>
+      <figure class="shot-fig">
+        <div class="shot"><img src="../assets/img/cases/melvin/relatorios.webp" width="1440" height="972" alt="Tela de relatórios da operação" loading="lazy" decoding="async" /></div>
+        <figcaption class="shot-cap" data-pt="Relatórios — números da operação consolidados" data-en="Reports — the operation's numbers consolidated">Relatórios — números da operação consolidados</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- C06 · RESULTADOS -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Resultados" data-en="Results">Resultados</h2>
+    <div class="res-grid">
+      <div class="res"><b data-pt="Operação em um só lugar" data-en="One place for the whole operation">Operação em um só lugar</b><span data-pt="Matrícula, frequência, voluntários e doações deixaram de viver em planilhas separadas." data-en="Enrolment, attendance, volunteers and donations no longer live in separate spreadsheets.">Matrícula, frequência, voluntários e doações deixaram de viver em planilhas separadas.</span></div>
+      <div class="res"><b data-pt="Acesso governado por regra" data-en="Access governed by rule">Acesso governado por regra</b><span data-pt="Cada perfil vê e edita só o que deve — e a coordenação ajusta isso sozinha, sem chamado." data-en="Each role sees and edits only what it should — and the coordination adjusts that on its own, no support ticket.">Cada perfil vê e edita só o que deve — e a coordenação ajusta isso sozinha, sem chamado.</span></div>
+      <div class="res"><b data-pt="Frequência auditável" data-en="Auditable attendance">Frequência auditável</b><span data-pt="Presença registrada digitalmente, pronta para somar e virar relatório." data-en="Attendance recorded digitally, ready to be added up and turned into a report.">Presença registrada digitalmente, pronta para somar e virar relatório.</span></div>
+      <div class="res"><b data-pt="Doação recorrente online" data-en="Recurring online donations">Doação recorrente online</b><span data-pt="Campanha de doadores integrada à gestão, com cobrança automática via Stripe." data-en="The donor campaign tied to management, with automatic charging via Stripe.">Campanha de doadores integrada à gestão, com cobrança automática via Stripe.</span></div>
+    </div>
+    <p class="res-note" data-pt="Métricas quantitativas de impacto (horas administrativas economizadas, volume de matrículas e usuários ativos) estão em levantamento com o cliente e serão publicadas após validação." data-en="Quantitative impact metrics (admin hours saved, enrolment volume and active users) are being gathered with the client and will be published after validation.">Métricas quantitativas de impacto (horas administrativas economizadas, volume de matrículas e usuários ativos) estão em levantamento com o cliente e serão publicadas após validação.</p>
+  </section>
+
+  <!-- C07 · ENGENHARIA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Engenharia" data-en="Engineering">Engenharia</h2>
+    <div class="eng">
+      <div data-pt="<b>Backend:</b> Java 21 · Spring Boot 3.3" data-en="<b>Backend:</b> Java 21 · Spring Boot 3.3"><b>Backend:</b> Java 21 · Spring Boot 3.3</div>
+      <div data-pt="<b>Frontend:</b> React · Vite · TypeScript (SPA)" data-en="<b>Frontend:</b> React · Vite · TypeScript (SPA)"><b>Frontend:</b> React · Vite · TypeScript (SPA)</div>
+      <div data-pt="<b>Banco:</b> PostgreSQL · migrations com Flyway" data-en="<b>Database:</b> PostgreSQL · migrations with Flyway"><b>Banco:</b> PostgreSQL · migrations com Flyway</div>
+      <div data-pt="<b>Segurança:</b> Spring Security · JWT · hash Argon2" data-en="<b>Security:</b> Spring Security · JWT · Argon2 hashing"><b>Segurança:</b> Spring Security · JWT · hash Argon2</div>
+      <div data-pt="<b>Pagamentos:</b> Stripe (SDK nativo + webhooks)" data-en="<b>Payments:</b> Stripe (native SDK + webhooks)"><b>Pagamentos:</b> Stripe (SDK nativo + webhooks)</div>
+      <div data-pt="<b>Infra:</b> Docker · Docker Compose · Nginx" data-en="<b>Infra:</b> Docker · Docker Compose · Nginx"><b>Infra:</b> Docker · Docker Compose · Nginx</div>
+      <div data-pt="<b>Testes:</b> 17 suítes E2E (Playwright) · 8 de backend (JUnit 5 + Mockito)" data-en="<b>Tests:</b> 17 E2E suites (Playwright) · 8 backend (JUnit 5 + Mockito)"><b>Testes:</b> 17 suítes E2E (Playwright) · 8 de backend (JUnit 5 + Mockito)</div>
+      <div data-pt="<b>Entrega:</b> CI/CD em GitHub Actions" data-en="<b>Delivery:</b> CI/CD on GitHub Actions"><b>Entrega:</b> CI/CD em GitHub Actions</div>
+    </div>
+  </section>
+
+  <!-- C08 · DEPOIMENTO (placeholder oculto até autorização) -->
+  <section class="case-section case-wrap" hidden data-placeholder="depoimento">
+    <h2 class="case-h2" data-pt="Depoimento" data-en="Testimonial">Depoimento</h2>
+    <blockquote></blockquote>
+    <p class="res-note" data-pt="Publicar apenas com nome, cargo, organização e autorização registrada." data-en="Publish only with name, role, organisation and recorded authorisation.">Publicar apenas com nome, cargo, organização e autorização registrada.</p>
+  </section>
+
+  <!-- C09 · CTA -->
+  <section class="case-wrap">
+    <div class="case-cta">
+      <h2 data-pt="Tem um desafio parecido?" data-en="Have a similar challenge?">Tem um desafio parecido?</h2>
+      <p data-pt="Se a sua operação também vive em planilhas soltas, dá para transformá-la em um sistema só. Conte o cenário e voltamos em até um dia útil com os próximos passos." data-en="If your operation also lives in loose spreadsheets, it can become a single system. Tell us the scenario and we'll get back within one business day with the next steps.">Se a sua operação também vive em planilhas soltas, dá para transformá-la em um sistema só. Conte o cenário e voltamos em até um dia útil com os próximos passos.</p>
+      <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+    </div>
+  </section>
+</main>
+
+<footer class="case-foot">
+  <div class="case-wrap">
+    <a href="../index.html" data-pt="← Onda · Estúdio de produtos digitais" data-en="← Onda · Digital product studio">← Onda · Estúdio de produtos digitais</a>
+    <a href="../index.html#projetos" data-pt="Ver outros projetos" data-en="See other work">Ver outros projetos</a>
+    <span class="muted">© 2026 Onda · Fortaleza, Ceará</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var K = 'onda-lang';
+  function apply(l) {
+    l = l === 'en' ? 'en' : 'pt';
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+    document.querySelectorAll('[data-pt]').forEach(function (el) {
+      var v = el.getAttribute('data-' + l);
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === l);
+    });
+    try { localStorage.setItem(K, l); } catch (e) {}
+  }
+  var wrap = document.getElementById('lang');
+  if (wrap) wrap.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-lang]');
+    if (b) apply(b.getAttribute('data-lang'));
+  });
+  var saved = 'pt';
+  try { saved = localStorage.getItem(K) || 'pt'; } catch (e) {}
+  apply(saved);
+})();
+</script>
+
+</body>
+</html>
