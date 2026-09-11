@@ -309,9 +309,14 @@
   const storyProgress = document.getElementById('storyProgress');
 
   if (videoModal && modalVideo) {
+    let closeTimer = null;
+
     videoLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
+        // cancela o teardown pendente de um fechamento anterior — evita que
+        // ele limpe o src do vídeo novo se abrir/fechar acontecer rápido
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
         const videoSrc = link.getAttribute('href');
         if (storyProgress) storyProgress.style.width = '0%';
         if (modalContent) modalContent.classList.remove('paused');
@@ -338,11 +343,13 @@
 
     const closeModal = () => {
       videoModal.classList.remove('active');
-      setTimeout(() => {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
         modalVideo.pause();
         modalVideo.src = '';
         if (storyProgress) storyProgress.style.width = '0%';
         if (modalContent) modalContent.classList.remove('paused');
+        closeTimer = null;
       }, 300);
     };
 
