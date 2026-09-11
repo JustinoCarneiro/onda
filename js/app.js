@@ -102,6 +102,26 @@
     });
   }
 
+  /* ---------- Analytics (Vercel Web Analytics) ----------
+     window.va só existe depois que Web Analytics for habilitado no projeto
+     (vercel project web-analytics enable onda). Até lá, no-op silencioso. */
+  function trackEvent(name, data) {
+    try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: name }, data || {})); }
+    catch (e) {}
+  }
+  document.addEventListener('click', function (e) {
+    var cta = e.target.closest('a.btn[href="#contato"], a.btn--big[href="#contato"], a.btn--ghost[href="#contato"]');
+    if (cta) {
+      var section = cta.closest('section[id], header[class], footer[id]');
+      trackEvent('cta_click', { local: (section && section.id) || 'topo' });
+    }
+    var wa = e.target.closest('a.wa-link, a[href^="https://wa.me/"]');
+    if (wa) trackEvent('whatsapp_click', { numero: wa.getAttribute('href') });
+
+    var caseLink = e.target.closest('a.proj-more, a.proj-go');
+    if (caseLink) trackEvent('case_click', { destino: caseLink.getAttribute('href') });
+  });
+
   /* ---------- Formulário de contato ---------- */
   var form = document.getElementById('contactForm');
   var ok = document.getElementById('formOk');
@@ -116,7 +136,8 @@
         field.classList.toggle('invalid', bad);
         if (bad) valid = false;
       });
-      if (!valid) return;
+      if (!valid) { trackEvent('form_error'); return; }
+      trackEvent('form_submit');
       form.style.display = 'none';
       ok.classList.add('show');
     });
