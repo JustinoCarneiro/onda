@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arquitetura, Segurança e Processo de Engenharia | Onda</title>
+<meta name="description" content="Metodologia OndaDev, stack, testes, segurança e CI/CD explicados para times técnicos que avaliam a Onda como fornecedora de software." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0E3F52" />
+<link rel="canonical" href="https://onda.business/expertise" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Onda" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://onda.business/expertise" />
+<meta property="og:title" content="Arquitetura, Segurança e Processo de Engenharia | Onda" />
+<meta property="og:description" content="Metodologia OndaDev, stack, testes, segurança e CI/CD explicados para times técnicos que avaliam a Onda como fornecedora de software." />
+<meta property="og:image" content="https://onda.business/assets/img/og-cover.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=11" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=11" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Arquitetura, Segurança e Processo de Engenharia",
+  "about": "Metodologia de desenvolvimento, arquitetura, segurança e qualidade de software",
+  "publisher": { "@type": "Organization", "name": "Onda", "url": "https://onda.business/" },
+  "inLanguage": "pt-BR",
+  "mainEntityOfPage": "https://onda.business/expertise"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=18" />
+
+<style>
+  body { background: var(--sand); color: var(--ink); font-family: var(--font-body); }
+  .case-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+
+  .case-nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px 24px; background: color-mix(in srgb, var(--sand) 88%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft, var(--line));
+  }
+  .case-nav-left { display: flex; align-items: center; gap: 16px; }
+  .case-nav-right { display: flex; align-items: center; gap: 12px; }
+  .case-nav .brand-logo { height: 28px; width: auto; display: block; }
+  .case-nav .back {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft); text-decoration: none;
+    padding: 6px 13px 6px 10px; border: 1px solid var(--line); border-radius: var(--r-pill);
+    background: var(--card, #fff); transition: color .2s ease, border-color .2s ease;
+  }
+  .case-nav .back:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .case-nav .btn { padding: 9px 18px; font-size: 14px; }
+  @media (max-width: 560px) {
+    .case-nav { padding: 12px 18px; }
+    .case-nav .btn { display: none; }
+  }
+
+  main { padding: 56px 0 40px; }
+  .case-section { padding-top: 44px; padding-bottom: 44px; border-top: 1px solid var(--line-soft, var(--line)); }
+  .case-section:first-of-type { border-top: 0; padding-top: 8px; }
+  .case-eyebrow {
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--turq); margin: 0 0 14px;
+  }
+  .case-h1 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.06; font-size: clamp(30px, 4.6vw, 46px); color: var(--ocean); margin: 0 0 16px;
+  }
+  .case-h2 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
+    font-size: clamp(21px, 2.6vw, 27px); color: var(--ink); margin: 0 0 14px;
+  }
+  .case-lead { font-size: 18px; color: var(--ink-soft); max-width: 64ch; margin: 0 0 20px; }
+  .case-section p { font-size: 16px; color: var(--ink-soft); max-width: 68ch; margin: 0 0 12px; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+  .case-tags i {
+    font-style: normal; font-size: 12.5px; color: var(--ink-faint);
+    box-shadow: inset 0 0 0 1.3px var(--line); padding: 5px 13px; border-radius: var(--r-pill);
+  }
+  .case-cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+  .step-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 14px; }
+  .step-list li {
+    position: relative; padding: 16px 20px 16px 54px; background: var(--card);
+    border: 1px solid var(--line-soft, var(--line)); border-radius: 14px;
+  }
+  .step-list li b { display: block; color: var(--ink); font-size: 15.5px; margin-bottom: 3px; }
+  .step-list li span { font-size: 14.5px; color: var(--ink-soft); }
+  .step-num {
+    position: absolute; left: 16px; top: 16px; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--turq); color: #042027; font-family: var(--font-display); font-weight: 800;
+    font-size: 13px; display: flex; align-items: center; justify-content: center;
+  }
+
+  .mod-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  @media (max-width: 720px) { .mod-list { grid-template-columns: 1fr; } }
+  .mod-list li { position: relative; padding-left: 22px; font-size: 15px; color: var(--ink-soft); }
+  .mod-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
+    border-radius: 2px; background: var(--turq); }
+  .mod-list li b { color: var(--ink); font-weight: 600; }
+
+  .eng { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 28px; margin-top: 8px; }
+  @media (max-width: 720px) { .eng { grid-template-columns: 1fr; } }
+  .eng div { font-size: 14.5px; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px dashed var(--line-soft, var(--line)); }
+  .eng div b { color: var(--ink); font-weight: 600; }
+
+  .eng-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; margin-top: 16px; }
+  @media (max-width: 720px) { .eng-cols { grid-template-columns: 1fr; } }
+  .eng-col h3 { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--turq); margin: 0 0 10px; text-transform: uppercase; letter-spacing: .06em; }
+
+  .rel-case-list { display: grid; gap: 12px; margin-top: 8px; }
+  .rel-case {
+    display: flex; gap: 20px; align-items: center;
+    background: var(--card); border: 1px solid var(--line-soft, var(--line)); border-radius: 16px;
+    padding: 20px 22px; text-decoration: none; transition: box-shadow .3s ease, transform .3s ease;
+  }
+  .rel-case:hover { box-shadow: var(--shadow-float); transform: translateY(-3px); }
+  .rel-case-body b { display: block; color: var(--ink); font-size: 16px; margin-bottom: 4px; }
+  .rel-case-body span { font-size: 14.5px; color: var(--ink-soft); }
+  .rel-case-arrow { flex: none; width: 20px; height: 20px; color: var(--turq); }
+
+  .case-cta {
+    margin: 48px 0 8px; padding: 40px 32px; border-radius: 18px;
+    background: var(--ocean); color: #fff; text-align: center;
+  }
+  .case-cta h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: -0.02em; margin: 0 0 10px; color: #fff; }
+  .case-cta p { color: rgba(255,255,255,.82); max-width: 52ch; margin: 0 auto 22px; font-size: 16px; }
+  .case-cta .btn { background: var(--turq); color: #042027; border: 0; }
+  .case-cta .btn:hover { background: var(--turq-bright); }
+
+  .case-foot { border-top: 1px solid var(--line-soft, var(--line)); padding: 28px 0 48px; margin-top: 20px; }
+  .case-foot .case-wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  .case-foot a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
+  .case-foot a:hover { color: var(--ink); }
+  .case-foot .muted { font-size: 13px; color: var(--ink-faint); }
+
+  @media (max-width: 560px) {
+    .case-wrap { padding: 0 18px; }
+    main { padding: 40px 0 32px; }
+    .case-section { padding-top: 34px; padding-bottom: 34px; }
+    .case-h1 { font-size: clamp(24px, 6.4vw, 31px); }
+    .case-lead { font-size: 16px; }
+    .case-section p { font-size: 15.5px; }
+    .case-cta { padding: 30px 20px; margin: 36px 0 8px; }
+    .case-cta p { font-size: 15px; }
+    .case-foot .case-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .rel-case { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body data-mood="clara">
+
+<header class="case-nav">
+  <div class="case-nav-left">
+    <a class="brand" href="index.html" aria-label="Onda — página inicial">
+      <img class="brand-logo" src="assets/brand/logo-onda.png?v=15" alt="Onda" width="118" height="34" />
+    </a>
+    <a class="back" href="index.html#jornada">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      <span data-pt="Jornada" data-en="Journey">Jornada</span>
+    </a>
+  </div>
+  <div class="case-nav-right">
+    <div class="lang" id="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" class="on">PT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="btn" href="index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="case-section case-wrap">
+    <p class="case-eyebrow" data-pt="Para times técnicos" data-en="For technical teams">Para times técnicos</p>
+    <h1 class="case-h1" data-pt="Arquitetura, segurança e processo — a camada técnica por trás do software fluido" data-en="Architecture, security and process — the technical layer behind the fluid software">Arquitetura, segurança e processo — a camada técnica por trás do software fluido</h1>
+    <p class="case-lead" data-pt="Esta página existe para quem vai avaliar a Onda tecnicamente antes de decidir: como trabalhamos, com que stack, que testes rodam antes de um deploy e como tratamos dado sensível e acesso." data-en="This page exists for whoever will evaluate Onda technically before deciding: how we work, what stack we use, what tests run before a deploy, and how we handle sensitive data and access.">Esta página existe para quem vai avaliar a Onda tecnicamente antes de decidir: como trabalhamos, com que stack, que testes rodam antes de um deploy e como tratamos dado sensível e acesso.</p>
+    <div class="case-tags">
+      <i data-pt="Metodologia OndaDev" data-en="OndaDev methodology">Metodologia OndaDev</i>
+      <i data-pt="TDD · XP" data-en="TDD · XP">TDD · XP</i>
+      <i data-pt="CI/CD" data-en="CI/CD">CI/CD</i>
+      <i data-pt="Segurança" data-en="Security">Segurança</i>
+    </div>
+  </section>
+
+  <!-- METODOLOGIA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Metodologia OndaDev" data-en="OndaDev methodology">Metodologia OndaDev</h2>
+    <p data-pt="As cinco fases que aparecem em linguagem comercial na home (Jornada) correspondem, na prática de engenharia, a este fluxo:" data-en="The five phases shown in commercial language on the home page (Journey) correspond, in engineering practice, to this flow:">As cinco fases que aparecem em linguagem comercial na home (Jornada) correspondem, na prática de engenharia, a este fluxo:</p>
+    <ul class="step-list">
+      <li><span class="step-num">1</span><b data-pt="Spec Viva" data-en="Living Spec">Spec Viva</b><span data-pt="Requisitos traduzidos em épicos, histórias de usuário e critérios de aceite antes de qualquer linha de código." data-en="Requirements translated into epics, user stories and acceptance criteria before any line of code.">Requisitos traduzidos em épicos, histórias de usuário e critérios de aceite antes de qualquer linha de código.</span></li>
+      <li><span class="step-num">2</span><b data-pt="Congelamento visual" data-en="Visual freeze">Congelamento visual</b><span data-pt="Layout navegável aprovado antes do desenvolvimento, protegendo o escopo visual do que será construído." data-en="Navigable layout approved before development, protecting the visual scope of what will be built.">Layout navegável aprovado antes do desenvolvimento, protegendo o escopo visual do que será construído.</span></li>
+      <li><span class="step-num">3</span><b data-pt="Prazo calculado" data-en="Calculated timeline">Prazo calculado</b><span data-pt="Cronograma técnico a partir do peso de cada módulo, das integrações e dos riscos identificados — não de estimativa rasa." data-en="Technical timeline based on each module's weight, integrations and identified risks — not a shallow estimate.">Cronograma técnico a partir do peso de cada módulo, das integrações e dos riscos identificados — não de estimativa rasa.</span></li>
+      <li><span class="step-num">4</span><b data-pt="Codificação XP" data-en="XP coding">Codificação XP</b><span data-pt="Ciclo TDD (Red → Green → Refactor), small commits e revisão contínua, em entregas pequenas e frequentes." data-en="TDD cycle (Red → Green → Refactor), small commits and continuous review, in small and frequent deliveries.">Ciclo TDD (Red → Green → Refactor), small commits e revisão contínua, em entregas pequenas e frequentes.</span></li>
+      <li><span class="step-num">5</span><b data-pt="Deploy automatizado" data-en="Automated deploy">Deploy automatizado</b><span data-pt="Smoke tests, QA humano e esteira CI/CD antes de qualquer coisa chegar à produção." data-en="Smoke tests, human QA and a CI/CD pipeline before anything reaches production.">Smoke tests, QA humano e esteira CI/CD antes de qualquer coisa chegar à produção.</span></li>
+    </ul>
+  </section>
+
+  <!-- ARQUITETURA E STACK -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Arquitetura e stack" data-en="Architecture and stack">Arquitetura e stack</h2>
+    <p data-pt="Fatos reais dos dois sistemas em produção — sem stack padronizada forçada: cada projeto usa o que melhor serve a regra de negócio." data-en="Real facts from the two systems in production — no forced standard stack: each project uses what best serves its business rule.">Fatos reais dos dois sistemas em produção — sem stack padronizada forçada: cada projeto usa o que melhor serve a regra de negócio.</p>
+    <div class="eng-cols">
+      <div class="eng-col">
+        <h3 data-pt="Instituto Melvin (ERP)" data-en="Instituto Melvin (ERP)">Instituto Melvin (ERP)</h3>
+        <div class="eng">
+          <div data-pt="<b>Backend:</b> Java 21 · Spring Boot 3.3" data-en="<b>Backend:</b> Java 21 · Spring Boot 3.3"><b>Backend:</b> Java 21 · Spring Boot 3.3</div>
+          <div data-pt="<b>Frontend:</b> React · Vite · TypeScript" data-en="<b>Frontend:</b> React · Vite · TypeScript"><b>Frontend:</b> React · Vite · TypeScript</div>
+          <div data-pt="<b>Banco:</b> PostgreSQL · Flyway" data-en="<b>Database:</b> PostgreSQL · Flyway"><b>Banco:</b> PostgreSQL · Flyway</div>
+          <div data-pt="<b>Infra:</b> Docker · Docker Compose · Nginx" data-en="<b>Infra:</b> Docker · Docker Compose · Nginx"><b>Infra:</b> Docker · Docker Compose · Nginx</div>
+        </div>
+      </div>
+      <div class="eng-col">
+        <h3 data-pt="Instituto Lucas" data-en="Instituto Lucas">Instituto Lucas</h3>
+        <div class="eng">
+          <div data-pt="<b>Frontend:</b> Angular (Signals) · Tailwind" data-en="<b>Frontend:</b> Angular (Signals) · Tailwind"><b>Frontend:</b> Angular (Signals) · Tailwind</div>
+          <div data-pt="<b>Backend:</b> Java 21 · Spring Boot 3.4" data-en="<b>Backend:</b> Java 21 · Spring Boot 3.4"><b>Backend:</b> Java 21 · Spring Boot 3.4</div>
+          <div data-pt="<b>Banco:</b> PostgreSQL 15 · Flyway" data-en="<b>Database:</b> PostgreSQL 15 · Flyway"><b>Banco:</b> PostgreSQL 15 · Flyway</div>
+          <div data-pt="<b>Entrega:</b> Docker Compose" data-en="<b>Delivery:</b> Docker Compose"><b>Entrega:</b> Docker Compose</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGURANÇA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Segurança e dado sensível" data-en="Security and sensitive data">Segurança e dado sensível</h2>
+    <p data-pt="Autenticação, cifragem e defesa contra abuso tratadas como parte do sistema desde o primeiro módulo, não como item de última hora." data-en="Authentication, encryption and abuse defence handled as part of the system from the first module, not as a last-minute item.">Autenticação, cifragem e defesa contra abuso tratadas como parte do sistema desde o primeiro módulo, não como item de última hora.</p>
+    <ul class="mod-list">
+      <li data-pt="<b>Autenticação</b> — Spring Security, JWT e hash Argon2 (Melvin); JWT de vida curta em cookie HttpOnly com refresh rotativo e denylist no logout (Lucas)." data-en="<b>Authentication</b> — Spring Security, JWT and Argon2 hashing (Melvin); short-lived JWT in an HttpOnly cookie with rotating refresh and logout denylist (Lucas)."><b>Autenticação</b> — Spring Security, JWT e hash Argon2 (Melvin); JWT de vida curta em cookie HttpOnly com refresh rotativo e denylist no logout (Lucas).</li>
+      <li data-pt="<b>Dado sensível</b> — cifragem AES-256-GCM por campo, rotação de chave e CPF tratado via HMAC-SHA256 (Lucas)." data-en="<b>Sensitive data</b> — per-field AES-256-GCM encryption, key rotation and CPF handled via HMAC-SHA256 (Lucas)."><b>Dado sensível</b> — cifragem AES-256-GCM por campo, rotação de chave e CPF tratado via HMAC-SHA256 (Lucas).</li>
+      <li data-pt="<b>Defesa contra abuso</b> — rate limiting por IP (Bucket4j) e MFA/TOTP (RFC 6238) (Lucas)." data-en="<b>Abuse defence</b> — per-IP rate limiting (Bucket4j) and MFA/TOTP (RFC 6238) (Lucas)."><b>Defesa contra abuso</b> — rate limiting por IP (Bucket4j) e MFA/TOTP (RFC 6238) (Lucas).</li>
+      <li data-pt="<b>Controle de acesso</b> — RBAC dinâmico configurável pela própria coordenação, sem depender de deploy (Melvin)." data-en="<b>Access control</b> — dynamic RBAC configurable by the team itself, with no deploy needed (Melvin)."><b>Controle de acesso</b> — RBAC dinâmico configurável pela própria coordenação, sem depender de deploy (Melvin).</li>
+      <li data-pt="<b>Conformidade</b> — auditoria transversal e consentimento LGPD versionado (Lucas)." data-en="<b>Compliance</b> — cross-cutting audit trail and versioned LGPD consent (Lucas)."><b>Conformidade</b> — auditoria transversal e consentimento LGPD versionado (Lucas).</li>
+      <li data-pt="<b>Pagamentos</b> — Stripe (SDK nativo + webhooks) para cobrança recorrente (Melvin)." data-en="<b>Payments</b> — Stripe (native SDK + webhooks) for recurring billing (Melvin)."><b>Pagamentos</b> — Stripe (SDK nativo + webhooks) para cobrança recorrente (Melvin).</li>
+    </ul>
+  </section>
+
+  <!-- TESTES E QUALIDADE -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Testes e qualidade" data-en="Tests and quality">Testes e qualidade</h2>
+    <p data-pt="189 testes automatizados somando os dois projetos em produção — não é meta, é o que já roda na esteira de CI/CD a cada mudança." data-en="189 automated tests across the two projects in production — not a target, it's what already runs in the CI/CD pipeline on every change.">189 testes automatizados somando os dois projetos em produção — não é meta, é o que já roda na esteira de CI/CD a cada mudança.</p>
+    <div class="eng">
+      <div data-pt="<b>Instituto Melvin:</b> 17 suítes E2E (Playwright) + 8 de backend (JUnit 5 + Mockito)" data-en="<b>Instituto Melvin:</b> 17 E2E suites (Playwright) + 8 backend (JUnit 5 + Mockito)"><b>Instituto Melvin:</b> 17 suítes E2E (Playwright) + 8 de backend (JUnit 5 + Mockito)</div>
+      <div data-pt="<b>Instituto Lucas:</b> 164 testes de backend" data-en="<b>Instituto Lucas:</b> 164 backend tests"><b>Instituto Lucas:</b> 164 testes de backend</div>
+      <div data-pt="<b>Entrega contínua:</b> CI/CD em GitHub Actions" data-en="<b>Continuous delivery:</b> CI/CD on GitHub Actions"><b>Entrega contínua:</b> CI/CD em GitHub Actions</div>
+      <div data-pt="<b>Ambiente:</b> Docker Compose, paridade entre local e produção" data-en="<b>Environment:</b> Docker Compose, parity between local and production"><b>Ambiente:</b> Docker Compose, paridade entre local e produção</div>
+    </div>
+  </section>
+
+  <!-- CASES RELACIONADOS -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Ver a engenharia em produção" data-en="See the engineering in production">Ver a engenharia em produção</h2>
+    <div class="rel-case-list">
+      <a class="rel-case" href="projetos/instituto-melvin-erp.html">
+        <div class="rel-case-body">
+          <b data-pt="Instituto Melvin — ERP de gestão acadêmica" data-en="Instituto Melvin — academic management ERP">Instituto Melvin — ERP de gestão acadêmica</b>
+          <span data-pt="17 módulos em produção, RBAC dinâmico e pagamentos recorrentes via Stripe." data-en="17 modules in production, dynamic RBAC and recurring payments via Stripe.">17 módulos em produção, RBAC dinâmico e pagamentos recorrentes via Stripe.</span>
+        </div>
+        <svg class="rel-case-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="rel-case" href="projetos/instituto-lucas.html">
+        <div class="rel-case-body">
+          <b data-pt="Instituto Lucas — gestão clínica multi-perfil" data-en="Instituto Lucas — multi-role clinical management">Instituto Lucas — gestão clínica multi-perfil</b>
+          <span data-pt="Dado sensível cifrado, MFA/TOTP e conformidade LGPD versionada." data-en="Encrypted sensitive data, MFA/TOTP and versioned LGPD compliance.">Dado sensível cifrado, MFA/TOTP e conformidade LGPD versionada.</span>
+        </div>
+        <svg class="rel-case-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-wrap">
+    <div class="case-cta">
+      <h2 data-pt="Quer avaliar tecnicamente um projeto novo?" data-en="Want to technically evaluate a new project?">Quer avaliar tecnicamente um projeto novo?</h2>
+      <p data-pt="Conte o cenário e a gente entra em detalhes de arquitetura, segurança e processo diretamente com seu time técnico." data-en="Tell us the scenario and we'll go into architecture, security and process details directly with your technical team.">Conte o cenário e a gente entra em detalhes de arquitetura, segurança e processo diretamente com seu time técnico.</p>
+      <a class="btn btn--big" href="index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+    </div>
+  </section>
+</main>
+
+<footer class="case-foot">
+  <div class="case-wrap">
+    <a href="index.html" data-pt="← Onda · Estúdio de produtos digitais" data-en="← Onda · Digital product studio">← Onda · Estúdio de produtos digitais</a>
+    <a href="index.html#jornada" data-pt="Ver como trabalhamos" data-en="See how we work">Ver como trabalhamos</a>
+    <span class="muted">© 2026 Onda · Fortaleza, Ceará</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var K = 'onda-lang';
+  function apply(l) {
+    l = l === 'en' ? 'en' : 'pt';
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+    document.querySelectorAll('[data-pt]').forEach(function (el) {
+      var v = el.getAttribute('data-' + l);
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === l);
+    });
+    try { localStorage.setItem(K, l); } catch (e) {}
+  }
+  var wrap = document.getElementById('lang');
+  if (wrap) wrap.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-lang]');
+    if (b) apply(b.getAttribute('data-lang'));
+  });
+  var saved = 'pt';
+  try { saved = localStorage.getItem(K) || 'pt'; } catch (e) {}
+  apply(saved);
+})();
+</script>
+
+</body>
+</html>
