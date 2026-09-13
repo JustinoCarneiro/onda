@@ -30,3 +30,5 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
 - [[multipagina-projetos-cases]] — Site multi-página: rotas `/projetos/*` para páginas de case
 - [[paginas-solucao-e-expertise]] — Rotas `/solucoes/*` e `/expertise.html`; regra de
   rastreabilidade de prova de engenharia até um case real; testes nunca somados entre projetos
+- [[expansao-portfolio-p2-01]] — 3 novos cases reais (Heliene Araújo, Vanessa Vaz, Confidencial
+  Calçados); critério de integridade usado para escolher/descartar projetos de `~/Applications/`

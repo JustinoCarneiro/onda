@@ -95,7 +95,7 @@
     </div>
     <div class="case-cta-row">
       <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
-      <a class="btn btn--ghost" href="../projetos/instituto-melvin-erp.html" data-pt="Ver evidência de pagamentos" data-en="See payments evidence">Ver evidência de pagamentos</a>
+      <a class="btn btn--ghost" href="../projetos/confidencial-calcados.html" data-pt="Ver case de e-commerce" data-en="See e-commerce case">Ver case de e-commerce</a>
     </div>
   </section>
 
@@ -125,23 +125,23 @@
 
   <!-- PROVA DE ENGENHARIA -->
   <section class="case-section case-wrap">
-    <h2 class="case-h2" data-pt="Evidência real de pagamentos em produção" data-en="Real payments evidence in production">Evidência real de pagamentos em produção</h2>
-    <p data-pt="Ainda não publicamos um case de e-commerce completo. O que já validamos em produção é a camada de pagamentos: o módulo <i>Amigos do Melvin</i>, do ERP do Instituto Melvin, processa doações recorrentes via Stripe (SDK nativo + webhooks). É evidência real de integração com gateway de pagamento — não de um checkout de e-commerce completo, que também envolve catálogo, carrinho e gestão de estoque." data-en="We haven't published a full e-commerce case yet. What we've already validated in production is the payments layer: the <i>Friends of Melvin</i> module, part of the Instituto Melvin ERP, processes recurring donations via Stripe (native SDK + webhooks). That's real evidence of payment gateway integration — not of a full e-commerce checkout, which also involves catalog, cart and inventory management.">Ainda não publicamos um case de e-commerce completo. O que já validamos em produção é a camada de pagamentos: o módulo <i>Amigos do Melvin</i>, do ERP do Instituto Melvin, processa doações recorrentes via Stripe (SDK nativo + webhooks). É evidência real de integração com gateway de pagamento — não de um checkout de e-commerce completo, que também envolve catálogo, carrinho e gestão de estoque.</p>
+    <h2 class="case-h2" data-pt="Evidência real em produção" data-en="Real evidence in production">Evidência real em produção</h2>
+    <p data-pt="A Confidencial Calçados é uma loja virtual completa em produção: catálogo, checkout, pagamento via Mercado Pago (credenciais de produção validadas com compra e estorno reais) e frete automatizado via Melhor Envio." data-en="Confidencial Calçados is a complete online store in production: catalog, checkout, Mercado Pago payment (production credentials validated with a real purchase and refund) and automated shipping via Melhor Envio.">A Confidencial Calçados é uma loja virtual completa em produção: catálogo, checkout, pagamento via Mercado Pago (credenciais de produção validadas com compra e estorno reais) e frete automatizado via Melhor Envio.</p>
     <div class="eng">
-      <div data-pt="<b>Pagamentos:</b> Stripe (SDK nativo + webhooks)" data-en="<b>Payments:</b> Stripe (native SDK + webhooks)"><b>Pagamentos:</b> Stripe (SDK nativo + webhooks)</div>
-      <div data-pt="<b>Backend:</b> Java 21 · Spring Boot" data-en="<b>Backend:</b> Java 21 · Spring Boot"><b>Backend:</b> Java 21 · Spring Boot</div>
-      <div data-pt="<b>Banco:</b> PostgreSQL · migrations com Flyway" data-en="<b>Database:</b> PostgreSQL · migrations with Flyway"><b>Banco:</b> PostgreSQL · migrations com Flyway</div>
-      <div data-pt="<b>Infra:</b> Docker · Docker Compose · Nginx" data-en="<b>Infra:</b> Docker · Docker Compose · Nginx"><b>Infra:</b> Docker · Docker Compose · Nginx</div>
+      <div data-pt="<b>Pagamentos:</b> Mercado Pago Checkout Pro, webhook com verificação HMAC" data-en="<b>Payments:</b> Mercado Pago Checkout Pro, webhook with HMAC verification"><b>Pagamentos:</b> Mercado Pago Checkout Pro, webhook com verificação HMAC</div>
+      <div data-pt="<b>Frete:</b> Melhor Envio (OAuth2), cotação e etiqueta automatizadas" data-en="<b>Shipping:</b> Melhor Envio (OAuth2), automated quotes and labels"><b>Frete:</b> Melhor Envio (OAuth2), cotação e etiqueta automatizadas</div>
+      <div data-pt="<b>Backend:</b> Next.js (App Router) · Prisma · PostgreSQL" data-en="<b>Backend:</b> Next.js (App Router) · Prisma · PostgreSQL"><b>Backend:</b> Next.js (App Router) · Prisma · PostgreSQL</div>
+      <div data-pt="<b>Estoque:</b> decremento na mesma transação do pedido — zero overselling" data-en="<b>Inventory:</b> decremented in the same transaction as the order — zero overselling"><b>Estoque:</b> decremento na mesma transação do pedido — zero overselling</div>
     </div>
   </section>
 
   <!-- CASE RELACIONADO -->
   <section class="case-section case-wrap">
     <h2 class="case-h2" data-pt="Case relacionado" data-en="Related case">Case relacionado</h2>
-    <a class="rel-case" href="../projetos/instituto-melvin-erp.html">
+    <a class="rel-case" href="../projetos/confidencial-calcados.html">
       <div class="rel-case-body">
-        <b data-pt="Instituto Melvin — pagamentos recorrentes em produção" data-en="Instituto Melvin — recurring payments in production">Instituto Melvin — pagamentos recorrentes em produção</b>
-        <span data-pt="Doações recorrentes via Stripe, integradas à gestão financeira do ERP." data-en="Recurring donations via Stripe, integrated with the ERP's financial management.">Doações recorrentes via Stripe, integradas à gestão financeira do ERP.</span>
+        <b data-pt="Confidencial Calçados — e-commerce completo em produção" data-en="Confidencial Calçados — complete e-commerce in production">Confidencial Calçados — e-commerce completo em produção</b>
+        <span data-pt="Catálogo, checkout, Mercado Pago e frete automatizado via Melhor Envio." data-en="Catalog, checkout, Mercado Pago and automated shipping via Melhor Envio.">Catálogo, checkout, Mercado Pago e frete automatizado via Melhor Envio.</span>
       </div>
       <svg class="rel-case-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>

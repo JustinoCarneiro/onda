@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case: Confidencial Calçados — e-commerce com Mercado Pago e frete automatizados | Onda</title>
+<meta name="description" content="Como a Onda construiu a loja virtual da Confidencial Calçados: catálogo, checkout, Mercado Pago em produção e frete automatizado via Melhor Envio." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0E3F52" />
+<link rel="canonical" href="https://onda.business/projetos/confidencial-calcados" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Onda" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://onda.business/projetos/confidencial-calcados" />
+<meta property="og:title" content="Case: Confidencial Calçados — e-commerce com Mercado Pago e frete automatizados" />
+<meta property="og:description" content="Catálogo, checkout, pagamento via Mercado Pago em produção e frete automatizado via Melhor Envio, com painel admin completo." />
+<meta property="og:image" content="https://onda.business/assets/img/og-cover.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=11" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=11" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Confidencial Calçados — e-commerce com Mercado Pago e frete automatizados",
+  "about": "Desenvolvimento de e-commerce sob medida",
+  "publisher": { "@type": "Organization", "name": "Onda", "url": "https://onda.business/" },
+  "inLanguage": "pt-BR",
+  "mainEntityOfPage": "https://onda.business/projetos/confidencial-calcados"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/styles.css?v=18" />
+<link rel="stylesheet" href="../css/detail-page.css?v=1" />
+
+<style>
+  .shot { border-radius: 14px; box-shadow: var(--shadow-float);
+    border: 1px solid var(--line); background: var(--card); display: block; padding: 10px; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 7px; }
+  .shot-fig { margin: 0; }
+  .shot-cap { font-size: 13.5px; font-weight: 500; color: var(--ink-soft); margin: 12px 4px 0; line-height: 1.45; }
+  .hero-shot { margin-top: 28px; }
+
+  .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+  @media (max-width: 720px) { .shot-grid { grid-template-columns: 1fr; } }
+
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  @media (max-width: 720px) { .res-grid { grid-template-columns: 1fr; } }
+  .res {
+    background: var(--card); border: 1px solid var(--line-soft, var(--line));
+    border-left: 3px solid var(--turq); border-radius: 12px; padding: 16px 18px;
+  }
+  .res b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+  .res span { font-size: 14px; color: var(--ink-soft); }
+  .res-note { font-size: 13px; color: var(--ink-faint); margin-top: 14px; }
+
+  @media (max-width: 560px) {
+    .hero-shot { margin-top: 22px; }
+    .shot-grid { gap: 18px; }
+  }
+</style>
+</head>
+<body data-mood="clara">
+
+<header class="case-nav">
+  <div class="case-nav-left">
+    <a class="brand" href="../index.html" aria-label="Onda — página inicial">
+      <img class="brand-logo" src="../assets/brand/logo-onda.png?v=15" alt="Onda" width="118" height="34" />
+    </a>
+    <a class="back" href="../index.html#projetos">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      <span data-pt="Projetos" data-en="Work">Projetos</span>
+    </a>
+  </div>
+  <div class="case-nav-right">
+    <div class="lang" id="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" class="on">PT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="btn" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+  </div>
+</header>
+
+<main>
+  <!-- C01 · HERO -->
+  <section class="case-section case-wrap">
+    <p class="case-eyebrow" data-pt="Case · E-commerce" data-en="Case · E-commerce">Case · E-commerce</p>
+    <h1 class="case-h1" data-pt="Confidencial Calçados: uma loja virtual com pagamento e frete de ponta a ponta" data-en="Confidencial Calçados: an online store with end-to-end payment and shipping">Confidencial Calçados: uma loja virtual com pagamento e frete de ponta a ponta</h1>
+    <p class="case-lead" data-pt="Loja virtual sob medida para uma fornecedora de calçados de Belo Horizonte, com catálogo, checkout, pagamento via Mercado Pago em produção e frete automatizado via Melhor Envio — tudo administrado pela própria cliente." data-en="A custom online store for a footwear supplier in Belo Horizonte, with catalog, checkout, production Mercado Pago payments and automated shipping via Melhor Envio — all managed by the client herself.">Loja virtual sob medida para uma fornecedora de calçados de Belo Horizonte, com catálogo, checkout, pagamento via Mercado Pago em produção e frete automatizado via Melhor Envio — tudo administrado pela própria cliente.</p>
+    <div class="case-tags">
+      <i data-pt="E-commerce" data-en="E-commerce">E-commerce</i>
+      <i data-pt="Mercado Pago" data-en="Mercado Pago">Mercado Pago</i>
+      <i data-pt="Frete automatizado" data-en="Automated shipping">Frete automatizado</i>
+      <i data-pt="Em produção" data-en="In production">Em produção</i>
+    </div>
+    <figure class="shot-fig hero-shot">
+      <div class="shot"><img src="../assets/img/cases/confidencial/produtos.webp" width="1440" height="900" alt="Catálogo de produtos da Confidencial Calçados" loading="eager" /></div>
+    </figure>
+  </section>
+
+  <!-- C02 · CONTEXTO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Contexto" data-en="Context">Contexto</h2>
+    <p data-pt="A Confidencial Calçados é uma loja de calçados (varejo) sediada em Belo Horizonte cuja cliente é a própria fornecedora dos produtos — ela já tinha identidade visual e um catálogo físico, mas nenhum canal de venda online próprio." data-en="Confidencial Calçados is a footwear retailer based in Belo Horizonte whose client is the products' own supplier — she already had a visual identity and a physical catalog, but no own online sales channel.">A Confidencial Calçados é uma loja de calçados (varejo) sediada em Belo Horizonte cuja cliente é a própria fornecedora dos produtos — ela já tinha identidade visual e um catálogo físico, mas nenhum canal de venda online próprio.</p>
+    <p data-pt="Toda conta de infraestrutura (domínio, hospedagem, Melhor Envio, Mercado Pago) fica no nome dela — ela é dona da própria operação, sem depender da Onda para nada além da entrega inicial." data-en="Every infrastructure account (domain, hosting, Melhor Envio, Mercado Pago) is in her own name — she owns the operation outright, with no dependency on Onda beyond the initial delivery.">Toda conta de infraestrutura (domínio, hospedagem, Melhor Envio, Mercado Pago) fica no nome dela — ela é dona da própria operação, sem depender da Onda para nada além da entrega inicial.</p>
+  </section>
+
+  <!-- C03 · PROBLEMA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O problema" data-en="The problem">O problema</h2>
+    <ul class="mod-list">
+      <li data-pt="Sem canal de venda online próprio — dependia de redes sociais e contato direto." data-en="No own online sales channel — relied on social media and direct contact.">Sem canal de venda online próprio — dependia de redes sociais e contato direto.</li>
+      <li data-pt="Risco real de vender um produto sem estoque (overselling) num processo manual." data-en="Real risk of overselling a product with no stock in a manual process.">Risco real de vender um produto sem estoque (overselling) num processo manual.</li>
+      <li data-pt="Cálculo de frete e emissão de etiqueta feitos à mão, um por um." data-en="Shipping calculation and label issuance done by hand, one at a time.">Cálculo de frete e emissão de etiqueta feitos à mão, um por um.</li>
+      <li data-pt="Confirmação de pagamento sem automação, dependendo de checagem manual." data-en="Payment confirmation with no automation, depending on manual checking.">Confirmação de pagamento sem automação, dependendo de checagem manual.</li>
+    </ul>
+  </section>
+
+  <!-- C04 · SOLUÇÃO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="A solução" data-en="The solution">A solução</h2>
+    <p data-pt="Uma loja completa, do catálogo ao pós-venda, com autonomia total da cliente para cadastrar produtos e gerenciar pedidos." data-en="A complete store, from catalog to after-sales, with full client autonomy to register products and manage orders.">Uma loja completa, do catálogo ao pós-venda, com autonomia total da cliente para cadastrar produtos e gerenciar pedidos.</p>
+    <ul class="mod-list">
+      <li data-pt="<b>Catálogo com variantes</b> — hoje com 39 produtos ativos, variação por tamanho/numeração e cor por produto." data-en="<b>Catalog with variants</b> — currently 39 active products, with size and colour variation per product."><b>Catálogo com variantes</b> — hoje com 39 produtos ativos, variação por tamanho/numeração e cor por produto.</li>
+      <li data-pt="<b>Carrinho e checkout</b> — dado real de pedido, sem estoque fictício." data-en="<b>Cart and checkout</b> — real order data, no fake stock."><b>Carrinho e checkout</b> — dado real de pedido, sem estoque fictício.</li>
+      <li data-pt="<b>Pagamento Mercado Pago</b> — Checkout Pro de ponta a ponta, webhook com assinatura verificada; credenciais de produção validadas com dinheiro real (compra e estorno reais)." data-en="<b>Mercado Pago payment</b> — end-to-end Checkout Pro, webhook with verified signature; production credentials validated with real money (real purchase and refund)."><b>Pagamento Mercado Pago</b> — Checkout Pro de ponta a ponta, webhook com assinatura verificada; credenciais de produção validadas com dinheiro real (compra e estorno reais).</li>
+      <li data-pt="<b>Frete automatizado</b> — integração com Melhor Envio (OAuth2): cotação real e compra de etiqueta com um botão no painel." data-en="<b>Automated shipping</b> — Melhor Envio integration (OAuth2): real quotes and one-click label purchase in the admin panel."><b>Frete automatizado</b> — integração com Melhor Envio (OAuth2): cotação real e compra de etiqueta com um botão no painel.</li>
+      <li data-pt="<b>Painel admin completo</b> — CRUD de produtos, gestão de pedidos e trocas, exportação de pedidos e catálogo em CSV, upload de nota fiscal." data-en="<b>Full admin panel</b> — product CRUD, order and exchange management, CSV export for orders and catalog, invoice upload."><b>Painel admin completo</b> — CRUD de produtos, gestão de pedidos e trocas, exportação de pedidos e catálogo em CSV, upload de nota fiscal.</li>
+      <li data-pt="<b>E-mail transacional</b> — confirmação de pedido e atualização de status via Resend." data-en="<b>Transactional email</b> — order confirmation and status updates via Resend."><b>E-mail transacional</b> — confirmação de pedido e atualização de status via Resend.</li>
+    </ul>
+  </section>
+
+  <!-- C05 · PRODUTO EM USO -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="O produto em uso" data-en="The product in use">O produto em uso</h2>
+    <figure class="shot-fig">
+      <div class="shot"><img src="../assets/img/cases/confidencial/produto-detalhe.webp" width="1440" height="900" alt="Página de produto com seleção de tamanho e frete grátis" /></div>
+      <figcaption class="shot-cap" data-pt="Página de produto — seleção de tamanho, parcelamento e frete grátis" data-en="Product page — size selection, instalments and free shipping">Página de produto — seleção de tamanho, parcelamento e frete grátis</figcaption>
+    </figure>
+  </section>
+
+  <!-- C06 · RESULTADOS -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Resultados" data-en="Results">Resultados</h2>
+    <div class="res-grid">
+      <div class="res"><b data-pt="Pagamento real em produção" data-en="Real payment in production">Pagamento real em produção</b><span data-pt="Mercado Pago validado com compra e estorno reais antes do lançamento." data-en="Mercado Pago validated with a real purchase and refund before launch.">Mercado Pago validado com compra e estorno reais antes do lançamento.</span></div>
+      <div class="res"><b data-pt="Zero overselling" data-en="Zero overselling">Zero overselling</b><span data-pt="Decremento de estoque sempre na mesma transação que cria o pedido." data-en="Stock decrement always happens in the same transaction that creates the order.">Decremento de estoque sempre na mesma transação que cria o pedido.</span></div>
+      <div class="res"><b data-pt="Frete sem trabalho manual" data-en="Shipping with no manual work">Frete sem trabalho manual</b><span data-pt="Cotação e compra de etiqueta automatizadas via Melhor Envio." data-en="Automated shipping quotes and label purchase via Melhor Envio.">Cotação e compra de etiqueta automatizadas via Melhor Envio.</span></div>
+      <div class="res"><b data-pt="Catálogo ativo" data-en="Active catalog">Catálogo ativo</b><span data-pt="39 produtos publicados, geridos pela própria cliente." data-en="39 products published, managed by the client herself.">39 produtos publicados, geridos pela própria cliente.</span></div>
+    </div>
+    <p class="res-note" data-pt="Volume de vendas e faturamento são operados e acompanhados diretamente pela cliente; a Onda não publica esses números sem autorização e validação dela." data-en="Sales volume and revenue are operated and tracked directly by the client; Onda doesn't publish those numbers without her authorisation and validation.">Volume de vendas e faturamento são operados e acompanhados diretamente pela cliente; a Onda não publica esses números sem autorização e validação dela.</p>
+  </section>
+
+  <!-- C07 · ENGENHARIA -->
+  <section class="case-section case-wrap">
+    <h2 class="case-h2" data-pt="Engenharia" data-en="Engineering">Engenharia</h2>
+    <div class="eng">
+      <div data-pt="<b>Stack:</b> Next.js (App Router) + Prisma + PostgreSQL" data-en="<b>Stack:</b> Next.js (App Router) + Prisma + PostgreSQL"><b>Stack:</b> Next.js (App Router) + Prisma + PostgreSQL</div>
+      <div data-pt="<b>Frontend:</b> Next.js + Tailwind" data-en="<b>Frontend:</b> Next.js + Tailwind"><b>Frontend:</b> Next.js + Tailwind</div>
+      <div data-pt="<b>Pagamento:</b> Mercado Pago Checkout Pro, webhook com verificação HMAC" data-en="<b>Payments:</b> Mercado Pago Checkout Pro, webhook with HMAC verification"><b>Pagamento:</b> Mercado Pago Checkout Pro, webhook com verificação HMAC</div>
+      <div data-pt="<b>Frete:</b> Melhor Envio (OAuth2)" data-en="<b>Shipping:</b> Melhor Envio (OAuth2)"><b>Frete:</b> Melhor Envio (OAuth2)</div>
+      <div data-pt="<b>Segurança:</b> rate limiting no login do admin" data-en="<b>Security:</b> rate limiting on admin login"><b>Segurança:</b> rate limiting no login do admin</div>
+      <div data-pt="<b>Testes:</b> 39 arquivos / 330 casos (Vitest) · 10 suítes E2E / 47 casos (Playwright)" data-en="<b>Tests:</b> 39 files / 330 cases (Vitest) · 10 E2E suites / 47 cases (Playwright)"><b>Testes:</b> 39 arquivos / 330 casos (Vitest) · 10 suítes E2E / 47 casos (Playwright)</div>
+      <div data-pt="<b>Entrega:</b> VPS Hostinger via Coolify, conta da cliente" data-en="<b>Delivery:</b> Hostinger VPS via Coolify, client's own account"><b>Entrega:</b> VPS Hostinger via Coolify, conta da cliente</div>
+    </div>
+  </section>
+
+  <!-- C08 · DEPOIMENTO (placeholder oculto até autorização) -->
+  <section class="case-section case-wrap" hidden data-placeholder="depoimento">
+    <h2 class="case-h2" data-pt="Depoimento" data-en="Testimonial">Depoimento</h2>
+    <blockquote></blockquote>
+    <p class="res-note" data-pt="Publicar apenas com nome, cargo, organização e autorização registrada." data-en="Publish only with name, role, organisation and recorded authorisation.">Publicar apenas com nome, cargo, organização e autorização registrada.</p>
+  </section>
+
+  <!-- C09 · CTA -->
+  <section class="case-wrap">
+    <div class="case-cta">
+      <h2 data-pt="Quer vender online com pagamento e frete resolvidos?" data-en="Want to sell online with payment and shipping sorted?">Quer vender online com pagamento e frete resolvidos?</h2>
+      <p data-pt="Conte o cenário e voltamos em até um dia útil com os próximos passos." data-en="Tell us the scenario and we'll get back within one business day with the next steps.">Conte o cenário e voltamos em até um dia útil com os próximos passos.</p>
+      <a class="btn btn--big" href="../index.html#contato" data-pt="Falar sobre meu projeto" data-en="Talk about my project">Falar sobre meu projeto</a>
+    </div>
+  </section>
+</main>
+
+<footer class="case-foot">
+  <div class="case-wrap">
+    <a href="../index.html" data-pt="← Onda · Estúdio de produtos digitais" data-en="← Onda · Digital product studio">← Onda · Estúdio de produtos digitais</a>
+    <a href="../index.html#projetos" data-pt="Ver outros projetos" data-en="See other work">Ver outros projetos</a>
+    <span class="muted">© 2026 Onda · Fortaleza, Ceará</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var K = 'onda-lang';
+  function apply(l) {
+    l = l === 'en' ? 'en' : 'pt';
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+    document.querySelectorAll('[data-pt]').forEach(function (el) {
+      var v = el.getAttribute('data-' + l);
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === l);
+    });
+    try { localStorage.setItem(K, l); } catch (e) {}
+  }
+  var wrap = document.getElementById('lang');
+  if (wrap) wrap.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-lang]');
+    if (b) apply(b.getAttribute('data-lang'));
+  });
+  var saved = 'pt';
+  try { saved = localStorage.getItem(K) || 'pt'; } catch (e) {}
+  apply(saved);
+})();
+</script>
+
+</body>
+</html>
