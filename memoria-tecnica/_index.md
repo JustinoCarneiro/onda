@@ -26,3 +26,7 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
 - [[pendencias-feedback-cliente]] — Lista de conteúdo pendente para ativar seções ocultas
 - [[dominio-canonico-onda-business]] — onda.business como domínio canônico (apex, sem www); DNS
   segue na Hostinger; merge bloqueado até o domínio resolver com SSL no Vercel
+- [[reposicionamento-comercial-home]] — Reposicionamento comercial da home (fase 1 do relatório)
+- [[multipagina-projetos-cases]] — Site multi-página: rotas `/projetos/*` para páginas de case
+- [[paginas-solucao-e-expertise]] — Rotas `/solucoes/*` e `/expertise.html`; regra de
+  rastreabilidade de prova de engenharia até um case real; testes nunca somados entre projetos

@@ -106,7 +106,12 @@
      window.va só existe depois que Web Analytics for habilitado no projeto
      (vercel project web-analytics enable onda). Até lá, no-op silencioso. */
   function trackEvent(name, data) {
-    try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: name }, data || {})); }
+    try {
+      if (typeof window.va !== 'function') return;
+      var payload = { name: name };
+      if (data && Object.keys(data).length) payload.data = data;
+      window.va('event', payload);
+    }
     catch (e) {}
   }
   document.addEventListener('click', function (e) {
@@ -137,7 +142,10 @@
         if (bad) valid = false;
       });
       if (!valid) { trackEvent('form_error'); return; }
-      trackEvent('form_submit');
+      // form_valid: validação client-side passou e a confirmação local foi mostrada.
+      // Não é um envio real — o formulário ainda não está ligado a um serviço externo (P0-08).
+      // Reservar "form_submit" para quando essa integração existir de fato.
+      trackEvent('form_valid');
       form.style.display = 'none';
       ok.classList.add('show');
     });

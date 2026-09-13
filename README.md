@@ -54,7 +54,7 @@ Por ser desenvolvido utilizando apenas web standards nativos, basta subir um ser
 .
 ├── assets/
 │   ├── brand/      # Identidade visual oficial (logo, símbolo, brand sheet, SVGs)
-│   ├── img/        # Imagens e vídeos (WebP/mp4)
+│   ├── img/        # Imagens e vídeos (WebP/mp4), incluindo assets/img/cases/<projeto>/
 │   ├── favicon.svg
 │   └── apple-touch-icon.png
 ├── css/            # Estilos principais (styles.css e journey.css)
@@ -63,6 +63,10 @@ Por ser desenvolvido utilizando apenas web standards nativos, basta subir um ser
 │   ├── referencias/
 │   └── Metodologia de Desenvolvimento - Onda.pdf
 ├── js/             # Interações (app.js, journey.js, image-slot.js)
+├── projetos/       # Páginas de case (template C01-C09), uma rota estática por projeto
+├── solucoes/       # Páginas comerciais de solução (uma rota estática por solução)
+├── expertise.html  # Camada técnica (arquitetura, segurança, processo) para buyers técnicos
+├── memoria-tecnica/# Bugs e decisões de arquitetura fora da spec original — ver _index.md
 ├── tweaks/         # Ferramentas internas (React Island dev-only)
 ├── robots.txt
 ├── sitemap.xml
@@ -70,6 +74,11 @@ Por ser desenvolvido utilizando apenas web standards nativos, basta subir um ser
 ├── .gitignore
 └── index.html      # Página principal
 ```
+
+`projetos/`, `solucoes/` e `expertise.html` seguem o mesmo padrão: HTML estático
+auto-contido (nav simplificada, toggle PT/EN próprio, reaproveitam `css/styles.css` +
+um `<style>` local), sem router nem build — ver
+[[paginas-solucao-e-expertise]] e [[multipagina-projetos-cases]] em `memoria-tecnica/decisoes/`.
 
 ## 🔍 SEO
 
