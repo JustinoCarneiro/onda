@@ -43,11 +43,12 @@ a copy escorregar para alegação genérica ou métrica sem fonte.
    documentada — ex.: CI/CD via GitHub Actions só está documentado para o Melvin.
    Regra descoberta e corrigida numa revisão R1 do Codex em 13/09/2026.
 
-4. **CSS inline duplicado é aceito por ora.** As 7 páginas do padrão "case/solução"
-   (2 cases + 4 soluções + expertise) repetem ~80% do mesmo bloco `<style>`. Revisão R1
-   do Codex (13/09/2026) recomendou extrair a base para `css/detail-page.css` num refactor
-   **separado**, sem misturar com mudança de conteúdo, e revalidar as 7 páginas depois.
-   Ainda não feito — ver seção "Próximos passos".
+4. **CSS base extraída para `css/detail-page.css`.** As 7 páginas do padrão "case/solução"
+   (2 cases + 4 soluções + expertise) repetiam ~80% do mesmo bloco `<style>` (~40KB
+   duplicados). Revisão R1 do Codex (13/09/2026) recomendou extrair a base num refactor
+   **separado**, sem misturar com mudança de conteúdo — feito no commit `a1dd67e`. Cada
+   família mantém inline só o que é específico dela (cases: `.shot*`/`.res*`; soluções e
+   expertise: `.sol-mark`/`.case-cta-row`/`.rel-case*`; expertise: `.step-list`/`.eng-cols`).
 
 5. **Eventos de analytics do formulário nomeados por o que de fato acontece.** O envio do
    formulário de contato ainda não está ligado a um serviço externo (P0-08); o evento
@@ -55,7 +56,4 @@ a copy escorregar para alegação genérica ou métrica sem fonte.
    mostrada), não `form_submit` — reservado para quando existir envio real.
 
 ## Próximos passos que isto destrava
-- Refactor de CSS compartilhado (`css/detail-page.css`) para as 7 páginas do padrão
-  case/solução — item isolado, não urgente, ver recomendação do Codex acima.
 - Quando P0-08 for resolvido: renomear/reativar `form_submit` para o sucesso real de envio.
-- `README.md` deve mapear `solucoes/` e `expertise.html` na próxima atualização de estrutura.
