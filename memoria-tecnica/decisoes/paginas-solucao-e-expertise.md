@@ -53,24 +53,25 @@ a copy escorregar para alegação genérica ou métrica sem fonte.
 5. **Eventos de analytics do formulário nomeados por o que de fato acontece.** Enquanto o
    formulário não estava ligado a um serviço externo, o evento de sucesso chamava-se
    `form_valid` (validação client-side passou + confirmação local mostrada), não `form_submit`.
-   Código pronto em 13/09/2026 (P0-08): formulário ligado ao Web3Forms (`js/app.js`, fetch JSON
+   **Resolvido em 13/09/2026 (P0-08)**: formulário ligado ao Web3Forms (`js/app.js`, fetch JSON
    para `https://api.web3forms.com/submit`, formato oficial da doc do serviço); `form_submit`
    dispara só no sucesso real do envio, e um novo evento `form_send_error` cobre falha de
    rede/API (com `#formSendError` mostrando mensagem de retry ao usuário, botão reabilitado).
    A access key do Web3Forms é pública por design (a própria doc do serviço autoriza uso em
    client-side) — não é segredo a proteger.
 
-   **Bloqueado em produção**: testado contra `onda.business` real e a API do Web3Forms rejeita
-   com `CORS: No 'Access-Control-Allow-Origin' header`, tanto em JSON (formato oficial) quanto
-   em FormData (tentativa alternativa, revertida). O código está correto conforme a doc oficial;
-   a causa mais provável é a conta/chave recém-criada ainda não confirmada por e-mail — precisa
-   do usuário verificar a caixa de entrada usada no cadastro (Web3Forms costuma exigir clicar um
-   link de confirmação antes da chave aceitar requisições de navegador).
+   **Falso alarme de CORS durante a validação**: testes automatizados via Playwright contra
+   `onda.business` falhavam com `No 'Access-Control-Allow-Origin' header`. Isolado via requisição
+   HTTP direta (fora do navegador): sem headers de navegador real, a API retorna 403 explícito
+   ("Use our API in client side... Pro plan required" — bloqueio deliberado a chamadas
+   servidor-a-servidor); com `Origin`/`Referer`/`User-Agent` de navegador real, retorna 200 e
+   `access-control-allow-origin: *`. Conclusão: o Cloudflare/anti-bot do Web3Forms bloqueia
+   especificamente automação headless (Playwright seta `navigator.webdriver`), não navegadores
+   reais — por isso o teste automatizado falhava enquanto um envio de verdade funcionaria.
+   **Confirmado em produção**: e-mail de teste enviado pelo usuário via `onda.business` chegou
+   em `ondaempresa1@gmail.com` com nome, e-mail, mensagem e URL de origem corretos.
 
 ## Próximos passos que isto destrava
-- **Usuário**: checar e-mail de confirmação do Web3Forms (a mesma caixa usada no cadastro) e
-  confirmar a conta/chave, se houver esse passo pendente.
-- Depois disso, reexecutar o teste real (Playwright contra `onda.business`) para confirmar que
-  o CORS já libera e a mensagem chega na caixa de entrada.
+- P0-08 concluído e confirmado com entrega real de e-mail.
 - Quando P0-05 (e-mail corporativo) for resolvido, trocar o e-mail cadastrado no Web3Forms de
   `ondaempresa1@gmail.com` para o corporativo.
