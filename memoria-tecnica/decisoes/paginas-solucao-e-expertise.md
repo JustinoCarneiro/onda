@@ -53,12 +53,24 @@ a copy escorregar para alegação genérica ou métrica sem fonte.
 5. **Eventos de analytics do formulário nomeados por o que de fato acontece.** Enquanto o
    formulário não estava ligado a um serviço externo, o evento de sucesso chamava-se
    `form_valid` (validação client-side passou + confirmação local mostrada), não `form_submit`.
-   **Resolvido em 13/09/2026 (P0-08):** formulário ligado ao Web3Forms (`js/app.js`, fetch para
-   `https://api.web3forms.com/submit`); `form_submit` agora dispara só no sucesso real do envio,
-   e um novo evento `form_send_error` cobre falha de rede/API (com `#formSendError` mostrando
-   mensagem de retry ao usuário, botão reabilitado). A access key do Web3Forms é pública por
-   design (a própria doc do serviço autoriza uso em client-side) — não é segredo a proteger.
+   Código pronto em 13/09/2026 (P0-08): formulário ligado ao Web3Forms (`js/app.js`, fetch JSON
+   para `https://api.web3forms.com/submit`, formato oficial da doc do serviço); `form_submit`
+   dispara só no sucesso real do envio, e um novo evento `form_send_error` cobre falha de
+   rede/API (com `#formSendError` mostrando mensagem de retry ao usuário, botão reabilitado).
+   A access key do Web3Forms é pública por design (a própria doc do serviço autoriza uso em
+   client-side) — não é segredo a proteger.
+
+   **Bloqueado em produção**: testado contra `onda.business` real e a API do Web3Forms rejeita
+   com `CORS: No 'Access-Control-Allow-Origin' header`, tanto em JSON (formato oficial) quanto
+   em FormData (tentativa alternativa, revertida). O código está correto conforme a doc oficial;
+   a causa mais provável é a conta/chave recém-criada ainda não confirmada por e-mail — precisa
+   do usuário verificar a caixa de entrada usada no cadastro (Web3Forms costuma exigir clicar um
+   link de confirmação antes da chave aceitar requisições de navegador).
 
 ## Próximos passos que isto destrava
-- P0-08 concluído. Falta só P0-05 (e-mail corporativo) — quando resolvido, trocar o e-mail
-  cadastrado no Web3Forms de `ondaempresa1@gmail.com` para o corporativo.
+- **Usuário**: checar e-mail de confirmação do Web3Forms (a mesma caixa usada no cadastro) e
+  confirmar a conta/chave, se houver esse passo pendente.
+- Depois disso, reexecutar o teste real (Playwright contra `onda.business`) para confirmar que
+  o CORS já libera e a mensagem chega na caixa de entrada.
+- Quando P0-05 (e-mail corporativo) for resolvido, trocar o e-mail cadastrado no Web3Forms de
+  `ondaempresa1@gmail.com` para o corporativo.
