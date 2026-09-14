@@ -149,19 +149,20 @@
       if (sendError) sendError.classList.remove('show');
       if (submitBtn) submitBtn.disabled = true;
 
-      var payload = new FormData();
-      payload.append('access_key', WEB3FORMS_ACCESS_KEY);
-      payload.append('subject', 'Novo contato pelo site Onda');
-      payload.append('from_name', 'Site Onda');
-      payload.append('name', document.getElementById('f-name').value.trim());
-      payload.append('email', document.getElementById('f-email').value.trim());
-      payload.append('tipo_projeto', document.getElementById('f-type').value);
-      payload.append('message', document.getElementById('f-msg').value.trim());
+      var payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'Novo contato pelo site Onda',
+        from_name: 'Site Onda',
+        name: document.getElementById('f-name').value.trim(),
+        email: document.getElementById('f-email').value.trim(),
+        tipo_projeto: document.getElementById('f-type').value,
+        message: document.getElementById('f-msg').value.trim()
+      };
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: payload
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
       })
         .then(function (r) { return r.json(); })
         .then(function (json) {
