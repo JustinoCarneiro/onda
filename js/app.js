@@ -131,7 +131,10 @@
   var form = document.getElementById('contactForm');
   var ok = document.getElementById('formOk');
   var sendError = document.getElementById('formSendError');
-  var WEB3FORMS_ACCESS_KEY = '0cecaafc-b2d7-460f-a31a-f30f85820ee1'; // chave pública (Web3Forms), uso client-side é o esperado
+  // EmailJS: Public Key é feita para uso client-side (documentação oficial); Service/Template ID não são segredo.
+  var EMAILJS_PUBLIC_KEY = 'RJqK1wJXWU7rPmAP7';
+  var EMAILJS_SERVICE_ID = 'service_z97t47g';
+  var EMAILJS_TEMPLATE_ID = 'template_4emn7ti';
   if (form) {
     var submitBtn = form.querySelector('button[type="submit"]');
     form.addEventListener('submit', function (e) {
@@ -150,23 +153,25 @@
       if (submitBtn) submitBtn.disabled = true;
 
       var payload = {
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: 'Novo contato pelo site Onda',
-        from_name: 'Site Onda',
-        name: document.getElementById('f-name').value.trim(),
-        email: document.getElementById('f-email').value.trim(),
-        tipo_projeto: document.getElementById('f-type').value,
-        message: document.getElementById('f-msg').value.trim()
+        service_id: EMAILJS_SERVICE_ID,
+        template_id: EMAILJS_TEMPLATE_ID,
+        user_id: EMAILJS_PUBLIC_KEY,
+        template_params: {
+          name: document.getElementById('f-name').value.trim(),
+          email: document.getElementById('f-email').value.trim(),
+          tipo_projeto: document.getElementById('f-type').value,
+          message: document.getElementById('f-msg').value.trim(),
+          sent_at: new Date().toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })
+        }
       };
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       })
-        .then(function (r) { return r.json(); })
-        .then(function (json) {
-          if (!json.success) throw new Error(json.message || 'send failed');
+        .then(function (r) {
+          if (!r.ok) throw new Error('send failed');
           trackEvent('form_submit');
           form.style.display = 'none';
           ok.classList.add('show');
