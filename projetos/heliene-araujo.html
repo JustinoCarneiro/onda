@@ -45,34 +45,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../css/styles.css?v=18" />
-<link rel="stylesheet" href="../css/detail-page.css?v=1" />
+<link rel="stylesheet" href="../css/detail-page.css?v=2" />
 
-<style>
-  .shot { border-radius: 14px; box-shadow: var(--shadow-float);
-    border: 1px solid var(--line); background: var(--card); display: block; padding: 10px; }
-  .shot img { display: block; width: 100%; height: auto; border-radius: 7px; }
-  .shot-fig { margin: 0; }
-  .shot-cap { font-size: 13.5px; font-weight: 500; color: var(--ink-soft); margin: 12px 4px 0; line-height: 1.45; }
-  .hero-shot { margin-top: 28px; }
-
-  .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
-  @media (max-width: 720px) { .shot-grid { grid-template-columns: 1fr; } }
-
-  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
-  @media (max-width: 720px) { .res-grid { grid-template-columns: 1fr; } }
-  .res {
-    background: var(--card); border: 1px solid var(--line-soft, var(--line));
-    border-left: 3px solid var(--turq); border-radius: 12px; padding: 16px 18px;
-  }
-  .res b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
-  .res span { font-size: 14px; color: var(--ink-soft); }
-  .res-note { font-size: 13px; color: var(--ink-faint); margin-top: 14px; }
-
-  @media (max-width: 560px) {
-    .hero-shot { margin-top: 22px; }
-    .shot-grid { gap: 18px; }
-  }
-</style>
 </head>
 <body data-mood="clara">
 
@@ -212,6 +186,7 @@
   </div>
 </footer>
 
+<script src="../js/case-lightbox.js"></script>
 <script>
 (function () {
   var K = 'onda-lang';

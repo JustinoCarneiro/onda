@@ -38,3 +38,5 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
   catálogo completo dos 7 projetos mora em `/projetos`, rota prevista desde o sitemap original
 - [[previews-em-video-dos-cases]] — Cards de Heliene Araújo e Confidencial Calçados ganham
   preview em vídeo (paridade com o Melvin); receita de gravação via Playwright + compressão ffmpeg
+- [[lightbox-imagens-e-tipografia-cases]] — Screenshots das páginas de case ganham lightbox de
+  clique; `.shot`/`.res` centralizados em `detail-page.css`; fontes do corpo aumentadas

@@ -45,11 +45,11 @@ main { padding: 56px 0 40px; }
   font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
   font-size: clamp(21px, 2.6vw, 27px); color: var(--ink); margin: 0 0 14px;
 }
-.case-lead { font-size: 18px; color: var(--ink-soft); max-width: 64ch; margin: 0 0 20px; }
-.case-section p { font-size: 16px; color: var(--ink-soft); max-width: 68ch; margin: 0 0 12px; }
+.case-lead { font-size: 19px; color: var(--ink-soft); max-width: 64ch; margin: 0 0 20px; }
+.case-section p { font-size: 17px; color: var(--ink-soft); max-width: 68ch; margin: 0 0 12px; }
 .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
 .case-tags i {
-  font-style: normal; font-size: 12.5px; color: var(--ink-faint);
+  font-style: normal; font-size: 13px; color: var(--ink-faint);
   box-shadow: inset 0 0 0 1.3px var(--line); padding: 5px 13px; border-radius: var(--r-pill);
 }
 .case-cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
@@ -58,22 +58,26 @@ main { padding: 56px 0 40px; }
   background: var(--card); border: 1px solid var(--line-soft, var(--line));
   border-left: 3px solid var(--turq); border-radius: 12px; padding: 28px 30px; margin-top: 8px;
 }
-.case-testimonial blockquote { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink); }
+.case-testimonial blockquote { margin: 0; font-size: 18px; line-height: 1.65; color: var(--ink); }
 .case-testimonial blockquote p { font-size: inherit; color: inherit; max-width: none; margin: 0; }
-.case-testimonial cite { display: block; margin-top: 18px; font-style: normal; font-size: 14.5px; font-weight: 700; color: var(--ink); }
-.case-testimonial cite span { display: block; font-weight: 500; color: var(--ink-soft); font-size: 13.5px; margin-top: 2px; }
+.case-testimonial cite { display: block; margin-top: 18px; font-style: normal; font-size: 15px; font-weight: 700; color: var(--ink); }
+.case-testimonial cite span { display: block; font-weight: 500; color: var(--ink-soft); font-size: 14px; margin-top: 2px; }
 
 .mod-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid;
-  grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  grid-template-columns: 1fr 1fr; gap: 12px 24px; }
 @media (max-width: 720px) { .mod-list { grid-template-columns: 1fr; } }
-.mod-list li { position: relative; padding-left: 22px; font-size: 15px; color: var(--ink-soft); }
-.mod-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
+.mod-list li { position: relative; padding-left: 22px; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.mod-list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 8px;
   border-radius: 2px; background: var(--turq); }
 .mod-list li b { color: var(--ink); font-weight: 600; }
 
-.eng { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 28px; margin-top: 8px; }
-@media (max-width: 720px) { .eng { grid-template-columns: 1fr; } }
-.eng div { font-size: 14.5px; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px dashed var(--line-soft, var(--line)); }
+/* colunas preenchidas de cima pra baixo (não linha a linha) — com número ímpar de
+   itens, grid-template-columns deixaria o último sozinho numa linha inteira à
+   esquerda; column-count lê melhor como lista de especificação. */
+.eng { column-count: 2; column-gap: 28px; margin-top: 8px; }
+@media (max-width: 720px) { .eng { column-count: 1; } }
+.eng div { font-size: 15.5px; line-height: 1.5; color: var(--ink-soft); padding: 7px 0;
+  border-bottom: 1px dashed var(--line-soft, var(--line)); break-inside: avoid; }
 .eng div b { color: var(--ink); font-weight: 600; }
 
 .case-cta {
@@ -82,9 +86,62 @@ main { padding: 56px 0 40px; }
 }
 .case-cta h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3vw, 30px);
   letter-spacing: -0.02em; margin: 0 0 10px; color: #fff; }
-.case-cta p { color: rgba(255,255,255,.82); max-width: 52ch; margin: 0 auto 22px; font-size: 16px; }
+.case-cta p { color: rgba(255,255,255,.82); max-width: 52ch; margin: 0 auto 22px; font-size: 17px; }
 .case-cta .btn { background: var(--turq); color: #042027; border: 0; }
 .case-cta .btn:hover { background: var(--turq-bright); }
+
+/* ---------- Screenshots de produto (.shot) e cards de resultado (.res) ----------
+   Idênticos nas 6 páginas de case; centralizados aqui em 14/09/2026 pelo mesmo
+   motivo do resto do arquivo — evitar 6 cópias divergindo com o tempo. */
+.shot { position: relative; cursor: zoom-in; border-radius: 14px; box-shadow: var(--shadow-float);
+  border: 1px solid var(--line); background: var(--card); display: block; padding: 10px; }
+.shot img { display: block; width: 100%; height: auto; border-radius: 7px; }
+.shot-fig { margin: 0; }
+.shot-cap { font-size: 14.5px; font-weight: 500; color: var(--ink-soft); margin: 12px 4px 0; line-height: 1.5; }
+.hero-shot { margin-top: 28px; }
+
+.shot-zoom-badge {
+  position: absolute; top: 20px; right: 20px; width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(14,42,51,.55); backdrop-filter: blur(3px); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s ease; pointer-events: none;
+}
+.shot:hover .shot-zoom-badge { opacity: 1; }
+
+.shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+@media (max-width: 720px) { .shot-grid { grid-template-columns: 1fr; } }
+
+.res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+@media (max-width: 720px) { .res-grid { grid-template-columns: 1fr; } }
+.res {
+  background: var(--card); border: 1px solid var(--line-soft, var(--line));
+  border-left: 3px solid var(--turq); border-radius: 12px; padding: 16px 18px;
+}
+.res b { display: block; color: var(--ink); font-size: 16.5px; margin-bottom: 4px; }
+.res span { font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+.res-note { font-size: 13.5px; color: var(--ink-faint); margin-top: 14px; }
+
+/* ---------- Lightbox de imagem (clique em .shot abre em tamanho grande) ----------
+   Overlay é injetado em runtime por js/case-lightbox.js; aqui só o visual. */
+.shot-lightbox {
+  position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center;
+  padding: 32px; background: rgba(6, 20, 24, .92); opacity: 0; pointer-events: none;
+  transition: opacity .25s ease;
+}
+.shot-lightbox.active { opacity: 1; pointer-events: auto; }
+.shot-lightbox-img { max-width: min(1100px, 100%); max-height: 88vh; width: auto; height: auto;
+  display: block; border-radius: 12px; box-shadow: var(--shadow-float); }
+.shot-lightbox-close {
+  position: absolute; top: 20px; right: 24px; width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,.14); color: #fff; border: 0; display: flex; align-items: center;
+  justify-content: center; cursor: pointer; transition: background .2s ease;
+}
+.shot-lightbox-close:hover { background: rgba(255,255,255,.24); }
+body.shot-lightbox-open { overflow: hidden; }
+@media (max-width: 560px) {
+  .shot-lightbox { padding: 16px; }
+  .shot-lightbox-close { top: 12px; right: 12px; width: 38px; height: 38px; }
+}
 
 .case-foot { border-top: 1px solid var(--line-soft, var(--line)); padding: 28px 0 48px; margin-top: 20px; }
 .case-foot .case-wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
@@ -97,9 +154,14 @@ main { padding: 56px 0 40px; }
   main { padding: 40px 0 32px; }
   .case-section { padding-top: 34px; padding-bottom: 34px; }
   .case-h1 { font-size: clamp(24px, 6.4vw, 31px); }
-  .case-lead { font-size: 16px; }
-  .case-section p { font-size: 15.5px; }
+  .case-lead { font-size: 17px; }
+  .case-section p { font-size: 16.5px; }
+  .mod-list li { font-size: 15.5px; }
+  .eng div { font-size: 15px; }
   .case-cta { padding: 30px 20px; margin: 36px 0 8px; }
-  .case-cta p { font-size: 15px; }
+  .case-cta p { font-size: 16px; }
   .case-foot .case-wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .res b { font-size: 16px; }
+  .res span { font-size: 14.5px; }
+  .shot-cap { font-size: 14px; }
 }
