@@ -71,7 +71,22 @@ a copy escorregar para alegação genérica ou métrica sem fonte.
    **Confirmado em produção**: e-mail de teste enviado pelo usuário via `onda.business` chegou
    em `ondaempresa1@gmail.com` com nome, e-mail, mensagem e URL de origem corretos.
 
+6. **Migração de Web3Forms para EmailJS (13-14/09/2026)**: o usuário pediu que o e-mail de
+   notificação seguisse a identidade visual da Onda. Web3Forms não permite template HTML
+   customizado no plano grátis (só assunto/remetente/reply-to); EmailJS permite template HTML
+   próprio direto no painel, mantendo o site 100% estático (Public Key é feita para uso
+   client-side, mesma lógica da access key do Web3Forms). Cotado usar o Resend da Confidencial
+   Calçados como alternativa — descartado porque lá a chave fica protegida num backend Next.js
+   que este site não tem; expor uma chave secreta de Resend no `js/app.js` seria uma
+   vulnerabilidade real (qualquer um vê no "Ver código-fonte" e manda e-mail em nome da conta).
+   Template HTML fonte em `docs/email-template-contato.html` (logo, barra do gradiente-assinatura,
+   campos do formulário, CTA de resposta), colado manualmente no editor do EmailJS (sem API de
+   gestão de templates — confirmado que é operação exclusiva do painel deles). Credenciais:
+   Service ID `service_z97t47g` (Gmail, `ondaempresa1@gmail.com`), Template ID `template_4emn7ti`,
+   Public Key em `js/app.js`. Testado com sucesso via API direta e via formulário real em
+   produção — e-mail chegou com o design correto.
+
 ## Próximos passos que isto destrava
-- P0-08 concluído e confirmado com entrega real de e-mail.
-- Quando P0-05 (e-mail corporativo) for resolvido, trocar o e-mail cadastrado no Web3Forms de
-  `ondaempresa1@gmail.com` para o corporativo.
+- P0-08 concluído com o design de e-mail definitivo (EmailJS) — confirmado com entrega real.
+- Quando P0-05 (e-mail corporativo) for resolvido, trocar o e-mail cadastrado no serviço
+  (Settings → To Email do template no EmailJS) de `ondaempresa1@gmail.com` para o corporativo.
