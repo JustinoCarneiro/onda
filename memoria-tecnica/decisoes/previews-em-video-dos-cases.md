@@ -1,7 +1,7 @@
 ---
 tipo: decisao
 data: 2026-09-14
-status: Ativa
+status: Revogada — ver seção "Reversão" no final
 fonte: pedido direto do usuário — paridade de preview em vídeo entre os cards da home
 ---
 
@@ -44,3 +44,20 @@ com `chromium.launch()` + `newContext({ viewport: {width:1280,height:720}, recor
 size: {width:1280,height:720} } })`, rolar a página gradualmente por ~20s, fechar o contexto
 (o `.webm` só é finalizado no `close()`), depois reencodar com o comando ffmpeg acima. Repetir
 para o vídeo do Melvin/Lucas caso precisem de refresh também.
+
+## Reversão (mesmo dia, 2026-09-14)
+Depois de publicado, dois ajustes ainda foram feitos (autoplay trocado por hover — nunca os três
+tocando juntos — e regravação com scroll de verdade fluido, já que o primeiro scroll pulava a
+posição a cada 180ms), mas o usuário decidiu remover vídeo dos cards da home por completo:
+"tire os vídeos deixe apenas as imagens principais". Melvin, Heliene e Confidencial Calçados
+voltaram todos a usar `.proj-slider` com imagem estática (a mesma imagem-herói usada na página
+do case: `assets/img/cases/{melvin/amigos-melvin,heliene/hero,confidencial/produtos}.webp`).
+
+Removido nesta reversão: os dois `.mp4`/`-poster.webp` de Heliene e Confidencial (não usados em
+mais nenhum lugar do site — confirmado por grep antes de apagar); o `#videoModal` e toda a
+"Video Modal Logic" de `js/app.js` (o modal estilo Stories só existia pra esses três cards da
+home; `projetos/index.html` tem sua **própria cópia independente** do mesmo padrão, usada por
+Melvin/Lucas — essa não foi tocada e continua funcionando).
+
+**Não repetir esta decisão sem pedido explícito**: vídeo autoplay/hover nos cards da home já foi
+tentado e revertido nesta mesma sessão — se o tópico voltar, checar aqui antes de reimplementar.
