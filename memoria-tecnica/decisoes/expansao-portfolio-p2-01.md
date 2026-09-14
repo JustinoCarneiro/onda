@@ -47,10 +47,21 @@ passaram no critério de integridade: **completos, ao vivo, com briefing real do
    excluídos — nota no case diz que esses números são operados pela cliente e não publicados
    sem autorização dela.
 
-4. **Zoo Agency**: card da home enriquecido com fatos reais do código-fonte
-   (`landing_page_Klinsmann`) — stack real (HTML/CSS/JS vanilla, fontes auto-hospedadas),
-   descrição corrigida (era "agência de arte", é agência de design para transmissões ao vivo).
-   Sem página de case dedicada (decisão do usuário) — só o card já existente foi atualizado.
+4. **Zoo Agency**: ganhou página de case própria (`projetos/zoo-agency.html`), com fatos reais
+   do código-fonte (`landing_page_Klinsmann`) — fundadores reais (Klinsmann Santana/"Coruja",
+   Beatriz Silva/"Coelha"), stack (HTML/CSS/JS vanilla, fontes auto-hospedadas), cabeçalhos de
+   segurança reais (CSP, X-Frame-Options) do `.htaccess` de produção. Decisão revisada em
+   13/09/2026: inicialmente o card levava direto ao site externo; o usuário pediu consistência
+   com o padrão dos demais cards — clicar sempre abre a página de case primeiro, e um botão
+   "Visitar site" dentro do case leva ao site real. O mesmo padrão foi aplicado ao card do site
+   institucional do Melvin, que passou a apontar para `projetos/instituto-melvin-erp.html` (o
+   case do ERP já existente, mesmo cliente) em vez do link direto para `institutomelvin.org` —
+   evita duplicar conteúdo com um case novo para o mesmo cliente.
+
+5. **Bug corrigido**: nos 3 cases novos (Heliene, Vanessa Vaz, Confidencial Calçados), a
+   miniatura do card não era clicável — só o ícone de seta e o link de texto levavam ao case.
+   Corrigido envolvendo a imagem do `.proj-slider` num link para a página de case, no mesmo
+   padrão dos cards mais antigos.
 
 5. **Projetos avaliados e não usados** (registrado para não reabrir a investigação depois):
    - `confidencial-calcados` outros dados sensíveis (e-mail pessoal, valores de venda) nunca
