@@ -503,8 +503,13 @@ body[data-hero="imersivo"] .nav:not(.scrolled) .burger span { background: #fff; 
   transition: color .3s ease .15s, background .3s ease .15s;
 }
 .proj-viewall-card:hover .proj-viewall-icon { background: rgba(255,255,255,.2); color: #fff; }
-.proj-viewall-icon svg { width: 24px; height: 24px; transition: transform .3s ease; }
-.proj-viewall-card:hover .proj-viewall-icon svg { transform: translateX(4px); }
+.proj-viewall-icon svg { width: 24px; height: 24px; }
+/* seta "aponta e volta" ao centro do círculo, em vez de ficar deslocada enquanto durar o hover */
+.proj-viewall-card:hover .proj-viewall-icon svg { animation: proj-viewall-nudge 1.1s ease-in-out infinite; }
+@keyframes proj-viewall-nudge {
+  0%, 18%, 100% { transform: translateX(0); }
+  55% { transform: translateX(4px); }
+}
 .proj-viewall-card h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(20px, 2.2vw, 24px); letter-spacing: -0.01em; margin: 0 0 10px; color: var(--ink); transition: color .3s ease .15s; }
 .proj-viewall-card:hover h3 { color: #fff; }
 .proj-viewall-card p { font-size: 14.5px; color: var(--ink-soft); margin: 0; max-width: 26ch; transition: color .3s ease .15s; }
