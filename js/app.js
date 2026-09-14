@@ -422,23 +422,23 @@
     });
   }
 
-  /* ---------- Lazy-load dos vídeos de demonstração nos cards de projeto ----------
-     preload="none" no HTML evita baixar o .mp4 (1-2MB) até o card entrar na tela;
-     o IntersectionObserver dá o play/pause conforme visibilidade. */
+  /* ---------- Vídeos de demonstração nos cards de projeto: tocam só no hover ----------
+     preload="metadata" no HTML evita baixar o .mp4 inteiro (1-2MB) até o usuário
+     passar o mouse; nunca os três tocando ao mesmo tempo só por estarem na tela. */
   (function () {
-    var thumbVideos = document.querySelectorAll('.proj-thumb video');
-    if (!thumbVideos.length || !('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var v = entry.target;
-        if (entry.isIntersecting) {
-          v.play().catch(function () {});
-        } else {
-          v.pause();
-        }
+    var thumbs = document.querySelectorAll('.proj-thumb');
+    thumbs.forEach(function (thumb) {
+      var v = thumb.querySelector('video');
+      if (!v) return;
+      thumb.addEventListener('mouseenter', function () {
+        v.currentTime = 0;
+        v.play().catch(function () {});
       });
-    }, { rootMargin: '200px 0px' });
-    thumbVideos.forEach(function (v) { io.observe(v); });
+      thumb.addEventListener('mouseleave', function () {
+        v.pause();
+        v.currentTime = 0;
+      });
+    });
   })();
 
   /* ---------- Carrossel de serviços (mobile) ---------- */
