@@ -50,10 +50,15 @@ a copy escorregar para alegação genérica ou métrica sem fonte.
    família mantém inline só o que é específico dela (cases: `.shot*`/`.res*`; soluções e
    expertise: `.sol-mark`/`.case-cta-row`/`.rel-case*`; expertise: `.step-list`/`.eng-cols`).
 
-5. **Eventos de analytics do formulário nomeados por o que de fato acontece.** O envio do
-   formulário de contato ainda não está ligado a um serviço externo (P0-08); o evento
-   correspondente chama-se `form_valid` (validação client-side passou + confirmação local
-   mostrada), não `form_submit` — reservado para quando existir envio real.
+5. **Eventos de analytics do formulário nomeados por o que de fato acontece.** Enquanto o
+   formulário não estava ligado a um serviço externo, o evento de sucesso chamava-se
+   `form_valid` (validação client-side passou + confirmação local mostrada), não `form_submit`.
+   **Resolvido em 13/09/2026 (P0-08):** formulário ligado ao Web3Forms (`js/app.js`, fetch para
+   `https://api.web3forms.com/submit`); `form_submit` agora dispara só no sucesso real do envio,
+   e um novo evento `form_send_error` cobre falha de rede/API (com `#formSendError` mostrando
+   mensagem de retry ao usuário, botão reabilitado). A access key do Web3Forms é pública por
+   design (a própria doc do serviço autoriza uso em client-side) — não é segredo a proteger.
 
 ## Próximos passos que isto destrava
-- Quando P0-08 for resolvido: renomear/reativar `form_submit` para o sucesso real de envio.
+- P0-08 concluído. Falta só P0-05 (e-mail corporativo) — quando resolvido, trocar o e-mail
+  cadastrado no Web3Forms de `ondaempresa1@gmail.com` para o corporativo.

@@ -130,7 +130,10 @@
   /* ---------- Formulário de contato ---------- */
   var form = document.getElementById('contactForm');
   var ok = document.getElementById('formOk');
+  var sendError = document.getElementById('formSendError');
+  var WEB3FORMS_ACCESS_KEY = '0cecaafc-b2d7-460f-a31a-f30f85820ee1'; // chave pública (Web3Forms), uso client-side é o esperado
   if (form) {
+    var submitBtn = form.querySelector('button[type="submit"]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var valid = true;
@@ -142,12 +145,39 @@
         if (bad) valid = false;
       });
       if (!valid) { trackEvent('form_error'); return; }
-      // form_valid: validação client-side passou e a confirmação local foi mostrada.
-      // Não é um envio real — o formulário ainda não está ligado a um serviço externo (P0-08).
-      // Reservar "form_submit" para quando essa integração existir de fato.
-      trackEvent('form_valid');
-      form.style.display = 'none';
-      ok.classList.add('show');
+
+      if (sendError) sendError.classList.remove('show');
+      if (submitBtn) submitBtn.disabled = true;
+
+      var payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'Novo contato pelo site Onda',
+        from_name: 'Site Onda',
+        name: document.getElementById('f-name').value.trim(),
+        email: document.getElementById('f-email').value.trim(),
+        tipo_projeto: document.getElementById('f-type').value,
+        message: document.getElementById('f-msg').value.trim()
+      };
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (json) {
+          if (!json.success) throw new Error(json.message || 'send failed');
+          trackEvent('form_submit');
+          form.style.display = 'none';
+          ok.classList.add('show');
+        })
+        .catch(function () {
+          trackEvent('form_send_error');
+          if (sendError) sendError.classList.add('show');
+        })
+        .then(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
     form.querySelectorAll('input, textarea').forEach(function (input) {
       input.addEventListener('input', function () {
