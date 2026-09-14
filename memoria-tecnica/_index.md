@@ -36,3 +36,5 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
   substituído por GA4 nas 12 páginas do site
 - [[home-cases-destacados-vs-indice]] — Home volta a mostrar só 2-3 cases (H03 do relatório);
   catálogo completo dos 7 projetos mora em `/projetos`, rota prevista desde o sitemap original
+- [[previews-em-video-dos-cases]] — Cards de Heliene Araújo e Confidencial Calçados ganham
+  preview em vídeo (paridade com o Melvin); receita de gravação via Playwright + compressão ffmpeg
