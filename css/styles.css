@@ -484,20 +484,31 @@ body[data-hero="imersivo"] .nav:not(.scrolled) .burger span { background: #fff; 
 
 .proj-viewall { display: block; }
 .proj-viewall-card {
+  position: relative; overflow: hidden;
   display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
   height: 100%; min-height: 320px; padding: 40px 32px; box-sizing: border-box;
-  border-radius: var(--r-card); background: var(--grad-brand); color: #fff; text-decoration: none;
-  box-shadow: var(--shadow-soft); transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s;
+  border-radius: var(--r-card); background: var(--card); border: 1px solid var(--line-soft);
+  color: var(--ink); text-decoration: none;
+  box-shadow: var(--shadow-soft); transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s, color .3s ease .15s;
 }
-.proj-viewall-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-float); }
+.proj-viewall-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-float); color: #fff; }
+/* painel do degradê-assinatura que sobe no hover, mesma dinâmica de .svc-fill em "O que fazemos" */
+.proj-viewall-fill { position: absolute; inset: 0; background: var(--grad-brand);
+  transform: translateY(101%); transition: transform .5s cubic-bezier(.5,0,.1,1); z-index: 0; }
+.proj-viewall-card:hover .proj-viewall-fill { transform: translateY(0); }
+.proj-viewall-card > *:not(.proj-viewall-fill) { position: relative; z-index: 1; }
 .proj-viewall-icon {
-  width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,.2);
-  display: flex; align-items: center; justify-content: center; margin-bottom: 22px; flex: none;
+  width: 56px; height: 56px; border-radius: 50%; background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; flex: none;
+  transition: color .3s ease .15s, background .3s ease .15s;
 }
+.proj-viewall-card:hover .proj-viewall-icon { background: rgba(255,255,255,.2); color: #fff; }
 .proj-viewall-icon svg { width: 24px; height: 24px; transition: transform .3s ease; }
 .proj-viewall-card:hover .proj-viewall-icon svg { transform: translateX(4px); }
-.proj-viewall-card h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(20px, 2.2vw, 24px); letter-spacing: -0.01em; margin: 0 0 10px; color: #fff; }
-.proj-viewall-card p { font-size: 14.5px; color: rgba(255,255,255,.85); margin: 0; max-width: 26ch; }
+.proj-viewall-card h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(20px, 2.2vw, 24px); letter-spacing: -0.01em; margin: 0 0 10px; color: var(--ink); transition: color .3s ease .15s; }
+.proj-viewall-card:hover h3 { color: #fff; }
+.proj-viewall-card p { font-size: 14.5px; color: var(--ink-soft); margin: 0; max-width: 26ch; transition: color .3s ease .15s; }
+.proj-viewall-card:hover p { color: rgba(255,255,255,.85); }
 
 /* ============================================================
    ESTÚDIO — filosofia da onda
