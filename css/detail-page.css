@@ -54,6 +54,15 @@ main { padding: 56px 0 40px; }
 }
 .case-cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
+.case-testimonial {
+  background: var(--card); border: 1px solid var(--line-soft, var(--line));
+  border-left: 3px solid var(--turq); border-radius: 12px; padding: 28px 30px; margin-top: 8px;
+}
+.case-testimonial blockquote { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink); }
+.case-testimonial blockquote p { font-size: inherit; color: inherit; max-width: none; margin: 0; }
+.case-testimonial cite { display: block; margin-top: 18px; font-style: normal; font-size: 14.5px; font-weight: 700; color: var(--ink); }
+.case-testimonial cite span { display: block; font-weight: 500; color: var(--ink-soft); font-size: 13.5px; margin-top: 2px; }
+
 .mod-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid;
   grid-template-columns: 1fr 1fr; gap: 10px 24px; }
 @media (max-width: 720px) { .mod-list { grid-template-columns: 1fr; } }
