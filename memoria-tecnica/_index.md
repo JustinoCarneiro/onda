@@ -34,3 +34,5 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
   Calçados); critério de integridade usado para escolher/descartar projetos de `~/Applications/`
 - [[analytics-google-analytics-4]] — Vercel Web Analytics (Hobby, sem eventos customizados)
   substituído por GA4 nas 12 páginas do site
+- [[home-cases-destacados-vs-indice]] — Home volta a mostrar só 2-3 cases (H03 do relatório);
+  catálogo completo dos 7 projetos mora em `/projetos`, rota prevista desde o sitemap original
