@@ -32,5 +32,5 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
   rastreabilidade de prova de engenharia até um case real; testes nunca somados entre projetos
 - [[expansao-portfolio-p2-01]] — 3 novos cases reais (Heliene Araújo, Vanessa Vaz, Confidencial
   Calçados); critério de integridade usado para escolher/descartar projetos de `~/Applications/`
-- [[analytics-vercel-plano-hobby]] — eventos customizados de analytics não funcionam no plano
-  Hobby da Vercel (confirmado); código correto, é limitação de plano, não bug
+- [[analytics-google-analytics-4]] — Vercel Web Analytics (Hobby, sem eventos customizados)
+  substituído por GA4 nas 12 páginas do site

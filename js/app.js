@@ -102,15 +102,11 @@
     });
   }
 
-  /* ---------- Analytics (Vercel Web Analytics) ----------
-     window.va só existe depois que Web Analytics for habilitado no projeto
-     (vercel project web-analytics enable onda). Até lá, no-op silencioso. */
+  /* ---------- Analytics (Google Analytics 4) ---------- */
   function trackEvent(name, data) {
     try {
-      if (typeof window.va !== 'function') return;
-      var payload = { name: name };
-      if (data && Object.keys(data).length) payload.data = data;
-      window.va('event', payload);
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('event', name, data || {});
     }
     catch (e) {}
   }
