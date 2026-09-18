@@ -40,6 +40,31 @@ há variação de subdomínio pra cobrir — não vale a pena mexer em DNS (~24-
 um ganho que o redirect já cobre. Verificação por Tag HTML é instantânea e 100% controlada pelo
 deploy do site.
 
+## Bug descoberto: método "Arquivo HTML" não funciona neste site (`cleanUrls`)
+
+O usuário cadastrou a propriedade por Prefixo do URL e o Google ofereceu "Arquivo HTML" como
+método recomendado (`google<hash>.html`). **Tentei publicar o arquivo e não funciona**:
+`vercel.json` tem `"cleanUrls": true`, que redireciona (308) qualquer requisição a um caminho
+terminado em `.html` pra versão sem extensão — inclusive esse arquivo:
+
+```
+curl -sI https://onda.business/google7973a241656912d1.html
+HTTP/2 308
+location: /google7973a241656912d1
+```
+
+O verificador de arquivo do Google busca a URL **exata** com `.html` e exige `200` com o
+conteúdo — não segue esse redirect de forma confiável (é um problema conhecido de
+`cleanUrls`/Vercel com qualquer verificação por arquivo estático: Bing, Pinterest, Facebook
+Domain Verification etc. teriam o mesmo problema aqui). Arquivo removido (commit `269ff83`).
+
+**Regra pra próxima vez que uma verificação de domínio pedir arquivo estático nesse projeto**:
+não usar o método "Arquivo HTML" — ir direto pro método "Tag HTML"/meta tag, que verifica a URL
+normal da home (sem extensão, sem redirect). Se um serviço só oferecer o método de arquivo, a
+alternativa seria criar uma exceção no roteamento do Vercel especificamente pra esse arquivo
+(não tentado aqui — mudar o `cleanUrls` do projeto inteiro por causa de 1 arquivo de verificação
+seria desproporcional).
+
 ## Pendências (só o usuário consegue fazer)
 - [ ] Cadastrar a propriedade em search.google.com/search-console (conta Google do usuário) e
       pegar o código da Tag HTML — passo a passo dado na conversa.
