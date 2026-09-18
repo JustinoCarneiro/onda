@@ -646,11 +646,14 @@ form { display: grid; gap: 18px; }
    autor > user-agent) — sem isto, um link com `hidden` reaparece nesses menus */
 .mm-links a[hidden], .footer-col a[hidden] { display: none; }
 /* link de WhatsApp com ícone inline (footer + menu mobile) */
-.wa-link { display: inline-flex; align-items: center; gap: 8px; }
-.wa-link svg { width: 16px; height: 16px; flex: none; color: #25D366; }
+.wa-link { display: inline-flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
+.wa-link svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: #25D366; }
 /* link de rede social com ícone inline (footer) */
-.social-link { display: inline-flex; align-items: center; gap: 8px; }
-.social-link svg { width: 16px; height: 16px; flex: none; }
+.social-link { display: inline-flex; align-items: center; gap: 9px; }
+.social-link svg { width: 16px; height: 16px; flex: none; color: #E1306C; }
+/* .footer-col a { display:block } acima empata em especificidade e vencia — sem isto o gap
+   do ícone não surtia efeito nenhum (ícone colado no texto) */
+.footer-col a.wa-link, .footer-col a.social-link { display: inline-flex; margin-bottom: 14px; }
 .footer-palette { display: flex; height: 12px; margin: 46px 0 22px; border-radius: 6px; overflow: hidden; }
 .footer-palette i { flex: 1; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 18px; font-size: 13px; color: var(--ink-soft); flex-wrap: wrap; }
