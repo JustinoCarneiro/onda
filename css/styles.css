@@ -648,6 +648,8 @@ form { display: grid; gap: 18px; }
 /* link de WhatsApp com ícone inline (footer + menu mobile) */
 .wa-link { display: inline-flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
 .wa-link svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: #25D366; }
+/* número nunca quebra no meio — se faltar espaço, quebra antes dele (rótulo sozinho em cima) */
+.wa-num { white-space: nowrap; }
 /* link de rede social com ícone inline (footer) */
 .social-link { display: inline-flex; align-items: center; gap: 9px; }
 .social-link svg { width: 16px; height: 16px; flex: none; color: #E1306C; }
