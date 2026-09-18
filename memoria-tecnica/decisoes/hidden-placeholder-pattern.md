@@ -39,5 +39,19 @@ comentários `<!-- PLACEHOLDER: ... -->` indicando exatamente o que precisa ser 
 - Ver [[pendencias-feedback-cliente]] para a lista completa de itens pendentes
 - Ao ativar uma seção, atualizar o Trello correspondente e esta memória técnica
 
+## Bug encontrado e corrigido (2026-09-18): `hidden` não funcionava no menu mobile nem no rodapé
+Os 3 links "Clientes" (`#vozes`) usam `hidden`, mas só o do `.nav-links` (nav desktop) ficava
+realmente invisível. `.mm-links a { display: flex... }` e `.footer-col a { display: block... }`
+têm a mesma especificidade do `[hidden]` do UA stylesheet — como regra de autor sempre vence UA
+com especificidade igual, os dois links ficavam visíveis mesmo com `hidden` presente, apontando
+pra uma seção (`#vozes`) que também está oculta (link morto visível pro usuário real).
+
+Corrigido com `.mm-links a[hidden], .footer-col a[hidden] { display: none; }` em `css/styles.css`
+— o atributo extra no seletor dá especificidade maior, então sempre vence independente de ordem
+no arquivo. **Regra pra qualquer novo link com `hidden` nesses dois menus**: conferir com
+DevTools (ou Playwright `offsetParent !== null`) que ele realmente sumiu — não confiar só no
+atributo estar presente no HTML, porque o CSS destes menus historicamente seta `display`
+diretamente no seletor `a`.
+
 ## Ligado a
 - [[pendencias-feedback-cliente]]
