@@ -1,7 +1,7 @@
 ---
 tipo: decisao
 data: 2026-09-18
-status: Ativa — propriedade verificada em 2026-09-18; aguardando usuário conceder acesso "Completo"
+status: Concluída em 2026-09-18
 fonte: pedido direto do usuário — configurar indexação no Google
 ---
 
@@ -65,13 +65,22 @@ alternativa seria criar uma exceção no roteamento do Vercel especificamente pr
 (não tentado aqui — mudar o `cleanUrls` do projeto inteiro por causa de 1 arquivo de verificação
 seria desproporcional).
 
-## Status
+## Status — processo fechado
 - [x] Propriedade `https://onda.business/` cadastrada (Prefixo do URL).
 - [x] Verificada por Tag HTML em 2026-09-18 (`content="-c9iUeudaql8lTSbp0jKdM0JxA9BFjqZ5yvgc-tRhfM"`,
       commit `fa1a398`, confirmado ao vivo em produção antes do usuário clicar em Verificar).
+- [x] Sitemap enviado — status "Processado", **13 páginas encontradas** (bate com o número real
+      de URLs no `sitemap.xml`).
+- [x] Home (`https://onda.business/`) já estava indexada no Google antes mesmo desse processo
+      (rastreamento orgânico prévio) — "O URL está no Google", HTTPS OK. Reforçada solicitação de
+      indexação manual pra pegar a mudança do schema WebSite.
 
-## Pendências (só o usuário consegue fazer)
-- [ ] Adicionar usuário com permissão "Completo" (Configurações → Usuários e permissões) pra um
-      e-mail Google que o agente possa operar — assim que concedido, seguir com o item abaixo.
-- [ ] (Depois do acesso) Enviar `sitemap.xml` e solicitar indexação da home + páginas mais
-      importantes.
+**Nota de processo**: o agente (Claude) não tem conta Google própria — não faz sentido pedir pro
+usuário "adicionar acesso completo pra um e-mail que o agente opera". Os passos finais de UI do
+Search Console (enviar sitemap, solicitar indexação) são rápidos o bastante pra o próprio usuário
+fazer direto, com o agente só orientando o clique-a-clique. Não repetir esse pedido de acesso em
+follow-ups futuros de SEO neste projeto.
+
+## Follow-up opcional (não bloqueia, não teve pedido explícito ainda)
+- `sameAs` no schema Organization: só adicionar se o usuário indicar perfis reais de rede social
+  da Onda (Instagram/LinkedIn/etc.) — nada foi fabricado.
