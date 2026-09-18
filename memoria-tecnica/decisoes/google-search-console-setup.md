@@ -81,6 +81,7 @@ Search Console (enviar sitemap, solicitar indexação) são rápidos o bastante 
 fazer direto, com o agente só orientando o clique-a-clique. Não repetir esse pedido de acesso em
 follow-ups futuros de SEO neste projeto.
 
-## Follow-up opcional (não bloqueia, não teve pedido explícito ainda)
-- `sameAs` no schema Organization: só adicionar se o usuário indicar perfis reais de rede social
-  da Onda (Instagram/LinkedIn/etc.) — nada foi fabricado.
+## Follow-up: `sameAs` — concluído em 2026-09-18
+Usuário informou o Instagram real (`https://www.instagram.com/somosonda_ofc/`, confirmado ao
+vivo via curl antes de publicar). Adicionado ao `sameAs` da Organization (commit `a299565`). Se
+surgir LinkedIn/outro perfil público da Onda no futuro, adicionar no mesmo array.
