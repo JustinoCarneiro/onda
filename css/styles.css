@@ -261,7 +261,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* rodapé: CTA + contato */
 .mm-foot { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
 .mm-foot .btn { width: 100%; justify-content: center; }
-.mm-contact { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.mm-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .mm-contact a { font-size: 14px; color: var(--ink-soft); transition: color .25s; }
 .mm-contact a:hover { color: var(--accent); }
 
