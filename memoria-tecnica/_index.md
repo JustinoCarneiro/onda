@@ -40,3 +40,5 @@ Padrão da metodologia Onda-Dev — ver seção 11 da metodologia pro critério 
   depois removido a pedido do usuário; cards voltaram a imagem estática. Ler antes de reabrir o tema
 - [[lightbox-imagens-e-tipografia-cases]] — Screenshots das páginas de case ganham lightbox de
   clique; `.shot`/`.res` centralizados em `detail-page.css`; fontes do corpo aumentadas
+- [[google-search-console-setup]] — Diagnóstico SEO técnico + schema.org WebSite adicionado;
+  método de verificação escolhido (Tag HTML); aguardando código do usuário
