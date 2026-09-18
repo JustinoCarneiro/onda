@@ -1,7 +1,7 @@
 ---
 tipo: decisao
 data: 2026-09-18
-status: Ativa — aguardando ação do usuário no Google Search Console
+status: Ativa — propriedade verificada em 2026-09-18; aguardando usuário conceder acesso "Completo"
 fonte: pedido direto do usuário — configurar indexação no Google
 ---
 
@@ -65,10 +65,13 @@ alternativa seria criar uma exceção no roteamento do Vercel especificamente pr
 (não tentado aqui — mudar o `cleanUrls` do projeto inteiro por causa de 1 arquivo de verificação
 seria desproporcional).
 
+## Status
+- [x] Propriedade `https://onda.business/` cadastrada (Prefixo do URL).
+- [x] Verificada por Tag HTML em 2026-09-18 (`content="-c9iUeudaql8lTSbp0jKdM0JxA9BFjqZ5yvgc-tRhfM"`,
+      commit `fa1a398`, confirmado ao vivo em produção antes do usuário clicar em Verificar).
+
 ## Pendências (só o usuário consegue fazer)
-- [ ] Cadastrar a propriedade em search.google.com/search-console (conta Google do usuário) e
-      pegar o código da Tag HTML — passo a passo dado na conversa.
-- [ ] Colar o código de volta pra eu adicionar em `index.html` e publicar.
-- [ ] Depois de verificado: adicionar acesso "Completo" pra uma conta Google que o agente/outra
-      pessoa da equipe possa operar, pra não precisar voltar no usuário a cada ação.
-- [ ] Enviar `sitemap.xml` e solicitar indexação da home (e só as páginas mais importantes).
+- [ ] Adicionar usuário com permissão "Completo" (Configurações → Usuários e permissões) pra um
+      e-mail Google que o agente possa operar — assim que concedido, seguir com o item abaixo.
+- [ ] (Depois do acesso) Enviar `sitemap.xml` e solicitar indexação da home + páginas mais
+      importantes.
