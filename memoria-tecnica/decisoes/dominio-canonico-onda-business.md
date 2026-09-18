@@ -1,7 +1,8 @@
 ---
 tipo: decisao
 data: 2026-09-09
-status: Ativa
+status: Concluída — domínio ao vivo com SSL válido desde antes de 2026-09-13 (confirmado por
+  curl repetidas vezes em sessões posteriores; branch mesclada em main)
 ---
 
 # Domínio canônico onda.business (substitui o vercel.app nas referências de SEO)
